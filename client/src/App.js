@@ -1,10 +1,14 @@
-import './App.css';
+import Account from "./component/Account/Account";
+import Portfolio from "./component/Portfoio/Portfolio";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <>
+    <div>
+      {/* <Account/> */}
+      <Portfolio/>
     </div>
+    </>
   );
 }
 
