@@ -1,5 +1,108 @@
 .mainbox{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 98%;
     margin: auto;
+    
+}
+.secondbox{
+    padding-top: 40px;
+    /* border: 1px solid yellow; */
+    width: 85%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.myportfolio_text_deco{
+    color:#170F49;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    
+    
+}
+.current_value_box{
+    /* border: 1px solid red; */
+    background-color: #ffab6a;
+    border-radius: 10px;
+    width: 20%;
+    display: flex;   
+}
+.current_value_box>div:nth-child(2){
+    /* border: 1px solid green; */
+    margin-left: 27%;
+}
+.current_value_box>div>p{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+.invested_value_box{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    width: 20%;
+}
+.invested_value_box>div>p{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* my_asset_mainbox */
+.my_asset_mainbox{
+    display: flex;
+    justify-content: space-between;
+}
+.my_asset_mainbox_firstbox{
+    /* border: 1px solid red; */
+    width: 60%;
+}
+.my_asset_mainbox_firstbox>div>p:nth-child(1){
+    font-weight: bold;
+    font-size: 27px;
+    color: #170F49;
+}
+.my_asset_mainbox_firstbox>div>p:nth-child(2){
+    text-decoration: underline;
+}
+
+/* Company box */
+.company_box{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-top: 20px;
+}
+.company_box:hover{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-top: 20px;
+    border: 2px solid #a4d1ef;
+    border-radius: 10px;
+}
+.circle_box{
+    height:45px;
+    width:45px;
+    /* border:1px solid black; */
+    border-radius:50%;
+    text-align: center;
+    background-color: #2852ad;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    /* border: 1px solid red; */
+}
+
+/* piachart */
+.piachart>p{
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+}
+.piachartbox{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    height: 350px;
+    width: 350px;
 }
