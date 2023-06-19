@@ -9,7 +9,42 @@ import dot_vector from "./Image/dot_vector.png";
 import bold_vector from "./Image/bold_vector.png";
 import house_image from "./Image/house_image.png";
 import percentage_line from "./Image/percentage_line.png";
+import phone from "./Image/phone.png";
+import garphic from "./Image/graphic.png";
+import team from "./Image/team.png";
 const Winow = () => {
+  const expert = [
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+    {
+      heading: "Pre-IPO Venture",
+      text: "Invest in the world’s top private companies.",
+      learn: "Learn More",
+    },
+  ];
   return (
     <div style={{ width: "100%" }}>
       <div className="first_part">
@@ -87,7 +122,6 @@ const Winow = () => {
           and world-class artists.
         </p>
         <div className="Home_third_part_box">
-
           <div className="Home_third_part_box_div">
             <img src={house_image} alt="" />
             <p className="Home_third_part_box_div_text">
@@ -140,7 +174,7 @@ const Winow = () => {
             </div>
           </div>
           {/* ---------------- */}
-            <div className="Home_third_part_box_div">
+          <div className="Home_third_part_box_div">
             <img src={house_image} alt="" />
             <p className="Home_third_part_box_div_text">
               Shield the risk by leasing ATMs to India's largest payment
@@ -168,8 +202,101 @@ const Winow = () => {
           {/* -------------- */}
         </div>
       </div>
-       {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
-       
+      {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
+      <div className="Home_fourth_part">
+        <div className="Home_fourth_part_box_1">
+          <p className="Home_fourth_part_box_1_heading">
+            You choose the strategy, We do the rest.
+          </p>
+          <p className="Home_fourth_part_box_1_text">
+            Easily allocate your Winnow portfolio across several asset classes
+            with the swipe of a finger. Tell us what you're looking for and
+            we'll build you a custom portfolio of highly-curated assets.
+          </p>
+          <button className="Home_fourth_part_box_1_button">
+            How it works
+          </button>
+        </div>
+        <div className="Home_fourth_part_box_2">
+          <img src={phone} alt="" />
+        </div>
+      </div>
+      {/* -----------------------------------------------fith_part------------------------- */}
+      <div className="Home_fith_part">
+        <div className="Home_fith_part_box_1">
+          {expert.map((el) => {
+            return (
+              <div>
+                <h3>{el.heading}</h3>
+                <p>{el.text}</p>
+                <h4>{`${el.learn} ->`}</h4>
+              </div>
+            );
+          })}
+        </div>
+        <div className="Home_fith_part_box_2">
+          <p className="Home_fith_part_box_2_heading">Expert Strategies</p>
+          <p className="Home_fith_part_box_2_text">
+            We do the heavy lifting. Our team of experts has designed
+            time-tested strategies for each asset class to ensure clients get
+            the right investments for their portfolios.
+          </p>
+          <button className="Home_fith_part_box_2_button">How it works</button>
+        </div>
+      </div>
+      {/* -----------------------------------------sixth_part------------------------------------------- */}
+      <div className="Home_fourth_part">
+        <div className="Home_fourth_part_box_1">
+          <p className="Home_fourth_part_box_1_heading">
+            Designed to complement, not compete with your stock portfolio.
+          </p>
+          <p className="Home_fourth_part_box_1_text">
+            Diversifying your portfolio into multiple alternative asset classes
+            can limit your overall portfolio risk while enhancing your potential
+            returns.
+          </p>
+          <button className="Home_fourth_part_box_1_button">
+            Our Research
+          </button>
+        </div>
+        <div className="Home_fourth_part_box_2">
+          <img src={garphic} alt="" />
+        </div>
+      </div>
+      {/* ---------------------------------------------------seventh_part--------------------------------------------- */}
+      <div className="Home_seventh_part">
+        <div className="Home_seventh_part_box_2">
+          <img src={team} alt="" />
+        </div>
+        <div className="Home_seventh_part_box_1">
+          <p className="Home_seventh_part_box_1_heading">
+            A team built for private market investing.
+          </p>
+          <p className="Home_seventh_part_box_1_text">
+            Our founders have years of experience investing in these asset
+            classes and have built a team whose knowledge is second-to-none. We
+            also have a deep network of industry insiders and investment
+            partners to help us source the best opportunities on the market. We
+            are focused on making sure our clients have access to new and
+            exciting investment opportunities and feel confident in their
+            future.
+          </p>
+          <button className="Home_seventh_part_box_1_button">
+            About Winnow
+          </button>
+        </div>
+      </div>
+      {/* -----------------------------------------------eight_part------------------------------------------------ */}
+      <div className="Home_eighth_part">
+        <p className="Home_eighth_part_heading">
+        Join our list of
+exclusive investors
+        </p>
+        <div className="text_box_button1">
+            <input type="text" placeholder="Enter your email" />
+            <button>Reserve Your Spot</button>
+          </div>
+      </div>
     </div>
   );
 };

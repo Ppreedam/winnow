@@ -266,3 +266,239 @@
   border: 2px solid #cecece;
   border-radius: 20px;
 }
+/* ------------------------------------------------------Home_fourth_part--------------------------------------------------------- */
+.Home_fourth_part {
+  height: 638px;
+
+  display: flex;
+  align-items: center;
+  background: #554284;
+}
+.Home_fourth_part > div {
+  width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  
+}
+.Home_fourth_part_box_1_heading {
+  height: 120px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  /* or 120% */
+
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
+.Home_fourth_part_box_1_text {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+
+  display: flex;
+  align-items: center;
+
+  color: #c5c6c7;
+}
+.Home_fourth_part_box_1_button {
+  width: 159px;
+  height: 54px;
+
+  background: #ffffff;
+  /* Neutral/400 */
+
+  border: 1px solid #d9dbe9;
+  border-radius: 76px;
+}
+
+.Home_fourth_part_box_2 > img {
+  width: 90%;
+  height: 500px;
+}
+/* --------------------------------------------fith_part------------------------------------- */
+.Home_fith_part {
+  height: 638px;
+
+  display: flex;
+  background: #554284;
+}
+.Home_fith_part > div {
+  width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  
+}
+.Home_fith_part_box_1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.Home_fith_part_box_1 > div {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+}
+.Home_fith_part_box_2_heading {
+  height: 120px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  /* or 120% */
+
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
+.Home_fith_part_box_2_text {
+  margin-top: -10px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+
+  display: flex;
+  align-items: center;
+
+  color: #c5c6c7;
+}
+.Home_fith_part_box_2_button {
+  width: 159px;
+  height: 54px;
+  background: #ffffff;
+  /* Neutral/400 */
+
+  border: 1px solid #d9dbe9;
+  border-radius: 76px;
+}
+
+/* -------------------------------------------seventh_part-------------------------- */
+.Home_seventh_part {
+  height: 638px;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+}
+.Home_seventh_part > div {
+  width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+}
+.Home_seventh_part_box_1_heading {
+  height: 120px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  /* or 120% */
+
+  display: flex;
+  align-items: center;
+
+  color: rgba(17, 18, 20, 1);
+}
+.Home_seventh_part_box_1_text {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  /* or 156% */
+
+  display: flex;
+  align-items: center;
+
+  color: rgba(17, 18, 20, 1);
+}
+.Home_seventh_part_box_1_button {
+  width: 159px;
+  height: 54px;
+
+  color: #ffffff;
+  background: #554284;
+  /* Neutral/400 */
+
+  border: 1px solid #d9dbe9;
+  border-radius: 76px;
+}
+
+.Home_seventh_part_box_2 > img {
+  width: 70%;
+  height: 500px;
+}
+
+/* -------------------------------------------eighth_part----------------------------------------------------------- */
+
+.Home_eighth_part{
+  width: 70%;
+height: 314px;
+margin: auto;
+text-align: center;
+background: #554284;
+box-shadow: 0px 4px 100px rgba(74, 148, 154, 0.1);
+border-radius: 33px;
+}
+.Home_eighth_part_heading{
+  width: 484px;
+height: 106px;
+
+margin: auto;
+padding-top: 70px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 60px;
+
+/* or 120% */
+
+
+
+color: #FFFFFF;
+
+}
+
+.text_box_button1 input {
+  box-sizing: border-box;
+  outline: none;
+  background: #ffffff;
+  border: 4px solid rgba(242, 124, 35, 1);
+  ;
+  border-radius: 10px;
+  height: 40.42px;
+}
+
+.text_box_button1 button {
+  background: rgba(242, 124, 35, 1);
+  border: none;
+  border-radius: 15px;
+  color:black;
+  height: 40.42px;
+}
+
+.text_box_button1 {
+width: 300px;
+margin: auto;
+  height: 40.42px;
+  margin-top: 50px;
+  border-radius: 15px;
+  background:rgba(242, 124, 35, 1);
+  box-shadow: 0px 4px 100px rgba(74, 148, 154, 0.1);
+}
