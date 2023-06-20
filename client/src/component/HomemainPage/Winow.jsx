@@ -13,6 +13,7 @@ import garphic from "./Image/graphic.png";
 import team from "./Image/team.png";
 import CollapsibleExample from "../Navbar/Navbar";
 import style from "./Winnow.module.css";
+import WordFlick from "./WordFlick";
 
 const Winow = () => {
   const expert = [
@@ -47,13 +48,17 @@ const Winow = () => {
       learn: "Learn More",
     },
   ];
+
+
+
   return (
     <div style={{ width: "100%" }}>
       <CollapsibleExample />
       <div className={style.first_part}>
         <div className={style.text_box}>
           <p className={style.text_box_meet}>
-            Meet your Worl- class Real Estate Portfolio.
+            Meet your Worl- <br /><span>class</span> 
+             <span className={style.word}> <WordFlick/></span> <br /> Portfolio.
           </p>
           <p className={style.text_box_Stock}>
             Forget stocks and bonds. Bring your wealth to its full potential
