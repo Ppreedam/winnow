@@ -5,6 +5,9 @@ import Wallet from "./component/MyWallet/Wallet";
 import CollapsibleExample from "./component/Navbar/Navbar";
 // import { PieChart } from "./component/Portfoio/Piacharts";
 import Portfolio from "./component/Portfoio/Portfolio";
+// import ProgressBar  from "./component/ProgressBar/ProgressBar";
+
+
 
 function App() {
   return (
@@ -16,6 +19,8 @@ function App() {
       {/* <Portfolio/> */}
       {/* <Wallet/> */}
       {/* <Winow/> */}
+      {/* <ProgressBar/> */}
+      
     </div>
     </>
   );

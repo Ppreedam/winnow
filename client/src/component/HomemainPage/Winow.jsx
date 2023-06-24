@@ -14,6 +14,7 @@ import team from "./Image/team.png";
 import CollapsibleExample from "../Navbar/Navbar";
 import style from "./Winnow.module.css";
 import WordFlick from "./WordFlick";
+import ProgressBarcom from "../ProgressBar/ProgressBar";
 
 const Winow = () => {
   const expert = [
@@ -143,11 +144,8 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
-            <div className={style.Home_third_part_box_number}>
-              <p>1.6 Cr/2 Cr</p>
-              <p>81% Complete</p>
-            </div>
+            <ProgressBarcom/>
+            
             <div className={style.Home_third_part_box_button}>
               <button>High Rated</button>
               <button>Fast Filling</button>
@@ -169,11 +167,8 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
-            <div className={style.Home_third_part_box_number}>
-              <p>1.6 Cr/2 Cr</p>
-              <p>81% Complete</p>
-            </div>
+            {/* <img src={percentage_line} alt="" /> */}
+            <ProgressBarcom/>
             <div className={style.Home_third_part_box_button}>
               <button>High Rated</button>
               <button>Fast Filling</button>
@@ -195,11 +190,7 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
-            <div className={style.Home_third_part_box_number}>
-              <p>1.6 Cr/2 Cr</p>
-              <p>81% Complete</p>
-            </div>
+            <ProgressBarcom/>
             <div className={style.Home_third_part_box_button}>
               <button>High Rated</button>
               <button>Fast Filling</button>
