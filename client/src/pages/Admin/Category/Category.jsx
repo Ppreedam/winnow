@@ -4,6 +4,7 @@ import axios from "axios";
 import { Modal } from "antd";
 import CategoryForm from "../../Components/CategoryForm/CategoryForm";
 import style from "./Category.module.css";
+import { Navigate } from "react-router-dom";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -24,8 +25,7 @@ const Category = () => {
         }
       );
       if (data?.success) {
-        toast.success(`${name} is created`);
-        getAllCategory();
+        Navigate("/")
       } else {
         toast.error(data.message);
       }

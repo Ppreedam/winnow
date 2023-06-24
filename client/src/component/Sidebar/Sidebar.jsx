@@ -26,23 +26,23 @@ const Sidebar = () => {
 
       {/* Menu */}
       <div className={style.menu}>
-        <NavLink to="/" className={selected === 0 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(0)}}>
+        <NavLink to="/admin/dashboard" className={selected === 0 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(0)}}>
           <UilEstate />
           <span>Dashboard</span>
         </NavLink>
-        <NavLink to="/user" className={selected === 1 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(1)}}>
+        <NavLink to="/admin/user" className={selected === 1 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(1)}}>
           <UilUsersAlt />
           <span>Users</span>
         </NavLink>
-        <NavLink to="/category" className={selected === 2 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(2)}}>
+        <NavLink to="/admin/category" className={selected === 2 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(2)}}>
           <UilClipboardAlt />
           <span>Category</span>
         </NavLink>
-        <NavLink to="/createproduct" className={selected === 3 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(3)}}>
+        <NavLink to="/admin/createproduct" className={selected === 3 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(3)}}>
           <UilPackage />
           <span>Create Product</span>
         </NavLink>
-        <NavLink to="/allproducts" className={selected === 4 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(4)}}>
+        <NavLink to="/admin/allproducts" className={selected === 4 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(4)}}>
           <UilChart />
           <span>Products</span>
         </NavLink>

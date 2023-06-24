@@ -3,7 +3,9 @@ import style from "./AllProducts.module.css"
 
 const AllProducts = () => {
   return (
-    <div className={style.container}>AllProducts</div>
+    <div className={style.container}>
+      <h1>AllProducts</h1>
+    </div>
   )
 }
 

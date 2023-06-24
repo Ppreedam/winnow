@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import style from "./Users.module.css"
 
 const Users = () => {
   const [userdata, setUserdata] = useState([]);
@@ -37,7 +38,7 @@ const Users = () => {
       });
   };
   return (
-    <div className="container-fluid m-3 p-3">
+    <div className={style.container}>
       <div className="row">
         <div className="col-md-9">
           <div
