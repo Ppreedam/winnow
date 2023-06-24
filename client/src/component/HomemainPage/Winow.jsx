@@ -14,6 +14,7 @@ import team from "./Image/team.png";
 import CollapsibleExample from "../Navbar/Navbar";
 import style from "./Winnow.module.css";
 import WordFlick from "./WordFlick";
+import investment_image from  "./Image/investment_image.png"
 
 const Winow = () => {
   const expert = [
@@ -49,16 +50,35 @@ const Winow = () => {
     },
   ];
 
+  const investment = [
+    {
+      heading: "Investment Memos",
+      text: "Every investment comes with a comprehensive investment memo written by our in-house team.",
+    },
+    {
+      heading: "Performance Tracking",
+      text: "No more quarterly updates. Monitor your portfolio progress daily right on the Winnow portal.",
+    },
+    {
+      heading: "Ask an Advisor",
+      text: "Have a question? Ask us directly in the app.",
+    },
+    {
+      heading: "Market Insights",
+      text: "IStay up-to-date on the latest news and trends related to alternative investing.",
+    },
+
+  ]
 
 
   return (
-    <div style={{ width: "100%" }}>
+    <div className={style.main}>
       <CollapsibleExample />
       <div className={style.first_part}>
         <div className={style.text_box}>
           <p className={style.text_box_meet}>
-            Meet your Worl- <br /><span>class</span> 
-             <span className={style.word}> <WordFlick/></span> <br /> Portfolio.
+            Meet your Worl- <br /><span>class</span>
+            <span className={style.word}> <WordFlick /></span> <br /> Portfolio.
           </p>
           <p className={style.text_box_Stock}>
             Forget stocks and bonds. Bring your wealth to its full potential
@@ -66,7 +86,7 @@ const Winow = () => {
             Real Estate, Collectibles & More.
           </p>
 
-          <div className={style.text_box_button}>
+          <div className={style.text_box_button_main}>
             <input type="text" placeholder="Enter your email" />
             <button>Reserve Your Spot</button>
           </div>
@@ -117,7 +137,7 @@ const Winow = () => {
             potential, but also limits downside risk.
           </p>
         </div>
-        style.
+
       </div>
       {/* ----------------------------------------third_part------------------------------------------------------------  */}
 
@@ -143,7 +163,7 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
+            <img className={style.percentage_line} src={percentage_line} alt="" />
             <div className={style.Home_third_part_box_number}>
               <p>1.6 Cr/2 Cr</p>
               <p>81% Complete</p>
@@ -169,7 +189,7 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
+            <img className={style.percentage_line}  src={percentage_line} alt="" />
             <div className={style.Home_third_part_box_number}>
               <p>1.6 Cr/2 Cr</p>
               <p>81% Complete</p>
@@ -195,7 +215,7 @@ const Winow = () => {
               <div>5,541 Backers</div>
               <div>19 Days to go</div>
             </div>
-            <img src={percentage_line} alt="" />
+            <img  className={style.percentage_line} src={percentage_line} alt="" />
             <div className={style.Home_third_part_box_number}>
               <p>1.6 Cr/2 Cr</p>
               <p>81% Complete</p>
@@ -214,9 +234,11 @@ const Winow = () => {
       {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
       <div className={style.Home_fourth_part}>
         <div className={style.Home_fourth_part_box_1}>
-          <p className={style.Home_fourth_part_box_1_heading}>
-            You choose the strategy, We do the rest.
-          </p>
+          <div>
+            <p className={style.Home_fourth_part_box_1_heading}>
+              You choose the strategy, We do the rest.
+            </p>
+          </div>
           <p className={style.Home_fourth_part_box_1_text}>
             Easily allocate your Winnow portfolio across several asset classes
             with the swipe of a finger. Tell us what you're looking for and
@@ -276,6 +298,25 @@ const Winow = () => {
           <img src={garphic} alt="" />
         </div>
       </div>
+      {/* -----------------------------------------------------reamining part---------------------------------------------------- */}
+      <div className={style.Home_investment_part}>
+      <div>
+        <p className={style.Home_investment_part_box_1_heading}>World-class assets deserve a world-class experience.</p>
+        <div className={style.Home_investment_part_box_1}>
+          {investment.map((el) => {
+            return (
+              <div>
+                <h3>{el.heading}</h3>
+                <p>{el.text}</p>
+              </div>
+            );
+          })}
+        </div>
+        </div>
+        <div className={style.Home_investment_part_box_2}>
+          <img src={investment_image} alt="" />
+        </div>
+      </div>
       {/* ---------------------------------------------------seventh_part--------------------------------------------- */}
       <div className={style.Home_seventh_part}>
         <div className={style.Home_seventh_part_box_2}>
@@ -301,6 +342,7 @@ const Winow = () => {
       </div>
       {/* -----------------------------------------------eight_part------------------------------------------------ */}
       <div className={style.Home_eighth_part}>
+        
         <p className={style.Home_eighth_part_heading}>
           Join our list of exclusive investors
         </p>
