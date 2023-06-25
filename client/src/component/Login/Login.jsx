@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./Login.module.css";
 import axios from "axios";
@@ -82,8 +82,8 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="mb-3">
-              <button
+            {/* <div className="mb-3">
+              <div
                 type="button"
                 className="btn forgot-btn"
                 onClick={() => {
@@ -91,7 +91,12 @@ const Login = () => {
                 }}
               >
                 Forgot Password
-              </button>
+              </div>
+            </div> */}
+            <div style={{textDecoration:"underLine",color:"teal"}}>
+              <Link to="/user/gorget-password">
+                <p>Forget Password ?</p>
+              </Link>
             </div>
 
             <button type="submit" className="btn btn-primary">
