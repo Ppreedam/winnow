@@ -99,8 +99,8 @@ form .btn{
     border: none;
     outline: none;
     border-radius: 5px;
-    background-color:#212529;
-    color: #22a4c7;
+    background-color:#ed802d;
+    color: black;
     font-weight: 600;
     font-size: 18px;
     margin-top: 10px;
@@ -110,8 +110,8 @@ form .btn{
 
 
 form .btn:hover{
-    background-color: #22a4c7;
-    color: #212529;
+    background-color: #554284;
+    color: white;
 }
 
 .form_data form p{
