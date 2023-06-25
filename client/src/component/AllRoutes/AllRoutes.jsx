@@ -15,8 +15,12 @@ import Login from "../Login/Login";
 import AdminRoute from "../Routes/AdminRoute";
 import Dashboard from "../../pages/Admin/Dashboard/Dashboard";
 import Comingsoon from "../ComingSoon/Comingsoon";
+
 import InvestNow from "../HomemainPage/InvestNow";
 import PrivateRoute from "../Routes/Private";
+
+import ForgotPasssword from "../Login/ForgetPassword";
+
 const AllRoutes = () => {
   return (
     <div>
@@ -29,17 +33,17 @@ const AllRoutes = () => {
         <Route exact path = "/allproducts" element={<AllProducts/>} />
       </Routes> */}
       <Routes>
-        <Route exact path="/" element={<Winow />} />
-        <Route exact path="/user/login" element={<Login />} />
-        <Route exact path="/user/register" element={<Register />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/comingsoon" element={<Comingsoon />} />
-        <Route exact path="/inestnow" element={
+        <Route exact path="/" element={<Winow />} />  
+        <Route exact path="/user/login" element={<Login/>} />
+        <Route exact path="/user/register" element={<Register/>} />
+        <Route exact path ="/user/gorget-password" element={<ForgotPasssword/>} />
+        <Route exact path ="/dashboard" element={<Dashboard/>} />
+        <Route exact path="/comingsoon" element={<Comingsoon/>}/>
+        <Route exact path="/investnow" element={
           <PrivateRoute>
             <InvestNow />
-          </PrivateRoute>
+          </PrivateRoute>} />
 
-        } />
       </Routes>
     </div>
   );
