@@ -309,7 +309,11 @@
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 19px;
   width: 387px;
+  height: 440px;
   padding-bottom: 20px;
+}
+.Home_third_part_box>div:hover{
+  height: auto;
 }
 
 .Home_third_part_box img:nth-child(1) {
@@ -390,19 +394,22 @@
   display: block;
 }
 
+
 .Home_third_part_box_hover_button {
   display: none;
 }
 
 .Home_third_part_box_hover_button button {
   box-sizing: border-box;
-  margin-top: 30px;
+  margin-top: 20px;
   cursor: pointer;
   padding: 10px 20px;
-  background: #ffffff;
-  border: 2px solid #cecece;
+  background: #554284;
+  color: white;
+  /* border: 2px solid #cecece; */
   border-radius: 20px;
 }
+
 
 /* ---------------------------------------------------responsive view ---------------------------------------------- */
 /* Media Queries for Tab View */
@@ -440,6 +447,7 @@
 
   .Home_third_part_box>div {
     width: 100%;
+    height: 420px;
   }
 
   .Home_third_part_box img:nth-child(1) {
@@ -527,8 +535,11 @@
 
   .Home_third_part_box>div {
     width: 100%;
+    height: 380px;
   }
-
+  .Home_third_part_box>div:hover{
+    height: auto;
+  }
   .Home_third_part_box img:nth-child(1) {
     height: auto;
     border-radius: 15px;
