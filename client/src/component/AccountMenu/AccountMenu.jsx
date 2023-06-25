@@ -13,10 +13,14 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import LogoutUser from '../LogOut/LogoutUser';
-// import LogoutUser from '../../Page/LogOut/LogoutUser';
-// import "./Account.css"
-
-
+import CircleNotificationsOutlinedIcon from '@mui/icons-material/CircleNotificationsOutlined';
+import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
+import DeviceUnknownOutlinedIcon from '@mui/icons-material/DeviceUnknownOutlined';
+import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import Badge from '@mui/material/Badge';
+import WalletIcon from '@mui/icons-material/Wallet';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 export default function AccountMenu() {
 
@@ -31,13 +35,13 @@ export default function AccountMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    function handlelogin() {
+    function handleprofile() {
 
-        navigate("/login")
+        navigate("/editprofile")
     }
 
     const Register = () => {
-        navigate("/register")
+        navigate("/mywallet")
     }
 
     const googleimg = {
@@ -45,15 +49,28 @@ export default function AccountMenu() {
         with: "25px"
     }
 
-
+    const mainbox = {
+        border: "1px solid red",
+        display: 'flex',
+        alignItems: 'center',
+        textAlign: 'center',
+        width: "180px",
+        marginLeft: "10px"
+    }
 
 
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <Box style={{ borderRadius: "50%", height: "60px", width: "60px", backgroundColor: "white" }}>
+                <Badge badgeContent={5} color="primary" style={{ marginTop: "16px", marginLeft: "14px" }}>
+                    <NotificationsNoneIcon />
+                </Badge>
+            </Box>
+
+            <Box style={mainbox} sx={{ borderRadius: "5px", backgroundColor: "white" }} onClick={handleClick}>
                 <Tooltip title="Account settings">
                     <IconButton
-                        onClick={handleClick}
+
                         size="small"
                         sx={{ ml: 2 }}
                         aria-controls={open ? 'account-menu' : undefined}
@@ -68,6 +85,14 @@ export default function AccountMenu() {
                         </Avatar>
                     </IconButton>
                 </Tooltip>
+                <Box>
+                    <p style={{ color: "black", fontSize: "12px", fontWeight: "500", textAlign: "left", paddingTop: "7px" }}>
+                        <span >Mark M</span>
+                        <br />
+                        <span style={{ fontSize: "10px" }} >Markm001@gmail...</span>
+                    </p>
+
+                </Box>
             </Box>
             <Menu
                 anchorEl={anchorEl}
@@ -104,31 +129,32 @@ export default function AccountMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handlelogin}>
-                    <Avatar /> Edit Profile
+                <MenuItem onClick={handleprofile}>
+                    <ListItemIcon>
+                        <ModeEditOutlinedIcon />
+                    </ListItemIcon>
+                    Edit Profile
                 </MenuItem>
-                <MenuItem onClick={() => navigate("/myaccount")}>
-                    <Avatar /> Notification
+                <MenuItem onClick={() => navigate("/portfolio")}>
+                    <ListItemIcon>
+                        <Avatar />
+                    </ListItemIcon>
+                    Porfolio
                 </MenuItem>
 
-                <MenuItem onClick={Register}>
+                <MenuItem onClick={() => navigate("/mywallet")}>
                     <ListItemIcon>
-                        <PersonAdd fontSize="small" />
+                        <WalletIcon />
                     </ListItemIcon>
-                    Security
+                    My wallet
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={() => navigate('/account')}>
                     <ListItemIcon>
-                        <Settings fontSize="small" />
+                        <ContactsIcon fontSize="small" />
                     </ListItemIcon>
-                    Settings
+                    Account
                 </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Help
-                </MenuItem>
+
                 <Divider />
                 <MenuItem>
                     <ListItemIcon>
