@@ -12,9 +12,16 @@ import Login from "../Login/Login";
 // import CreateProducts from "../../pages/Admin/CreateProducts/CreateProducts"
 // import AllProducts from "../../pages/Admin/AllProducts/AllProducts"
 
+import PrivateRoute from "../Routes/Private";
+
+
 import AdminRoute from "../Routes/AdminRoute";
 import Dashboard from "../../pages/Admin/Dashboard/Dashboard";
 import Comingsoon from "../ComingSoon/Comingsoon";
+import EditProfile from "../EditProfile/EditProfile";
+import Portfolio from "../Portfoio/Portfolio";
+import Wallet from "../MyWallet/Wallet";
+import Account from "../Account/Account";
 
 import InvestNow from "../HomemainPage/InvestNow";
 import PrivateRoute from "../Routes/Private";
@@ -33,6 +40,17 @@ const AllRoutes = () => {
         <Route exact path = "/allproducts" element={<AllProducts/>} />
       </Routes> */}
       <Routes>
+
+        <Route exact path="/" element={<Winow />} />
+        <Route exact path="/user/login" element={<Login />} />
+        <Route exact path="/user/register" element={<Register />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/comingsoon" element={<Comingsoon />} />
+        <Route exact path="/editprofile" element={<EditProfile />} />
+        <Route exact path='/portfolio' element={<Portfolio />} />
+        <Route exact path="/mywallet" element={<Wallet />} />
+        <Route exact path="/account" element={<Account />} />
+
         <Route exact path="/" element={<Winow />} />  
         <Route exact path="/user/login" element={<Login/>} />
         <Route exact path="/user/register" element={<Register/>} />
@@ -43,6 +61,7 @@ const AllRoutes = () => {
           <PrivateRoute>
             <InvestNow />
           </PrivateRoute>} />
+
 
       </Routes>
     </div>
