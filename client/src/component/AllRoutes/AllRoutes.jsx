@@ -11,11 +11,12 @@ import Login from "../Login/Login";
 // import Category from "../../pages/Admin/Category/Category"
 // import CreateProducts from "../../pages/Admin/CreateProducts/CreateProducts"
 // import AllProducts from "../../pages/Admin/AllProducts/AllProducts"
-import PrivateRoute from "../Routes/Private"; 
+
 import AdminRoute from "../Routes/AdminRoute";
 import Dashboard from "../../pages/Admin/Dashboard/Dashboard";
 import Comingsoon from "../ComingSoon/Comingsoon";
-
+import InvestNow from "../HomemainPage/InvestNow";
+import PrivateRoute from "../Routes/Private";
 const AllRoutes = () => {
   return (
     <div>
@@ -29,10 +30,16 @@ const AllRoutes = () => {
       </Routes> */}
       <Routes>
         <Route exact path="/" element={<Winow />} />
-        <Route exact path="/user/login" element={<Login/>} />
-        <Route exact path="/user/register" element={<Register/>} />
-        <Route exact path ="/dashboard" element={<Dashboard/>} />
-        <Route exact path="/comingsoon" element={<Comingsoon/>}/>
+        <Route exact path="/user/login" element={<Login />} />
+        <Route exact path="/user/register" element={<Register />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/comingsoon" element={<Comingsoon />} />
+        <Route exact path="/inestnow" element={
+          <PrivateRoute>
+            <InvestNow />
+          </PrivateRoute>
+
+        } />
       </Routes>
     </div>
   );
