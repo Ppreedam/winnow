@@ -32,7 +32,7 @@ const Login = () => {
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
         if (res.data.user.role === 1) {
-          navigate("/dashboard");
+          navigate("/admin/dashboard");
         } else {
           navigate(location.state || "/");
         }
