@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./portfolio.module.css"
-import FaAngleDown from "react-icons/fa";
+// import FaAngleDown from "react-icons/fa";
 import CollapsibleExample from '../Navbar/Navbar';
 
 const Portfolio = () => {

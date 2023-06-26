@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import style from "./Users.module.css"
+import Sidebar from "../Sidebar/Sidebar";
+import RightSide from "../RightSide/RightSide";
 
 const Users = () => {
   const [userdata, setUserdata] = useState([]);
@@ -38,7 +40,8 @@ const Users = () => {
       });
   };
   return (
-    <div className={style.container}>
+    <div className={style.AppGlass}>
+      <Sidebar />
       <div className="row">
         <div className="col-md-9">
           <div
@@ -106,6 +109,7 @@ const Users = () => {
           </div>
         </div>
       </div>
+      <RightSide />
     </div>
   );
 };

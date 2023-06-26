@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Modal } from "antd";
-import CategoryForm from "../../Components/CategoryForm/CategoryForm";
+import CategoryForm from "../CategoryForm/CategoryForm";
 import style from "./Category.module.css";
 import { Navigate } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
+import RightSide from "../RightSide/RightSide";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -25,7 +27,7 @@ const Category = () => {
         }
       );
       if (data?.success) {
-        Navigate("/")
+        Navigate("/");
       } else {
         toast.error(data.message);
       }
@@ -94,7 +96,8 @@ const Category = () => {
     }
   };
   return (
-    <div className={style.container}>
+    <div className={style.AppGlass}>
+      <Sidebar />
       <div className="col-md-9">
         <h1>Manage Category</h1>
         <div className="p-3 w-50">
@@ -110,7 +113,9 @@ const Category = () => {
           <table className={style.table}>
             <thead className={style.tableHead}>
               <tr>
-                <th scope="col" className={style.name}>Name</th>
+                <th scope="col" className={style.name}>
+                  Name
+                </th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -119,7 +124,7 @@ const Category = () => {
                 <>
                   <tr>
                     <td key={c._id}>{c.name}</td>
-                    <td className={style. manageButton}>
+                    <td className={style.manageButton}>
                       <button
                         className={style.buttonClass}
                         onClick={() => {
@@ -157,6 +162,7 @@ const Category = () => {
           />
         </Modal>
       </div>
+      <RightSide />
     </div>
   );
 };
