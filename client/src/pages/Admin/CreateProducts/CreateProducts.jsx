@@ -69,106 +69,108 @@ const CreateProducts = () => {
   };
 
   return (
-    <div className={style.AppGlass}>
-      <Sidebar />
-      <div className={style.container}>
-        <h1>Create Product</h1>
-        <div className={style.formContainer}>
-          <Select
-            bordered={false}
-            placeholder="Select a category"
-            // size="large"
-            showSearch
-            className={style.selectCategory}
-            onChange={(value) => {
-              setCategory(value);
-            }}
-          >
-            {categories?.map((c) => (
-              <Option key={c._id} value={c._id}>
-                {c.name}
-              </Option>
-            ))}
-          </Select>
-          <div className={style.categoryImage}>
-            <label className="btn btn-outline-secondary col-md-12">
-              {photo ? photo.name : "Upload Photo"}
-              <input
-                type="file"
-                name="photo"
-                accept="image/*"
-                onChange={(e) => setPhoto(e.target.files[0])}
-                hidden
-              />
-            </label>
-          </div>
-          <div className="mb-3">
-            {photo && (
-              <div className="text-center">
-                <img
-                  src={URL.createObjectURL(photo)}
-                  alt="product_photo"
-                  height={"200px"}
-                  className="img img-responsive"
-                />
-              </div>
-            )}
-          </div>
-          <input
-            type="text"
-            value={name}
-            placeholder="write a name"
-            className={style.productName}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <textarea
-            type="text"
-            value={description}
-            placeholder="write a description"
-            className={style.productTextArea}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-
-          <input
-            type="number"
-            value={price}
-            placeholder="write a Price"
-            className={style.productName}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-          <input
-            type="number"
-            value={quantity}
-            placeholder="write a quantity"
-            className={style.productName}
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <div className="mb-3">
+    <div className={style.App}>
+      <div className={style.AppGlass}>
+        <Sidebar />
+        <div className={style.MainDash}>
+          <h1>Create Product</h1>
+          <div className={style.formContainer}>
             <Select
               bordered={false}
-              placeholder="Select Shipping "
-              size="large"
+              placeholder="Select a category"
+              // size="large"
               showSearch
-              className={style.categoryImage}
+              className={style.selectCategory}
               onChange={(value) => {
-                setShipping(value);
+                setCategory(value);
               }}
             >
-              <Option value="0">No</Option>
-              <Option value="1">Yes</Option>
+              {categories?.map((c) => (
+                <Option key={c._id} value={c._id}>
+                  {c.name}
+                </Option>
+              ))}
             </Select>
-          </div>
-          <div className="mb-3">
-            <button
-              className={style.createProductButton}
-              onClick={handleCreate}
-            >
-              CREATE PRODUCT
-            </button>
+            <div className={style.categoryImage}>
+              <label className="btn btn-outline-secondary col-md-12">
+                {photo ? photo.name : "Upload Photo"}
+                <input
+                  type="file"
+                  name="photo"
+                  accept="image/*"
+                  onChange={(e) => setPhoto(e.target.files[0])}
+                  hidden
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              {photo && (
+                <div className="text-center">
+                  <img
+                    src={URL.createObjectURL(photo)}
+                    alt="product_photo"
+                    height={"200px"}
+                    className="img img-responsive"
+                  />
+                </div>
+              )}
+            </div>
+            <input
+              type="text"
+              value={name}
+              placeholder="write a name"
+              className={style.productName}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <textarea
+              type="text"
+              value={description}
+              placeholder="write a description"
+              className={style.productTextArea}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+
+            <input
+              type="number"
+              value={price}
+              placeholder="write a Price"
+              className={style.productName}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <input
+              type="number"
+              value={quantity}
+              placeholder="write a quantity"
+              className={style.productName}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <div className="mb-3">
+              <Select
+                bordered={false}
+                placeholder="Select Shipping "
+                size="large"
+                showSearch
+                className={style.categoryImage}
+                onChange={(value) => {
+                  setShipping(value);
+                }}
+              >
+                <Option value="0">No</Option>
+                <Option value="1">Yes</Option>
+              </Select>
+            </div>
+            <div className="mb-3">
+              <button
+                className={style.createProductButton}
+                onClick={handleCreate}
+              >
+                CREATE PRODUCT
+              </button>
+            </div>
           </div>
         </div>
+        <RightSide />
       </div>
-      <RightSide />
     </div>
   );
 };
