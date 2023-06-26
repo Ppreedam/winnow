@@ -12,7 +12,7 @@ const Users = () => {
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/auth/all-users"
+        "https://winnow-backend-api.onrender.com/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {
@@ -33,7 +33,7 @@ const Users = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8000/api/v1/auth//deleteUser/${id}`)
+      .delete(`https://winnow-backend-api.onrender.com/api/v1/auth//deleteUser/${id}`)
       .then((res) => {
         toast.success(" User Profile deleted Successfully");
       })
