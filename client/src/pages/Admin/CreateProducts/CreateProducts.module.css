@@ -1,42 +1,40 @@
-.AppGlass {
-    display: grid;
-    height: 95%;
-    width: 97%;
-    border-radius: 2rem;
-    background-color: var(--glass);
-    overflow: hidden;
-    grid-template-columns: 11rem auto 20rem;
-    background: #1d2b64; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-  
-      #00b8b7,
-      #170f49
-    );
-    background: linear-gradient(
-      to right,
-  
-      #00b8b7,
-      #170f49
-    );
-    /* background: linear-gradient(
-        106.37deg,
-        #1d2b64 29.63%,
-        #315f59 51.55%,
-        #f8cdda 99.85%
-      ); */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Inter", sans-serif;
-  }
-  
-.container{
-    height: 500px;
-    width: 100%;
-    padding: 0 0 0 60px;
-    align-items: center;
+.App {
+  background: #1d2b64; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #00b8b7,
+    #170f49
+  );
+  background: linear-gradient(
+    to right,
+    #00b8b7,
+    #170f49
+  );
+  /* background: linear-gradient(
+    106.37deg,
+    #1d2b64 29.63%,
+    #315f59 51.55%,
+    #f8cdda 99.85%
+  ); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+}
+.AppGlass{
+  display: grid;
+  height: 95%;
+  width: 97%;
+  border-radius: 2rem;
+  background-color: rgb(138, 169, 165);
+  overflow: hidden;
+  grid-template-columns: 11rem auto 20rem;
+}
+.MainDash {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px 0 60px;
 }
 .formContainer{
     display: flex;

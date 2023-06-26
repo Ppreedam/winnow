@@ -5,13 +5,15 @@ import RightSide from "../RightSide/RightSide";
 
 const AllProducts = () => {
   return (
-    <div className={style.AppGlass}>
-      <Sidebar />
+    <div className={style.App}>
+      <div className={style.AppGlass}>
+        <Sidebar />
 
-      <div className={style.container}>
-        <h1>AllProducts</h1>
+        <div className={style.MainDash}>
+          <h1>AllProducts</h1>
+        </div>
+        <RightSide />
       </div>
-      <RightSide />
     </div>
   );
 };
