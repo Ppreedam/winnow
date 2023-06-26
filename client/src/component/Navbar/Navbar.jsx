@@ -7,6 +7,7 @@ import "./Navbar.css";
 import AccountMenu from "../AccountMenu/AccountMenu";
 
 function CollapsibleExample() {
+  const token = localStorage.getItem("auth")
   const navigate = useNavigate();
   const signUp = () => {
     navigate("/user/register");
@@ -54,7 +55,7 @@ function CollapsibleExample() {
                 </div>
                 {/* <div className='hovereffect'><Link className='textdecoration'><p className='textcolorfont'>STUDENTS</p></Link></div> */}
               </Nav>
-              {true ?
+              {!token ?
                 <Nav>
                   <Button
                     style={{ marginRight: "20px" }}
