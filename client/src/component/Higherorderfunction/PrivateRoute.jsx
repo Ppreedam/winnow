@@ -5,9 +5,9 @@ import { AuthContext} from "../Context/Auth";
 
 function PrivateRoute({ children }) {
   // fix code here
-  const { auth, setAuth } = useContext(AuthContext);
+  const [auth,setAuth] = useContext(AuthContext);
 console.log(auth)
-  if (!state.log) {
+  if (!auth.token) {
     return <Navigate to="/user/login" />;
   }
 
