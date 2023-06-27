@@ -7,7 +7,6 @@ function PrivateRoute({ children }) {
   // fix code here
   const [auth,setAuth] = useContext(AuthContext);
 
-a
   if (!auth.token) {
     return <Navigate to="/user/login" />;
   }

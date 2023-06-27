@@ -152,9 +152,9 @@
 
   .text_box_Stock {
     width: 90%;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 22px;
-    margin-top: 2px;
+    /* margin-top: 0px; */
   }
 
   .image_box {
@@ -528,7 +528,7 @@
 
   .Home_third_part_text {
     width: 100%;
-    padding-top: 10px;
+    padding: 10px 20px 10px 20px;
     font-size: 12px;
     line-height: 20px;
   }
@@ -1112,7 +1112,7 @@ text-align: center;
   }
 
   .Home_seventh_part_box_1_button {
-    width: 120px;
+    width: 150px;
     height: 40px;
   }
 
