@@ -33,16 +33,21 @@ const AllRoutes = () => {
         <Route exact path = "/allproducts" element={<AllProducts/>} />
       </Routes> */}
       <Routes>
-        <Route exact path="/" element={<Winow />} />  
-        <Route exact path="/user/login" element={<Login/>} />
-        <Route exact path="/user/register" element={<Register/>} />
-        <Route exact path ="/user/gorget-password" element={<ForgotPasssword/>} />
-        <Route exact path ="/dashboard" element={<Dashboard/>} />
-        <Route exact path="/comingsoon" element={<Comingsoon/>}/>
-        <Route exact path="/investnow" element={
-          <PrivateRoute>
-            <InvestNow />
-          </PrivateRoute>} />
+        <Route exact path="/" element={<Winow />} />
+        <Route exact path="/user/login" element={<Login />} />
+        <Route exact path="/user/register" element={<Register />} />
+        <Route exact path="/user/gorget-password" element={<ForgotPasssword />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/comingsoon" element={<Comingsoon />} />
+        <Route
+          exact
+          path="/investnow"
+          element={
+            <PrivateRoute>
+              <InvestNow />
+            </PrivateRoute>
+          }
+        />
 
       </Routes>
     </div>
