@@ -1,24 +1,16 @@
-
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const LogoutUser = () => {
-    
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const logoutuser = async () => {
-    let token = localStorage.getItem("usersdatatoken");
-    
-      localStorage.removeItem("usersdatatoken");
-      
-      navigate("/")
-    
-  }
-  return (
-    <div onClick={logoutuser}>
-        Logout
-    </div>
-  )
-}
+    let token = localStorage.getItem("auth");
 
-export default LogoutUser
+    localStorage.removeItem("auth");
+
+    navigate("/");
+  };
+  return <div onClick={logoutuser}>Logout</div>;
+};
+
+export default LogoutUser;

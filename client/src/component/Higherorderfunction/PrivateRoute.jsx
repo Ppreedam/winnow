@@ -3,9 +3,11 @@ import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Context/Auth";
 
 function PrivateRoute({ children }) {
-  const [auth, setAuth] = useContext(AuthContext);
-  console.log("working time");
 
+  // fix code here
+  const [auth,setAuth] = useContext(AuthContext);
+
+a
   if (!auth.token) {
     return <Navigate to="/user/login" />;
   }
