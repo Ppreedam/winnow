@@ -72,7 +72,7 @@ const ProductDescription = () => {
                 <div className={style.overview_mainbox}>
                     <div><p>Location</p></div>
                     <div ></div>
-                    <div><p>The asset is located in Seawoods, an upscale part of Navi Mumbai. The property is well connected to the rest of the Mumbai Metropolitan Region by road, rail, and water services. With the upcoming Navi Mumbai airport, metro, and trans-harbour sea link, the area is bound to see greater value appreciation.</p>
+                    <div style={{margin:"13px"}}><p>The asset is located in Seawoods, an upscale part of Navi Mumbai. The property is well connected to the rest of the Mumbai Metropolitan Region by road, rail, and water services. With the upcoming Navi Mumbai airport, metro, and trans-harbour sea link, the area is bound to see greater value appreciation.</p>
                         <div>
                             <iframe style={{ height: "300px", width: "80%", margin: "auto" }} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711151344!2d73.78056558240766!3d18.52459859956777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1687918272852!5m2!1sen!2sin"
                             ></iframe>

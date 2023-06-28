@@ -46,7 +46,7 @@
     /* margin-left: -20px; */
     margin-top: 10px;
     color: white;
-    font-family: Rubik;
+    font-family: 'Rubik', sans-serif;
 
 }
 
@@ -67,8 +67,8 @@
 }
 
 .overview_mainbox>div:nth-child(1)>p {
-    font-family: Rubik;
-    font-size: 50px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 45px;
     font-weight: 600;
     line-height: 59px;
     letter-spacing: 0em;
@@ -79,8 +79,8 @@
 }
 
 .overview_mainbox>div:nth-child(3)>p {
-    font-family: Rubik;
-    font-size: 25px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 21px;
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0em;
