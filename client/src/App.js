@@ -15,8 +15,8 @@ function App() {
     <>
     <div>
       {/* <CollapsibleExample /> */}
-      {/* <AllRoutes/> */}
-      <ProductDescription/>
+      <AllRoutes/>
+      {/* <ProductDescription/> */}
       {/* <Account/> */}
       {/* <Portfolio/> */}
       {/* <Wallet/> */}
