@@ -6,6 +6,19 @@ import { Route, Routes } from "react-router-dom";
 import Winow from "../HomemainPage/Winow";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
+
+// import Dashboard from "../../pages/Admin/Dashboard/Dashboard"
+// import Users from "../../pages/Admin/Users/Users"
+// import Category from "../../pages/Admin/Category/Category"
+// import CreateProducts from "../../pages/Admin/CreateProducts/CreateProducts"
+// import AllProducts from "../../pages/Admin/AllProducts/AllProducts"
+
+// import PrivateRoute from "../Routes/Private";
+
+
+import AdminRoute from "../Routes/AdminRoute";
+
+
 import Dashboard from "../../pages/Admin/Dashboard/Dashboard";
 import Users from "../../pages/Admin/Users/Users";
 import Category from "../../pages/Admin/Category/Category";
