@@ -12,7 +12,7 @@ import Login from "../Login/Login";
 // import CreateProducts from "../../pages/Admin/CreateProducts/CreateProducts"
 // import AllProducts from "../../pages/Admin/AllProducts/AllProducts"
 
-import PrivateRoute from "../Routes/Private";
+// import PrivateRoute from "../Routes/Private";
 
 
 import AdminRoute from "../Routes/AdminRoute";
