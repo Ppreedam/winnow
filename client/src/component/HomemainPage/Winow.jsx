@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import mobile_imag from "./Image/mobile.png";
 import bottom_full_vector from "./Image/bottom_full_vector.png";
 import top_full_vector from "./Image/top_full_vector.png";
@@ -17,9 +17,12 @@ import WordFlick from "./WordFlick";
 import ProgressBarcom from "../ProgressBar/ProgressBar";
 
 import investment_image from  "./Image/investment_image.png"
+import { AuthContext } from "../Context/Auth";
+import { useNavigate } from "react-router-dom";
 
 
 const Winow = () => {
+  const navigate=useNavigate()
   const expert = [
     {
       heading: "Pre-IPO Venture",
@@ -72,8 +75,11 @@ const Winow = () => {
     },
 
   ]
-
-
+  const [auth, setAuth]=useContext(AuthContext)
+  console.log(auth.token)
+const InvestNowhandle=()=>{
+  navigate("/investnow")
+}
   return (
     <div className={style.main}>
       <CollapsibleExample />
@@ -172,7 +178,7 @@ const Winow = () => {
               <button>Fast Filling</button>
             </div>
             <div className={style.Home_third_part_box_hover_button}>
-              <button>Invest Now</button>
+              <button onClick={InvestNowhandle}>Invest Now</button>
             </div>
           </div>
           {/* ---------------- */}
@@ -196,7 +202,7 @@ const Winow = () => {
               <button>Fast Filling</button>
             </div>
             <div className={style.Home_third_part_box_hover_button}>
-              <button>Invest Now</button>
+              <button onClick={InvestNowhandle}>Invest Now</button>
             </div>
           </div>
           {/* ---------------- */}
@@ -218,7 +224,7 @@ const Winow = () => {
               <button>Fast Filling</button>
             </div>
             <div className={style.Home_third_part_box_hover_button}>
-              <button>Invest Now</button>
+              <button onClick={InvestNowhandle}>Invest Now</button>
             </div>
           </div>
           {/* -------------- */}

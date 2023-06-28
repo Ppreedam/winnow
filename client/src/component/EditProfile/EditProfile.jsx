@@ -2,9 +2,9 @@ import React from 'react'
 import style from "./EditProfile.module.css"
 import CollapsibleExample from '../Navbar/Navbar'
 import Form from 'react-bootstrap/Form';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import CircleNotificationsOutlinedIcon from '@mui/icons-material/CircleNotificationsOutlined';
+// import CircleNotificationsOutlinedIcon from '@mui/icons-material/CircleNotificationsOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import DeviceUnknownOutlinedIcon from '@mui/icons-material/DeviceUnknownOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';

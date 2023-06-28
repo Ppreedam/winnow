@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Modal } from "antd";
-import CategoryForm from "../../Components/CategoryForm/CategoryForm";
+import CategoryForm from "../CategoryForm/CategoryForm";
 import style from "./Category.module.css";
 import { Navigate } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
+import RightSide from "../RightSide/RightSide";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -19,13 +21,13 @@ const Category = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/category/create-category",
+        "https://winnow-backend-api.onrender.com/api/v1/category/create-category",
         {
           name,
         }
       );
       if (data?.success) {
-        Navigate("/")
+        Navigate("/");
       } else {
         toast.error(data.message);
       }
@@ -39,7 +41,7 @@ const Category = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/category/get-category"
+        "https://winnow-backend-api.onrender.com/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -59,7 +61,7 @@ const Category = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        `http://localhost:8000/api/v1/category/update-category/${selected._id}`,
+        `https://winnow-backend-api.onrender.com/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data?.success) {
@@ -80,7 +82,7 @@ const Category = () => {
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8000/api/v1/category/delete-category/${pId}`
+        `https://winnow-backend-api.onrender.com/api/v1/category/delete-category/${pId}`
       );
       if (data.success) {
         toast.success(`category is deleted`);
@@ -94,68 +96,74 @@ const Category = () => {
     }
   };
   return (
-    <div className={style.container}>
-      <div className="col-md-9">
-        <h1>Manage Category</h1>
-        <div className="p-3 w-50">
-          <h3>Create Category</h3>
-          <CategoryForm
-            handleSubmit={handleSubmit}
-            value={name}
-            setValue={setName}
-          />
+    <div className={style.App}>
+      <div className={style.AppGlass}>
+        <Sidebar />
+        <div className={style.MainDash}>
+          <h1>Manage Category</h1>
+          <div className="p-3 w-50">
+            <h3>Create Category</h3>
+            <CategoryForm
+              handleSubmit={handleSubmit}
+              value={name}
+              setValue={setName}
+            />
+          </div>
+          <div className={style.tableBody}>
+            <h3>Category Lists</h3>
+            <table className={style.table}>
+              <thead className={style.tableHead}>
+                <tr>
+                  <th scope="col" className={style.name}>
+                    Name
+                  </th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody className={style.tBody}>
+                {categories?.map((c) => (
+                  <>
+                    <tr>
+                      <td key={c._id}>{c.name}</td>
+                      <td className={style.manageButton}>
+                        <button
+                          className={style.buttonClass}
+                          onClick={() => {
+                            setVisible(true);
+                            setUpdatedName(c.name);
+                            setSelected(c);
+                          }}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className={style.buttonClass}
+                          onClick={() => {
+                            handleDelete(c._id);
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <Modal
+            onCancel={() => setVisible(false)}
+            footer={null}
+            visible={visible}
+          >
+            <CategoryForm
+              value={updatedName}
+              setValue={setUpdatedName}
+              handleSubmit={handleUpdate}
+            />
+          </Modal>
         </div>
-        <div className={style.tableBody}>
-          <h3>Category Lists</h3>
-          <table className={style.table}>
-            <thead className={style.tableHead}>
-              <tr>
-                <th scope="col" className={style.name}>Name</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody className={style.tBody}>
-              {categories?.map((c) => (
-                <>
-                  <tr>
-                    <td key={c._id}>{c.name}</td>
-                    <td className={style. manageButton}>
-                      <button
-                        className={style.buttonClass}
-                        onClick={() => {
-                          setVisible(true);
-                          setUpdatedName(c.name);
-                          setSelected(c);
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className={style.buttonClass}
-                        onClick={() => {
-                          handleDelete(c._id);
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <Modal
-          onCancel={() => setVisible(false)}
-          footer={null}
-          visible={visible}
-        >
-          <CategoryForm
-            value={updatedName}
-            setValue={setUpdatedName}
-            handleSubmit={handleUpdate}
-          />
-        </Modal>
+        <RightSide />
       </div>
     </div>
   );

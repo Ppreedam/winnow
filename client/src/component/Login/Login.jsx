@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/v1/auth/login", {
+      const res = await axios.post("https://winnow-backend-api.onrender.com/api/v1/auth/login", {
         email,
         password,
       });
@@ -32,7 +32,7 @@ const Login = () => {
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
         if (res.data.user.role === 1) {
-          navigate("/dashboard");
+          navigate("/admin/dashboard");
         } else {
           navigate(location.state || "/");
         }

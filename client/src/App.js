@@ -1,5 +1,5 @@
-import Account from "./component/Account/Account";
 import AllRoutes from "./component/AllRoutes/AllRoutes";
+
 import Winow from "./component/HomemainPage/Winow";
 import Wallet from "./component/MyWallet/Wallet";
 import CollapsibleExample from "./component/Navbar/Navbar";
@@ -10,21 +10,16 @@ import ProductDescription from "./component/ProductDescriptionPage/ProductDescri
 
 
 
+
+  
+import "./App.css"
+
 function App() {
   return (
-    <>
-    <div>
-      {/* <CollapsibleExample /> */}
-      <AllRoutes/>
-      {/* <ProductDescription/> */}
-      {/* <Account/> */}
-      {/* <Portfolio/> */}
-      {/* <Wallet/> */}
-      {/* <Winow/> */}
-      {/* <ProgressBar/> */}
-      
+    <div className="mainRoute">
+      <AllRoutes />
+
     </div>
-    </>
   );
 }
 
