@@ -19,6 +19,7 @@ const CreateProducts = () => {
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
 
+
   //get all category
   const getAllCategory = async () => {
     try {
@@ -41,30 +42,30 @@ const CreateProducts = () => {
   //create product function
   const handleCreate = async (e) => {
     e.preventDefault();
+    const productData = new FormData();
+    productData.append("name", name);
+    productData.append("description", description);
+    productData.append("price", price);
+    productData.append("quantity", quantity);
+    productData.append("photo", photo);
+    productData.append("category", category);
+    console.log(JSON.stringify(productData))
+
+    console.log({...productData})
     try {
-      const productData = new FormData();
-      productData.append("name", name);
-      productData.append("description", description);
-      productData.append("price", price);
-      productData.append("quantity", quantity);
-      productData.append("photo", photo);
-      productData.append("category", category);
-      console.log(productData);
-      const { data } = axios.post(
-        "https://winnow-backend-api.onrender.com/api/v1/product/create-product",
-        productData
-      );
-      if (data?.success) {
-        toast.error(data?.message);
-      } else {
-        console.log("hello");
-        getAllCategory();
-        toast.success("Product Created Successfully");
-        navigate("/allproducts");
-      }
+      const response = await fetch("http://localhost:8000/api/v1/product/create-product", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({"photo":productData.get("photo")}),
+      });
+
+      const result = await response.json();
+      console.log("Success:", result);
     } catch (error) {
-      console.log(error);
-      toast.error("something went wrong");
+      console.error("Error:", error);
     }
   };
 

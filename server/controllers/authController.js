@@ -200,25 +200,42 @@ export const updateProfileController = async (req, res) => {
     });
   }
 };
-//update Wallet Account
+
 export const updateWalletAccount = async (req, res) => {
   try {
-    const { email, walletamount } = req.body;
+    const { email, walletamount, reason } = req.body;
+
     const user = await userModel.find({ email });
-    //password
 
     if (user) {
       let newwalletamount = user[0].walletamount + Number(walletamount);
-      let data = await userModel.findOneAndUpdate(
-        { email: email },
-        { walletamount: newwalletamount },
+      
+      const currentDate = new Date();
+      const timestamp = {
+        isAdd:true,
+        date: currentDate.toLocaleDateString(),
+        time: currentDate.toLocaleTimeString(),
+      };
+
+      const newWalletObject = {
+        reason,
+        walletamount: Number(walletamount),
+        timestamp,
+      };
+
+      let updatedUser = await userModel.findOneAndUpdate(
+        { email },
+        
+        { 
+          $set:{ walletamount: newwalletamount },
+          $push: { walletHistory: newWalletObject } },
         { new: true }
       );
-      
+
       res.status(200).send({
         success: true,
-        message: "amount is added Successfully",
-        data,
+        message: "Amount added successfully",
+        data: updatedUser,
       });
     } else {
       res.status(404).send({
@@ -230,7 +247,96 @@ export const updateWalletAccount = async (req, res) => {
     console.log(error);
     res.status(400).send({
       success: false,
-      message: "Error WHile Update Wallet",
+      message: "Error while updating wallet",
+      error,
+    });
+  }
+};
+
+
+
+// Deduct the money from wallet 
+// export const updateWalletDeduct = async (req, res) => {
+//   try {
+//     const { email, walletamount } = req.body;
+//     const user = await userModel.find({ email });
+//     //password
+
+//     if (user && walletamount <=user.walletamount) {
+//       let newwalletamount = user[0].walletamount - Number(walletamount);
+//       let data = await userModel.findOneAndUpdate(
+//         { email: email },
+//         { walletamount: newwalletamount },
+//         { new: true }
+//       );
+      
+//       res.status(200).send({
+//         success: true,
+//         message: "amount is added Successfully",
+//         data,
+//       });
+//     } else {
+//       res.status(404).send({
+//         success: false,
+//         message: "User not found",
+//       });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).send({
+//       success: false,
+//       message: "Error WHile Update Wallet",
+//       error,
+//     });
+//   }
+// };
+export const updateWalletDeduct = async (req, res) => {
+  try {
+    const { email, walletamount, reason } = req.body;
+
+    const user = await userModel.find({ email });
+
+    if (user && walletamount <=user[0].walletamount) {
+      let newwalletamount = user[0].walletamount - Number(walletamount);
+      console.log(newwalletamount)
+      const currentDate = new Date();
+      const timestamp = {
+        isAdd:false,
+        date: currentDate.toLocaleDateString(),
+        time: currentDate.toLocaleTimeString(),
+      };
+
+      const newWalletObject = {
+        reason,
+        walletamount: Number(walletamount),
+        timestamp,
+      };
+
+      let updatedUser = await userModel.findOneAndUpdate(
+        { email },
+        
+        { 
+          $set:{ walletamount: newwalletamount },
+          $push: { walletHistory: newWalletObject } },
+        { new: true }
+      );
+
+      res.status(200).send({
+        success: true,
+        message: "Amount added successfully",
+        data: updatedUser,
+      });
+    } else {
+      res.status(404).send({
+        success: false,
+        message: "User not found",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error while updating wallet",
       error,
     });
   }
