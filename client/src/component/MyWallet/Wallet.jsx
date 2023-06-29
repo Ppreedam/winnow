@@ -1,10 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./wallet.module.css"
 import CollapsibleExample from '../Navbar/Navbar'
+import axios from 'axios';
 
 
 const Wallet = () => {
-
+    const [userdata, setUserdata] = useState([]);
+    const [localdata,setLocaldata]=useState({})
+    const [wallet,setWallet]=useState(0)
+    const getallusers = async () => {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8000/api/v1/auth/all-users"
+        );
+        setUserdata(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+   
+    useEffect(() => {
+      getallusers();
+      const data= JSON.parse(localStorage.getItem("auth"))
+     setLocaldata(data)
+   
+    }, []);
+   
+ useEffect(()=>{
+    for(let i=0;i<userdata.length;i++)
+    {
+       if(userdata[i].email===localdata.user.email)
+       {
+         console.log(userdata)
+         setWallet(userdata[i].walletamount)
+       }
+ 
+ 
+     }
+ },[])
     return (
         <>
             <div className={style.mainbox}>
@@ -16,7 +49,7 @@ const Wallet = () => {
                     <p className={style.myportfolio_text_deco} style={{ fontSize: "35px" }}>My Wallet</p>
                     <div style={{ display: "flex", gap: "10px", paddingBottom: "80px" }}>
                         <div className={style.current_value_box}>
-                            <div><p>Available Balance <br /> <span><b style={{ color: '#170F49' }}>₹ 30,000</b> </span></p></div>
+                            <div><p>Available Balance <br /> <span><b style={{ color: '#170F49' }}>₹ {wallet}</b> </span></p></div>
                             
                         </div>
 
