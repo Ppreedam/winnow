@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import mobile_imag from "./Image/mobile.png";
 import bottom_full_vector from "./Image/bottom_full_vector.png";
 import top_full_vector from "./Image/top_full_vector.png";
@@ -16,13 +16,37 @@ import WordFlick from "./WordFlick";
 
 import ProgressBarcom from "../ProgressBar/ProgressBar";
 
-import investment_image from  "./Image/investment_image.png"
+import investment_image from "./Image/investment_image.png";
 import { AuthContext } from "../Context/Auth";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Winow = () => {
-  const navigate=useNavigate()
+  const [product, setProduct] = useState([]);
+  // console.log(product["photo"]);
+  console.log(product);
+
+  //get all products
+  const getAllProducts = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:8000/api/v1/product/get-product"
+      );
+      if (data?.success) {
+        setProduct(data.products);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something wwent wrong in getting products");
+    }
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  const navigate = useNavigate();
   const expert = [
     {
       heading: "Pre-IPO Venture",
@@ -73,21 +97,25 @@ const Winow = () => {
       heading: "Market Insights",
       text: "IStay up-to-date on the latest news and trends related to alternative investing.",
     },
-
-  ]
-  const [auth, setAuth]=useContext(AuthContext)
-  console.log(auth.token)
-const InvestNowhandle=()=>{
-  navigate("/investnow")
-}
+  ];
+  const [auth, setAuth] = useContext(AuthContext);
+  console.log(auth.token);
+  const InvestNowhandle = () => {
+    navigate("/investnow");
+  };
   return (
     <div className={style.main}>
       <CollapsibleExample />
       <div className={style.first_part}>
         <div className={style.text_box}>
           <p className={style.text_box_meet}>
-            Meet your Worl- <br /><span>class</span>
-            <span className={style.word}> <WordFlick /></span> <br /> Portfolio.
+            Meet your Worl- <br />
+            <span>class</span>
+            <span className={style.word}>
+              {" "}
+              <WordFlick />
+            </span>{" "}
+            <br /> Portfolio.
           </p>
           <p className={style.text_box_Stock}>
             Forget stocks and bonds. Bring your wealth to its full potential
@@ -146,7 +174,6 @@ const InvestNowhandle=()=>{
             potential, but also limits downside risk.
           </p>
         </div>
-
       </div>
       {/* ----------------------------------------third_part------------------------------------------------------------  */}
 
@@ -160,74 +187,28 @@ const InvestNowhandle=()=>{
           and world-class artists.
         </p>
         <div className={style.Home_third_part_box}>
-          <div className={style.Home_third_part_box_div}>
-            <img src={house_image} alt="" />
-            <p className={style.Home_third_part_box_div_text}>
-              Shield the risk by leasing ATMs to India's largest payment
-              solutions provid...
-            </p>
-            <hr className={style.Home_third_part_box_div_hr} />
-            <div className={style.Home_third_part_box_div_funde}>
-              <div>1,1016 % Funded</div>
-              <div>5,541 Backers</div>
-              <div>19 Days to go</div>
+          {product.map((e) => (
+            <div className={style.Home_third_part_box_div}>
+              <img src={e.photo} alt="" />
+              <p className={style.Home_third_part_box_div_text}>
+                {e.name}
+              </p>
+              <hr className={style.Home_third_part_box_div_hr} />
+              <div className={style.Home_third_part_box_div_funde}>
+                <div>{e.funded} % Funded</div>
+                <div>{e.backers} Backers</div>
+                <div>19 Days to go</div>
+              </div>
+              <ProgressBarcom />
+              <div className={style.Home_third_part_box_button}>
+                <button>High Rated</button>
+                <button>Fast Filling</button>
+              </div>
+              <div className={style.Home_third_part_box_hover_button}>
+                <button onClick={InvestNowhandle}>Invest Now</button>
+              </div>
             </div>
-            <ProgressBarcom/>
-            <div className={style.Home_third_part_box_button}>
-              <button>High Rated</button>
-              <button>Fast Filling</button>
-            </div>
-            <div className={style.Home_third_part_box_hover_button}>
-              <button onClick={InvestNowhandle}>Invest Now</button>
-            </div>
-          </div>
-          {/* ---------------- */}
-          <div className={style.Home_third_part_box_div}>
-            <img src={house_image} alt="" />
-            <p className={style.Home_third_part_box_div_text}>
-              Shield the risk by leasing ATMs to India's largest payment
-              solutions provid...
-            </p>
-            <hr className={style.Home_third_part_box_div_hr} />
-            <div className={style.Home_third_part_box_div_funde}>
-              <div>1,1016 % Funded</div>
-              <div>5,541 Backers</div>
-              <div>19 Days to go</div>
-            </div>
-
-            {/* <img src={percentage_line} alt="" /> */}
-            <ProgressBarcom/>
-            <div className={style.Home_third_part_box_button}>
-              <button>High Rated</button>
-              <button>Fast Filling</button>
-            </div>
-            <div className={style.Home_third_part_box_hover_button}>
-              <button onClick={InvestNowhandle}>Invest Now</button>
-            </div>
-          </div>
-          {/* ---------------- */}
-          <div className={style.Home_third_part_box_div}>
-            <img src={house_image} alt="" />
-            <p className={style.Home_third_part_box_div_text}>
-              Shield the risk by leasing ATMs to India's largest payment
-              solutions provid...
-            </p>
-            <hr className={style.Home_third_part_box_div_hr} />
-            <div className={style.Home_third_part_box_div_funde}>
-              <div>1,1016 % Funded</div>
-              <div>5,541 Backers</div>
-              <div>19 Days to go</div>
-            </div>
-            <ProgressBarcom/>
-            <div className={style.Home_third_part_box_button}>
-              <button>High Rated</button>
-              <button>Fast Filling</button>
-            </div>
-            <div className={style.Home_third_part_box_hover_button}>
-              <button onClick={InvestNowhandle}>Invest Now</button>
-            </div>
-          </div>
-          {/* -------------- */}
+          ))}
         </div>
       </div>
       {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
@@ -299,18 +280,20 @@ const InvestNowhandle=()=>{
       </div>
       {/* -----------------------------------------------------reamining part---------------------------------------------------- */}
       <div className={style.Home_investment_part}>
-      <div>
-        <p className={style.Home_investment_part_box_1_heading}>World-class assets deserve a world-class experience.</p>
-        <div className={style.Home_investment_part_box_1}>
-          {investment.map((el) => {
-            return (
-              <div>
-                <h3>{el.heading}</h3>
-                <p>{el.text}</p>
-              </div>
-            );
-          })}
-        </div>
+        <div>
+          <p className={style.Home_investment_part_box_1_heading}>
+            World-class assets deserve a world-class experience.
+          </p>
+          <div className={style.Home_investment_part_box_1}>
+            {investment.map((el) => {
+              return (
+                <div>
+                  <h3>{el.heading}</h3>
+                  <p>{el.text}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className={style.Home_investment_part_box_2}>
           <img src={investment_image} alt="" />
@@ -341,7 +324,6 @@ const InvestNowhandle=()=>{
       </div>
       {/* -----------------------------------------------eight_part------------------------------------------------ */}
       <div className={style.Home_eighth_part}>
-        
         <p className={style.Home_eighth_part_heading}>
           Join our list of exclusive investors
         </p>
