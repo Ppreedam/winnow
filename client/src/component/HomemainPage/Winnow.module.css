@@ -542,14 +542,10 @@
 
   .Home_third_part_box>div {
     width: 100%;
-    height: 420px;
+    height: 450px;
   }
   .Home_third_part_box>div:hover{
     height: auto;
-  }
-  .Home_third_part_box img:nth-child(1) {
-    height: auto;
-    border-radius: 15px;
   }
 
   .Home_third_part_box_div_text {

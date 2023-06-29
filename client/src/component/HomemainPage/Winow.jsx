@@ -189,7 +189,7 @@ const Winow = () => {
         <div className={style.Home_third_part_box}>
           {product.map((e) => (
             <div className={style.Home_third_part_box_div}>
-              <img src={e.photo} alt="" />
+              <img src={e.photo} alt="" style={{height:"215px"}}/>
               <p className={style.Home_third_part_box_div_text}>
                 {e.name}
               </p>
