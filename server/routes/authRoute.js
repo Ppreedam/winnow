@@ -10,6 +10,7 @@ import {
   orderStatusController,
   getallusers,
   updateWalletAccount,
+  updateWalletDeduct,
   DeleteUsers,
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
@@ -62,5 +63,10 @@ router.put(
   isAdmin,
   orderStatusController
 );
+
+//walllet Updated
+router.post("/wallet",updateWalletAccount)
+//deduct the money 
+router.post("/deduct",updateWalletDeduct)
 
 export default router;
