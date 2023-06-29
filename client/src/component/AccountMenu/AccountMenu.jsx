@@ -58,9 +58,9 @@ export default function AccountMenu() {
   const user_profile = JSON.parse(localStorage.getItem("auth"));
 useEffect(()=>{
     setUser(user_profile)
-},[user_profile]);
+},[]);
 
-  console.log(user_profile.user.name);
+
 
   return (
     <React.Fragment>

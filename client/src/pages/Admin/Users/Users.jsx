@@ -4,15 +4,19 @@ import { toast } from "react-hot-toast";
 import style from "./Users.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
-
+import WalletPopDeduct from "../Wallet/WalletPopDeduct";
+import WalletPop from "../Wallet/WalletPop";
 const Users = () => {
   const [userdata, setUserdata] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
+  const [showDeductPopup, setShowDeductPopup] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [profiledata,setProfiledata]=useState([])
   console.log(showPopup);
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/auth/all-users"
+        "http://localhost:8000/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {
@@ -27,13 +31,31 @@ const Users = () => {
     setShowPopup(true);
   };
 
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+  const openDeductPopup = () => {
+    setShowDeductPopup(true);
+  };
+
+  const closeDeductPopup = () => {
+    setShowDeductPopup(false);
+  };
+  const openEditPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closeEditPopup = () => {
+    setIsPopupOpen(false);
+  };
+
   // const closePopup = () => {
   //   setShowPopup(false);
   // };
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://winnow-backend-api.onrender.com/api/v1/auth//deleteUser/${id}`)
+      .delete(`http://localhost:8000/api/v1/auth//deleteUser/${id}`)
       .then((res) => {
         toast.success(" User Profile deleted Successfully");
       })
@@ -55,7 +77,7 @@ const Users = () => {
               }}
             >
               <h1>All Users</h1>
-              <div>
+              {/* <div>
                 <button
                   onClick={openPopup}
                   style={{
@@ -69,6 +91,17 @@ const Users = () => {
                   {" "}
                   Add Money
                 </button>
+              </div> */}
+               <div style={{display:"flex"}}>
+              <div>
+              <button onClick={openPopup} style={{height:"40px",padding:"5px",borderRadius:"10px", backgroundColor:"gray",color:"white"}}> Add Money</button>
+              {showPopup && <WalletPop onClose={closePopup} />}
+              </div>
+              
+              <div>
+              <button onClick={openDeductPopup} style={{height:"40px",padding:"5px",borderRadius:"10px", backgroundColor:"gray",color:"white",marginLeft:"20px"}}> Deduct Money</button>
+              {showDeductPopup && <WalletPopDeduct onClose={closeDeductPopup} />}
+              </div>
               </div>
             </div>
 
