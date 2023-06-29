@@ -12,19 +12,23 @@ const CreateProducts = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [shipping, setShipping] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [funded, setFunded] = useState("");
+  const [backers, setBackers] = useState("");
+  const [totalFund, setTotalFund] = useState("");
+  const [fundRaised, setFundRaised] = useState("");
 
+  // const [description, setDescription] = useState("");
+  // const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
+  // const [quantity, setQuantity] = useState("");
+  // const [shipping, setShipping] = useState("");
+  const [photo, setPhoto] = useState("");
 
   //get all category
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/category/get-category"
+        "http://localhost:8000/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -42,28 +46,27 @@ const CreateProducts = () => {
   //create product function
   const handleCreate = async (e) => {
     e.preventDefault();
-    const productData = new FormData();
-    productData.append("name", name);
-    productData.append("description", description);
-    productData.append("price", price);
-    productData.append("quantity", quantity);
-    productData.append("photo", photo);
-    productData.append("category", category);
-    console.log(JSON.stringify(productData))
+    let obj = {
+      name: name,
+      funded: funded,
+      backers: backers,
+      totalFund: totalFund,
+      category: category,
+      fundRaised: fundRaised,
+      photo: photo,
+    };
 
-    console.log({...productData})
     try {
-      const response = await fetch("http://localhost:8000/api/v1/product/create-product", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify({"photo":productData.get("photo")}),
-      });
-
-      const result = await response.json();
-      console.log("Success:", result);
+      const { data } = axios.post(
+        "http://localhost:8000/api/v1/product/create-product",
+        obj
+      );
+      if (data?.success) {
+        toast.error(data?.message);
+      } else {
+        toast.success("Product Created Successfully");
+        navigate("/admin/allproducts");
+      }
     } catch (error) {
       console.error("Error:", error);
     }
@@ -92,7 +95,15 @@ const CreateProducts = () => {
                 </Option>
               ))}
             </Select>
-            <div className={style.categoryImage}>
+            <input
+              type="text"
+              value={photo}
+              placeholder="Paste your Image Link"
+              className={style.productName}
+              onChange={(e) => setPhoto(e.target.value)}
+            />
+            <img src={photo} style={{height:"300px", width:"500px"}}/>
+            {/* <div className={style.categoryImage}>
               <label className="btn btn-outline-secondary col-md-12">
                 {photo ? photo.name : "Upload Photo"}
                 <input
@@ -115,7 +126,7 @@ const CreateProducts = () => {
                   />
                 </div>
               )}
-            </div>
+            </div> */}
             <input
               type="text"
               value={name}
@@ -123,7 +134,36 @@ const CreateProducts = () => {
               className={style.productName}
               onChange={(e) => setName(e.target.value)}
             />
-            <textarea
+            <input
+              type="number"
+              value={backers}
+              placeholder="Hpw much funded(Percentage)"
+              className={style.productName}
+              onChange={(e) => setBackers(e.target.value)}
+            />
+            <input
+              type="number"
+              value={funded}
+              placeholder="Add Backers Number"
+              className={style.productName}
+              onChange={(e) => setFunded(e.target.value)}
+            />
+            <input
+              type="number"
+              value={totalFund}
+              placeholder="Total fund required"
+              className={style.productName}
+              onChange={(e) => setTotalFund(e.target.value)}
+            />
+            <input
+              type="number"
+              value={fundRaised}
+              placeholder="How much fund raised till now"
+              className={style.productName}
+              onChange={(e) => setFundRaised(e.target.value)}
+            />
+
+            {/* <textarea
               type="text"
               value={description}
               placeholder="write a description"
@@ -144,22 +184,7 @@ const CreateProducts = () => {
               placeholder="write a quantity"
               className={style.productName}
               onChange={(e) => setQuantity(e.target.value)}
-            />
-            <div className="mb-3">
-              <Select
-                bordered={false}
-                placeholder="Select Shipping "
-                size="large"
-                showSearch
-                className={style.categoryImage}
-                onChange={(value) => {
-                  setShipping(value);
-                }}
-              >
-                <Option value="0">No</Option>
-                <Option value="1">Yes</Option>
-              </Select>
-            </div>
+            /> */}
             <div className="mb-3">
               <button
                 className={style.createProductButton}

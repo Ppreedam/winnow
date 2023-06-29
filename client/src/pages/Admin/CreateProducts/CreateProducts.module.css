@@ -35,6 +35,8 @@
   display: flex;
   flex-direction: column;
   padding: 60px 60px 0 60px;
+  overflow:auto;
+
 }
 .formContainer{
     display: flex;
