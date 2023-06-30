@@ -58,15 +58,16 @@ function CollapsibleExample() {
               {!token ?
                 <Nav>
                   <Button
-                    style={{ marginRight: "20px" }}
+                    // style={{ marginRight: "10px" }}
                     variant="light"
                     onClick={login}
                   >
                     LogIn
                   </Button>
+                  <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d"}} >hello</Button>
                   <Button
                     onClick={signUp}
-                    style={{ color: "white", backgroundColor: "#554284" }}
+                    style={{ color: "white", backgroundColor: "#554284"}}
                   >
                     Create Account
                   </Button>
