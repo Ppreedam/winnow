@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import styles from "./Login.module.css";
 import axios from "axios";
@@ -10,12 +10,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useAuth();
-
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
 
   // form function
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:8000/api/v1/auth/login", {
@@ -23,7 +24,8 @@ const Login = () => {
         password,
       });
       if (res && res.data.success) {
-        console.log(res.data.user.role);
+        // console.log(res.data.user.role);
+        setLoading(false)
         toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
@@ -37,11 +39,13 @@ const Login = () => {
           navigate(location.state || "/");
         }
       } else {
-        console.log("error");
+        // console.log("error");
+        setLoading(false)
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      setLoading(false)
       toast.error("Something went wrong");
     }
   };
@@ -53,7 +57,7 @@ const Login = () => {
         <div className={styles.form_data}>
           <div className={styles.form_heading}>
             <h1>Welcome Back, Log In</h1>
-            <p>Hi, we are you glad you are back. Please login.</p>
+            <p>Hi, we are glad you are back. Please login.</p>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -93,7 +97,7 @@ const Login = () => {
                 Forgot Password
               </div>
             </div> */}
-            <div style={{textDecoration:"underLine",color:"teal"}}>
+            <div style={{ textDecoration: "underLine", color: "teal" }}>
               <Link to="/user/gorget-password">
                 <p>Forget Password ?</p>
               </Link>
@@ -102,6 +106,11 @@ const Login = () => {
             <button type="submit" className="btn btn-primary">
               LOGIN
             </button>
+            <div>
+              {
+                loading ? <div className={styles.spinnerbox}><h4>Please wait......</h4> <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="barspinner" /> </div> : ""
+              }
+            </div>
           </form>
           <ToastContainer />
         </div>

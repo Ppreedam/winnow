@@ -126,3 +126,17 @@ form .btn:hover{
     color:#22a4c7 ;
     border-bottom: 2px solid #212529;
 }
+
+/* for spinner */
+
+.spinnerbox{
+    position: absolute;
+    /* border: 1px solid red; */
+    bottom: 40%;
+    margin-left: 13%;
+}
+.spinnerbox>img{
+    height: 100px;
+    width: 100px;
+    /* border: 1px dashed black; */
+}

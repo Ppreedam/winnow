@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CollapsibleExample from "../Navbar/Navbar";
 import("./Register.css");
-// import style from "./Register.module.css"
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -15,10 +13,12 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // form function
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const res = await axios.post(
@@ -33,13 +33,14 @@ const Register = () => {
         }
       );
       if (res && res.data.success) {
+        setLoading(false)
         toast.success(res.data && res.data.message);
         navigate("/user/login");
       } else {
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      setLoading(false)
       toast.error("Something went wrong");
     }
   };
@@ -129,6 +130,11 @@ const Register = () => {
             <button type="submit" className="btn btn-primary">
               REGISTER
             </button>
+            <div>
+              {
+                loading ? <div className="spinnerbox"><h4>Please wait......</h4> <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="barspinner" /> </div> : ""
+              }
+            </div>
           </form>
           <ToastContainer />
         </div>
