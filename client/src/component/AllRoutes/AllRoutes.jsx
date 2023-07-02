@@ -38,6 +38,8 @@ import InvestNow from "../HomemainPage/InvestNow";
 import PrivateRoute from "../Higherorderfunction/PrivateRoute";
 
 import ForgotPasssword from "../Login/ForgetPassword";
+import CreateProducts2 from "../../pages/Admin/CreateProducts/CreateProducts2";
+
 // import AdminRoutes from "../../pages/Admin/AdminRoutes/AdminRoutes";
 
 const AllRoutes = () => {
@@ -65,6 +67,7 @@ const AllRoutes = () => {
         <Route exact path="/portfolio" element={<Portfolio />} />
         <Route exact path="/mywallet" element={<Wallet />} />
         <Route exact path="/account" element={<Account />} />
+        <Route exact path="/formproduct" element={<CreateProducts2/>} />
         {/* <Route exact path="/admin" element={<AdminRoutes />} /> */}
         <Route
           exact

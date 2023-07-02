@@ -58,7 +58,7 @@ const CreateProducts = () => {
 
     try {
       const { data } = axios.post(
-        "https://winnow-backend-api.onrender.com/api/v1/product/create-product",
+         "http://localhost:8000/api/v1/product/create-product",
         obj
       );
       if (data?.success) {
@@ -103,7 +103,7 @@ const CreateProducts = () => {
               onChange={(e) => setPhoto(e.target.value)}
             />
             <img src={photo} style={{height:"300px", width:"500px"}}/>
-            {/* <div className={style.categoryImage}>
+            <div className={style.categoryImage}>
               <label className="btn btn-outline-secondary col-md-12">
                 {photo ? photo.name : "Upload Photo"}
                 <input
@@ -126,7 +126,7 @@ const CreateProducts = () => {
                   />
                 </div>
               )}
-            </div> */}
+            </div>
             <input
               type="text"
               value={name}
@@ -188,7 +188,7 @@ const CreateProducts = () => {
             <div className="mb-3">
               <button
                 className={style.createProductButton}
-                onClick={handleCreate}
+                  onClick={handleCreate}
               >
                 CREATE PRODUCT
               </button>
