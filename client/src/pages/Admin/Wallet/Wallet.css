@@ -38,11 +38,11 @@
   }
   
   .popup-content button {
-    padding: 8px 16px;
-    background-color: #4caf50;
+    padding: 10px 20px;
+    background-color: #4593e6;
     color: black;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
   }
   

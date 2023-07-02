@@ -53,10 +53,10 @@ const Users = () => {
   // const closePopup = () => {
   //   setShowPopup(false);
   // };
-  const handleProfileData=(e)=>{
+  const handleProfileData = (e) => {
     setProfiledata(e)
-     }
-     console.log("edit data",profiledata)
+  }
+  console.log("edit data", profiledata)
 
   const handleDelete = (id) => {
     axios
@@ -68,6 +68,35 @@ const Users = () => {
         toast.error("Something went wrong");
       });
   };
+
+
+  const handlechangerole = async (res, role) => {
+    const { name, email, password, address, phone } = res
+    console.log(name, email, password, address, phone)
+    let userRole = (role === 0) ? "user" : "admin";
+    try {
+      const { data } = await axios.put("http://localhost:8000/api/v1/auth/adminprofile", {
+        role,
+        name,
+        email,
+        password,
+        address,
+        phone
+      });
+
+      if (data?.errro) {
+        toast.error(data?.error);
+      } else {
+        console.log(`${name} role is ${userRole}`)
+        toast.success(`${name} role is ${userRole}`);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+  const filteredData = userdata.filter(res => res.role === 0);
+
   return (
     <div className={style.App}>
       <div className={style.AppGlass}>
@@ -122,12 +151,13 @@ const Users = () => {
                     <th scope="col">Wallet</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Role</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {userdata.map((res, i) => {
+                  {filteredData.map((res, i) => {
                     return (
-                      <tr key={i + 1}>
+                      <tr key={i + 1} >
                         <td>{i + 1}</td>
                         <td>{res.name}</td>
                         <td>{res.email}</td>
@@ -149,6 +179,14 @@ const Users = () => {
                           <button onClick={() => handleDelete(res._id)}>
                             Delete
                           </button>
+                        </td>
+                        <td>
+                          <select onChange={(e) => {
+                            handlechangerole(res, e.target.value)
+                          }}>
+                            <option value={0} selected={res.role === 0}>User</option>
+                            <option value={1} selected={res.role === 1}>Admin</option>
+                          </select>
                         </td>
                       </tr>
                     );
