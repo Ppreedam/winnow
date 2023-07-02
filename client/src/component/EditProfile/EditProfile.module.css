@@ -1,16 +1,16 @@
-.editprofile {
+@media (min-width: 1024px) {
+  .editprofile {
     border: 1px solid red;
     height: 500px;
     margin-top: 70px;
-}
+  }
 
-.mainbox {
-    /* border: 1px solid black; */
+  .mainbox {
     width: 98%;
     margin: auto;
-}
+  }
 
-.secondbox {
+  .secondbox {
     /* padding-top: 40px; */
 
     /* border: 1px solid yellow; */
@@ -20,62 +20,60 @@
     /* justify-content: space-between; */
     gap: 50px;
     margin-top: 130px;
-}
+  }
 
-.sidebar {
+  .sidebar {
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
     width: 20%;
     /* border: 1px solid red; */
-}
+  }
 
-.sidebar>ul>div>a>li {
-    font-family: 'Lato';
+  .sidebar > ul > div > a > li {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     list-style: none;
     color: rgb(126, 120, 120);
-}
+  }
 
-.sidebar>ul>div>a>li:hover {
-    font-family: 'Lato';
+  .sidebar > ul > div > a > li:hover {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
     background-color: #ffe9d8;
     color: rgb(126, 120, 120);
-}
+  }
 
-.sidebar>ul>div>a {
+  .sidebar > ul > div > a {
     text-decoration: none;
-}
+  }
 
-.general_details_box {
-
+  .general_details_box {
     /* border: 1px solid red; */
     width: 100%;
-}
+  }
 
-.general_details_box>p:nth-child(1) {
-    font-family: 'Rubik';
+  .general_details_box > p:nth-child(1) {
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 700;
     font-size: 35px;
     line-height: 62px;
-    color: #170F49;
+    color: #170f49;
     /* border: 1px solid red; */
     width: 100%;
-}
+  }
 
-
-hr {
+  hr {
     border: 2px solid rgba(42, 40, 40, 0.3);
-}
+  }
 
-.name {
-    font-family: 'Rubik';
+  .name {
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
@@ -83,14 +81,14 @@ hr {
     color: #000000;
     margin-left: 3%;
     /* border: 1px solid red; */
-}
+  }
 
-.input_box {
+  .input_box {
     margin-left: 11%;
-}
+  }
 
-.button_box {
-    font-family: 'Rubik';
+  .button_box {
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -101,9 +99,9 @@ hr {
     color: #000000;
 
     opacity: 0.75;
-}
+  }
 
-.create_account_btn {
+  .create_account_btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -111,6 +109,7 @@ hr {
     padding: 18px 24px;
     gap: 4px;
     margin-left: 80%;
+    margin-bottom: 20px;
     width: 171px;
     height: 54px;
     background: black;
@@ -120,9 +119,9 @@ hr {
     order: 0;
     flex-grow: 0;
     margin-top: 20px;
-}
+  }
 
-.create_account_btn:hover {
+  .create_account_btn:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -135,15 +134,268 @@ hr {
     background: #ebe9ee;
     color: #554284;
     border-radius: 76px;
+  }
 
-}
-
-.text_bold {
+  .text_bold {
     font-family: Rubik;
     font-size: 22px;
     font-weight: 550;
     /* line-height: 31px; */
     letter-spacing: 0em;
     /* text-align: left; */
+  }
+}
 
+/* ----------------------------------- */
+
+/* for tablet view */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .editprofile {
+        border: 1px solid red;
+        height: 500px;
+        margin-top: 70px;
+      }
+    
+      .mainbox {
+        width: 98%;
+        margin: auto;
+      }
+    
+      .secondbox {
+        /* padding-top: 40px; */
+    
+        /* border: 1px solid yellow; */
+        width: 90%;
+        margin: auto;
+        display: flex;
+        /* justify-content: space-between; */
+        gap: 50px;
+        margin-top: 130px;
+      }
+    
+      .sidebar {
+        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+        width: 20%;
+        /* border: 1px solid red; */
+      }
+    
+      .sidebar > ul > div > a > li {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        list-style: none;
+        color: rgb(126, 120, 120);
+      }
+    
+      .sidebar > ul > div > a > li:hover {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        background-color: #ffe9d8;
+        color: rgb(126, 120, 120);
+      }
+    
+      .sidebar > ul > div > a {
+        text-decoration: none;
+      }
+    
+      .general_details_box {
+        /* border: 1px solid red; */
+        width: 100%;
+      }
+    
+      .general_details_box > p:nth-child(1) {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 62px;
+        color: #170f49;
+        /* border: 1px solid red; */
+        width: 100%;
+      }
+    
+      hr {
+        border: 2px solid rgba(42, 40, 40, 0.3);
+      }
+    
+      .name {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 45px;
+        color: #000000;
+        margin-left: 3%;
+        /* border: 1px solid red; */
+      }
+    
+      .input_box {
+        margin-left: 11%;
+      }
+    
+      .button_box {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        /* line-height: 21px; */
+    
+        margin-left: 48%;
+    
+        color: #000000;
+    
+        opacity: 0.75;
+      }
+      .create_account_btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 18px 24px;
+        gap: 4px;
+        margin-left: 80%;
+        margin-bottom: 20px;
+        width: 171px;
+        height: 54px;
+        background: black;
+        color: white;
+        border-radius: 76px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin-top: 20px;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    
+      .create_account_btn:hover {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 18px 24px;
+        gap: 4px;
+        margin-left: 80%;
+        width: 171px;
+        height: 54px;
+        background: #ebe9ee;
+        color: #554284;
+        border-radius: 76px;
+      }
+    
+      .text_bold {
+        font-family: Rubik;
+        font-size: 22px;
+        font-weight: 550;
+        /* line-height: 31px; */
+        letter-spacing: 0em;
+        /* text-align: left; */
+      }
+}
+
+/* --------------------------------------- */
+
+/* for mobile view */
+
+@media (max-width: 768px) {
+  .mainbox {
+    width: 100%;
+    margin: auto;
+  }
+
+  .secondbox {
+    /* border: 1px solid red; */
+    width: 100%;
+    /* margin: auto; */
+    display: flex;
+    justify-content: space-between;
+    /* gap: 50px; */
+    margin-top: 100px;
+  }
+  .sidebar{
+    width: 45%;
+    font-size: 12px;
+    margin-left: -20px;
+  }
+  .sidebar > ul > div > a > li {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    list-style: none;
+    color: rgb(126, 120, 120);
+  }
+
+  .sidebar > ul > div > a > li:hover {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    background-color: #ffe9d8;
+    color: rgb(126, 120, 120);
+  }
+
+  .sidebar > ul > div > a {
+    text-decoration: none;
+  }
+  .general_details_box{
+    width: 60%;
+    padding: 0 10px 20px 0;
+    /* margin-top: -20px; */
+  }
+  .general_details_box > p:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .text_bold {
+    font-family: Rubik;
+    font-size: 15px;
+    font-weight: 550;
+    /* line-height: 31px; */
+    letter-spacing: 0em;
+    /* text-align: left; */
+  }
+  .create_account_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 4px;
+    margin-left: 80%;
+    margin-bottom: 20px;
+    width: 171px;
+    height: 54px;
+    background: black;
+    color: white;
+    border-radius: 76px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .create_account_btn:hover {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 4px;
+    margin-left: 80%;
+    width: 171px;
+    height: 54px;
+    background: #ebe9ee;
+    color: #554284;
+    border-radius: 76px;
+  }
 }

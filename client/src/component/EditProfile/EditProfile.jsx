@@ -2,9 +2,7 @@ import React from 'react'
 import style from "./EditProfile.module.css"
 import CollapsibleExample from '../Navbar/Navbar'
 import Form from 'react-bootstrap/Form';
-// import Avatar from '@mui/material/Avatar';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-// import CircleNotificationsOutlinedIcon from '@mui/icons-material/CircleNotificationsOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import DeviceUnknownOutlinedIcon from '@mui/icons-material/DeviceUnknownOutlined';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
@@ -15,9 +13,7 @@ const EditProfile = () => {
   return (
     <>
       <div className={style.mainbox}>
-
         <CollapsibleExample />
-
         <div className={style.secondbox}>
           <div className={style.sidebar}>
             <ul>
@@ -27,7 +23,7 @@ const EditProfile = () => {
               <br />
               <div style={{ display: "flex", gap: "10px" }}>
                 <ModeEditOutlinedIcon /> <a href=""><li>Notification</li></a>
-              </div>
+              </div> 
               <br />
               <div style={{ display: "flex", gap: "10px" }}>
                 <SecurityOutlinedIcon /><a href=""><li>Security</li></a>
@@ -62,7 +58,7 @@ const EditProfile = () => {
                 <Form.Label className={style.text_bold}>Contact Number</Form.Label>
                 <Form.Control type="number" placeholder="Enter Your Mobile Number" />
               </Form.Group>
-              <div style={{ display: "flex", gap: "300px" }}>
+              <div>
                 <div>
                   <Form.Label className={style.text_bold} htmlFor="inputPassword5">City</Form.Label>
                   <Form.Select aria-label="Default select example">
