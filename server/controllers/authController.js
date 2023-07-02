@@ -166,18 +166,19 @@ export const testController = (req, res) => {
   }
 };
 
-//update prfole
-export const updateProfileController = async (req, res) => {
+export const updateAdminProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;
-    const user = await userModel.findById(req.user._id);
+    console.log(req.body)
+    const user = await userModel.find({email});
     //password
+   
     if (password && password.length < 6) {
       return res.json({ error: "Passsword is required and 6 character long" });
     }
     const hashedPassword = password ? await hashPassword(password) : undefined;
-    const updatedUser = await userModel.findByIdAndUpdate(
-      req.user._id,
+    const updatedUser = await userModel.findOneAndUpdate(
+      { email: email },
       {
         name: name || user.name,
         password: hashedPassword || user.password,
@@ -426,3 +427,4 @@ export const DeleteUsers=async(req,res)=>{
     })
   }
 }
+

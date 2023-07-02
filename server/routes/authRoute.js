@@ -12,6 +12,7 @@ import {
   updateWalletAccount,
   updateWalletDeduct,
   DeleteUsers,
+  updateAdminProfileController
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
@@ -68,5 +69,6 @@ router.put(
 router.post("/wallet",updateWalletAccount)
 //deduct the money 
 router.post("/deduct",updateWalletDeduct)
+router.put("/adminprofile",updateAdminProfileController)
 
 export default router;

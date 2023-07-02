@@ -6,12 +6,13 @@ import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
 import WalletPopDeduct from "../Wallet/WalletPopDeduct";
 import WalletPop from "../Wallet/WalletPop";
+import Practice from "../Editbutton/Practice";
 const Users = () => {
   const [userdata, setUserdata] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [showDeductPopup, setShowDeductPopup] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [profiledata,setProfiledata]=useState([])
+  const [profiledata, setProfiledata] = useState([])
   console.log(showPopup);
   const getallusers = async () => {
     try {
@@ -52,6 +53,10 @@ const Users = () => {
   // const closePopup = () => {
   //   setShowPopup(false);
   // };
+  const handleProfileData=(e)=>{
+    setProfiledata(e)
+     }
+     console.log("edit data",profiledata)
 
   const handleDelete = (id) => {
     axios
@@ -92,16 +97,16 @@ const Users = () => {
                   Add Money
                 </button>
               </div> */}
-               <div style={{display:"flex"}}>
-              <div>
-              <button onClick={openPopup} style={{height:"40px",padding:"5px",borderRadius:"10px", backgroundColor:"gray",color:"white"}}> Add Money</button>
-              {showPopup && <WalletPop onClose={closePopup} />}
-              </div>
-              
-              <div>
-              <button onClick={openDeductPopup} style={{height:"40px",padding:"5px",borderRadius:"10px", backgroundColor:"gray",color:"white",marginLeft:"20px"}}> Deduct Money</button>
-              {showDeductPopup && <WalletPopDeduct onClose={closeDeductPopup} />}
-              </div>
+              <div style={{ display: "flex" }}>
+                <div>
+                  <button onClick={openPopup} style={{ height: "40px", padding: "5px", borderRadius: "10px", backgroundColor: "gray", color: "white" }}> Add Money</button>
+                  {showPopup && <WalletPop onClose={closePopup} />}
+                </div>
+
+                <div>
+                  <button onClick={openDeductPopup} style={{ height: "40px", padding: "5px", borderRadius: "10px", backgroundColor: "gray", color: "white", marginLeft: "20px" }}> Deduct Money</button>
+                  {showDeductPopup && <WalletPopDeduct onClose={closeDeductPopup} />}
+                </div>
               </div>
             </div>
 
@@ -130,7 +135,15 @@ const Users = () => {
                         <td>order</td>
                         <td>{res.walletamount}</td>
                         <td>
-                          <button>Edit</button>
+                          <button
+                            onClick={() => {
+                              handleProfileData(res);
+                              openEditPopup();
+                            }}
+                          >
+                            Edit
+                          </button>
+                          {isPopupOpen && <Practice onClose={closeEditPopup} profiledata={profiledata} />}
                         </td>
                         <td>
                           <button onClick={() => handleDelete(res._id)}>
