@@ -39,6 +39,7 @@ import PrivateRoute from "../Higherorderfunction/PrivateRoute";
 
 import ForgotPasssword from "../Login/ForgetPassword";
 import CreateProducts2 from "../../pages/Admin/CreateProducts/CreateProducts2";
+
 // import AdminRoutes from "../../pages/Admin/AdminRoutes/AdminRoutes";
 
 const AllRoutes = () => {
