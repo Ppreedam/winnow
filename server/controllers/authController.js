@@ -201,7 +201,7 @@ export const testController = (req, res) => {
 
 export const updateAdminProfileController = async (req, res) => {
   try {
-    const { name, email, password, address, phone } = req.body;
+    const { name, email, password, address, phone,role } = req.body;
     console.log(req.body)
     const user = await userModel.find({email});
     //password
@@ -217,6 +217,7 @@ export const updateAdminProfileController = async (req, res) => {
         password: hashedPassword || user.password,
         phone: phone || user.phone,
         address: address || user.address,
+        role:role || user.role
       },
       { new: true }
     );

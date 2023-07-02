@@ -1,7 +1,7 @@
 {
-  "name": "ecommerce-app-2023",
+  "name": "winnow",
   "version": "1.0.0",
-  "description": "ecommerce rest api",
+  "description": "winnow rest api",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
     "server": "node server.js"
   },
   "keywords": [],
-  "author": "jirukshatech",
+  "author": "jirukshtech",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",

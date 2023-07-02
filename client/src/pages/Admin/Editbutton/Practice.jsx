@@ -16,6 +16,7 @@ const Practice = ({onClose,profiledata}) => {
       setPhone(phone);
       setEmail(email);
       setAddress(address);
+      
     }, [profiledata]);
   // console.log(name,phone,email,address)
     const handleSubmit = async (e) => {
