@@ -28,7 +28,7 @@ const CreateProducts = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/category/get-category"
+        "http://localhost:8000/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -102,7 +102,7 @@ const CreateProducts = () => {
               className={style.productName}
               onChange={(e) => setPhoto(e.target.value)}
             />
-            <img src={photo} style={{height:"300px", width:"500px"}}/>
+            {/* <img src={photo} style={{height:"300px", width:"500px"}}/> */}
             <div className={style.categoryImage}>
               <label className="btn btn-outline-secondary col-md-12">
                 {photo ? photo.name : "Upload Photo"}

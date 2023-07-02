@@ -106,7 +106,7 @@ const AllRoutes = () => {
           path="/admin/createproduct"
           element={
             <PrivateRoute>
-              <CreateProducts />
+              <CreateProducts2 />
             </PrivateRoute>
           }
         />
