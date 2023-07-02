@@ -17,9 +17,9 @@ const Practice = ({onClose,profiledata}) => {
       setEmail(email);
       setAddress(address);
     }, [profiledata]);
-  console.log(name,phone,email,address)
+  // console.log(name,phone,email,address)
     const handleSubmit = async (e) => {
-   
+
       e.preventDefault();
       try {
         const { data } = await axios.put("http://localhost:8000/api/v1/auth/adminprofile", {
