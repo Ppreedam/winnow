@@ -27,11 +27,24 @@ const Winow = () => {
   // console.log(product["photo"]);
   console.log(product);
 
+  const totaldays = (startdate) => {
+    // const startDate = new Date("2023-06-01T00:00:00.000Z");
+    const startDate = new Date(startdate);
+    const currentDate = new Date();
+
+    // Calculate the difference in milliseconds between the two dates
+    const timeDiff = Math.abs(currentDate.getTime() - startDate.getTime());
+
+    // Calculate the number of days by dividing the time difference by the number of milliseconds in a day
+    const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return numDays
+  }
+
   //get all products
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/product/get-product"
+        "http://localhost:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
@@ -100,9 +113,9 @@ const Winow = () => {
   ];
   const [auth, setAuth] = useContext(AuthContext);
   console.log(auth.token);
-  const InvestNowhandle = () => {
-    navigate("/comingsoon");
-  };
+  // const InvestNowhandle = () => {
+  //   navigate("productDesc/1");
+  // };
   return (
     <div className={style.main}>
       <CollapsibleExample />
@@ -189,27 +202,29 @@ const Winow = () => {
         <div className={style.Home_third_part_box}>
           {product.map((e) => (
             <div className={style.Home_third_part_box_div}>
-              <img src={e.photo} alt="" style={{height:"215px"}}/>
+              <img src={`/uploads/${e.imgpath}`} alt="" style={{ height: "215px" }} />
               <p className={style.Home_third_part_box_div_text}>
-                {e.name}
+                {e.fname}
               </p>
               <hr className={style.Home_third_part_box_div_hr} />
               <div className={style.Home_third_part_box_div_funde}>
                 <div>{e.funded} % Funded</div>
                 <div>{e.backers} Backers</div>
-                <div>19 Days to go</div>
+                <div>{totaldays(e.date)} Days to go</div>
               </div>
-              <ProgressBarcom />
+              <ProgressBarcom totalFund={e.totalFund} fundRaised={e.fundRaised}/>
               <div className={style.Home_third_part_box_button}>
                 <button>High Rated</button>
                 <button>Fast Filling</button>
               </div>
               <div className={style.Home_third_part_box_hover_button}>
-                <button onClick={InvestNowhandle}>Invest Now</button>
+                <button onClick={(e)=>navigate(`productDesc/${e._id}`)}>Invest Now</button>
               </div>
             </div>
           ))}
+
         </div>
+
       </div>
       {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
       <div className={style.Home_fourth_part}>
