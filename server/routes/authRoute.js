@@ -64,11 +64,11 @@ router.put(
   isAdmin,
   orderStatusController
 );
-
+router.put("/adminprofile",updateAdminProfileController)
 //walllet Updated
 router.post("/wallet",updateWalletAccount)
 //deduct the money 
 router.post("/deduct",updateWalletDeduct)
-router.put("/adminprofile",updateAdminProfileController)
+
 
 export default router;
