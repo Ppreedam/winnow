@@ -8,7 +8,7 @@ const Comingsoon = () => {
     <CollapsibleExample/>
     <div className={style.comingsoon_mainbox}>
         <div >
-            <img style={{height:"100%",width:"100%"}} src="coming soon gif.gif" alt="coming_soon" />
+            <img style={{height:"100%",width:"100%"}} src="https://static.wixstatic.com/media/6d62b3_bbaeb44fc6b04ead8a943ca65cbfe375~mv2.gif" alt="coming_soon" />
         </div>
     </div>
     </>

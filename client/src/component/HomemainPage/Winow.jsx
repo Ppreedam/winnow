@@ -31,7 +31,7 @@ const Winow = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/product/get-product"
+        "https://winnow-backend-api.onrender.com/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
@@ -101,7 +101,7 @@ const Winow = () => {
   const [auth, setAuth] = useContext(AuthContext);
   console.log(auth.token);
   const InvestNowhandle = () => {
-    navigate("/investnow");
+    navigate("/comingsoon");
   };
   return (
     <div className={style.main}>

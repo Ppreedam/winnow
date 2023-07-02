@@ -102,8 +102,8 @@ const CreateProducts = () => {
               className={style.productName}
               onChange={(e) => setPhoto(e.target.value)}
             />
-            <img src={photo} style={{height:"300px", width:"500px"}}/>
-            {/* <div className={style.categoryImage}>
+            {/* <img src={photo} style={{height:"300px", width:"500px"}}/> */}
+            <div className={style.categoryImage}>
               <label className="btn btn-outline-secondary col-md-12">
                 {photo ? photo.name : "Upload Photo"}
                 <input
@@ -126,7 +126,7 @@ const CreateProducts = () => {
                   />
                 </div>
               )}
-            </div> */}
+            </div>
             <input
               type="text"
               value={name}

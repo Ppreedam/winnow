@@ -9,7 +9,7 @@ const WalletPop = ({ onClose }) => {
     e.preventDefault();
     // Perform any desired actions with the email and amount values
     // e.g., send them to a server, update state, etc.
-    axios.post("http://localhost:8000/api/v1/auth/wallet",{
+    axios.post("https://winnow-backend-api.onrender.com/api/v1/auth/wallet",{
       email,walletamount,reason
     }).then((res)=>{
       console.log(res)
