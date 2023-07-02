@@ -58,7 +58,7 @@ const CreateProducts = () => {
 
     try {
       const { data } = axios.post(
-        "http://localhost:8000/api/v1/product/create-product",
+         "http://localhost:8000/api/v1/product/create-product",
         obj
       );
       if (data?.success) {
@@ -188,7 +188,7 @@ const CreateProducts = () => {
             <div className="mb-3">
               <button
                 className={style.createProductButton}
-                onClick={handleCreate}
+                  onClick={handleCreate}
               >
                 CREATE PRODUCT
               </button>
