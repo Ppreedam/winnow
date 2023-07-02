@@ -5,6 +5,8 @@ import orderModel from "../models/orderModel.js";
 import fs from "fs";
 import slugify from "slugify";
 import dotenv from "dotenv";
+import createProductModels from "../models/CreateProductSchema.js";
+// import Products from "../models/productModel.js";
 
 dotenv.config();
 
@@ -36,10 +38,10 @@ export const createProductController = async (req, res) => {
 //get all products
 export const getProductController = async (req, res) => {
   try {
-    const products = await productModel
+    const products = await createProductModels
       .find({})
-      .populate("category")
-      .limit(12)
+      .populate("categories")
+      .limit(3)
       .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
