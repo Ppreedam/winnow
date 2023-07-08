@@ -35,22 +35,22 @@ function CollapsibleExample() {
               <Nav className="me-auto">
                 <div className="hovereffect">
                   <Link to="/formproduct" className="textdecoration">
-                    <p className="textcolorfont">HOW_IT_WORKS</p>
+                    <p className="textcolorfont">How_it_works</p>
                   </Link>
                 </div>
                 <div className="hovereffect">
                   <Link to="/comingsoon" className="textdecoration">
-                    <p className="textcolorfont">STRATEGIES</p>
+                    <p className="textcolorfont">Strategies</p>
                   </Link>
                 </div>
                 <div className="hovereffect">
                   <Link to="/comingsoon" className="textdecoration">
-                    <p className="textcolorfont">RESEARCH&INSIGHT</p>
+                    <p className="textcolorfont">Research&Insights</p>
                   </Link>
                 </div>
                 <div className="hovereffect">
                   <Link to="/comingsoon" className="textdecoration">
-                    <p className="textcolorfont">ABOUTUS</p>
+                    <p className="textcolorfont">AboutUs</p>
                   </Link>
                 </div>
                 {/* <div className='hovereffect'><Link className='textdecoration'><p className='textcolorfont'>STUDENTS</p></Link></div> */}
@@ -61,13 +61,15 @@ function CollapsibleExample() {
                     // style={{ marginRight: "10px" }}
                     variant="light"
                     onClick={login}
+                    style={{backgroundColor: "white", color:"black", borderRadius:"20px", fontSize:"15px", padding:"10px"}}
+
                   >
                     LogIn
                   </Button>
-                  <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d"}} >hello</Button>
+                  {/* <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d"}} >hello</Button> */}
                   <Button
                     onClick={signUp}
-                    style={{ color: "white", backgroundColor: "#554284"}}
+                    style={{ color: "white", backgroundColor: "#554284", marginLeft:"20px", borderRadius:"20px", fontSize:"15px"}}
                   >
                     Create Account
                   </Button>

@@ -1,13 +1,15 @@
 .navbar {
     /* border-top: 5px solid #22a4c7; */
-    /* height: 70px; */
+    height: 70px;
     /* position: fixed;
     margin-top: 0px; */
-    background-color: #ed802d;
+    /* background-color: #ed802d; */
+    background-color: #f27c22;
+    /* border: 1px solid black; */
     /* background: linear-gradient(180deg, #f27c22 10%, #ffab6b 100%) */
 }
 .navlogo{
-    height: 50px;
+    height: 100%;
     margin-top: -10px;
 }
 .navpurple{
@@ -15,11 +17,10 @@
     /* border-radius: 50%; */
     color: white;
 }
-.homeicon {
-    /* background-color: #22a4c7; */
-    height: 40px;
+/* .homeicon {
+    height: 10px;
     width: 40px;
-}
+} */
 
 .fa-house-chimney {
     margin-left: 10px;
@@ -27,12 +28,10 @@
 
 .textcolorfont {
     font-family: Arial, sans-serif;
-    /* border: 1px solid red; */
-    color: white;
     margin-top: 11px;
     font-size: 15px;
     margin-left: 10px;
-
+    color: white;
 }
 
 .textcolorfont:hover {
@@ -49,7 +48,7 @@
     margin-left: 5%;
 }
 .me-auto{
-    margin-left: 20%
+    margin-left: 10%;
 }
 
 .hovereffect:hover {

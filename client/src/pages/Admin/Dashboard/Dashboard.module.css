@@ -35,6 +35,7 @@
 .MainDash {
   display: flex;
   flex-direction: column;
+  gap: 30px;
   padding: 60px 60px 0 60px;
 }
 
