@@ -6,6 +6,7 @@ const ProgresBar = () => {
     var Grow_amount = 1.62
 
     const percentage_of_grow = (Grow_amount / Total_investment) * 100
+    
     return (
         <div style={{ width: "90%", margin: "auto", paddingTop: "10px" }} >
             <div style={{ display: "flex", gap: "60px" }}>

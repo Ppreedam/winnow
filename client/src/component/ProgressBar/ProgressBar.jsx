@@ -2,15 +2,16 @@ import React from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const ProgressBarcom = (props) => {
-   var Total_investment = 2.5
-   var Grow_amount = 1.62
+   var Total_investment = props.totalFund
+   var Grow_amount = props.fundRaised
 
+console.log(Total_investment,Grow_amount)   
    const percentage_of_grow = (Grow_amount/Total_investment)*100
   return (
     <div style={{width:"90%", margin:"auto",paddingTop:"10px"}} >
-        <ProgressBar animated now={percentage_of_grow} />
+        <ProgressBar variant="black" style={{height: "9px"}} now={percentage_of_grow} />
         <div style={{width:"100%",display:"flex",justifyContent:"space-between"}} >
-              <div><p>{props.fundRaised} Cr/{props.totalFund} Cr</p></div>
+              <div><p>{Grow_amount} Cr/{Total_investment} Cr</p></div>
               <div><p>{percentage_of_grow}% Complete</p></div>
             </div>
     </div>

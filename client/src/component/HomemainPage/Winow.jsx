@@ -213,6 +213,7 @@ const Winow = () => {
                 <div>{totaldays(e.date)} Days to go</div>
               </div>
               <ProgressBarcom totalFund={e.totalFund} fundRaised={e.fundRaised}/>
+              {/* <ProgressBarcom1/> */}
               <div className={style.Home_third_part_box_button}>
                 <button>High Rated</button>
                 <button>Fast Filling</button>
