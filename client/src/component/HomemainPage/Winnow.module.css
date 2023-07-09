@@ -156,10 +156,10 @@
   }
 
   .text_box_Stock {
-    width: 90%;
-    font-size: 15px;
+    width: 100%;
+    font-size: 12px;
     line-height: 22px;
-    /* margin-top: 0px; */
+    margin-top: 10px;
   }
 
   .image_box {
@@ -176,15 +176,16 @@
   .text_box_button_main {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
 
   .text_box_button_main input {
-    width: 70%;
+    width: 50%;
   }
   .text_box_button_main button {
-    width: 30%;
-    font-size: 12px;
+    width: 15%;
+    font-size: 17px;
   }
   /* .text_box_button button {
     height: 30px;
@@ -262,11 +263,22 @@
   }
 
   .Home_second_part > div {
-    width: 80%;
+    width: 100%;
     margin: auto;
     height: fit-content;
     padding: 20px;
     text-align: center;
+  }
+  .Home_second_part_box_heading {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .Home_second_part_box_text {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 12px;
+    line-height: 20px;
   }
 }
 
@@ -306,6 +318,7 @@
 }
 
 .Home_third_part_box {
+  /* height: auto; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -321,7 +334,7 @@
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 19px;
   width: 387px;
-  height: 440px;
+  height: fit-content;
   padding-bottom: 20px;
 }
 .Home_third_part_box > div:hover {
@@ -526,14 +539,14 @@
   .Home_third_part_heading {
     width: 100%;
     padding-top: 30px;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .Home_third_part_text {
     width: 100%;
     padding: 10px 20px 10px 20px;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 20px;
   }
 
@@ -692,13 +705,16 @@
 
   .Home_fourth_part_box_1_heading {
     height: auto;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 20px;
+    text-align: left;
+    line-height: 30px;
   }
 
   .Home_fourth_part_box_1_text {
-    font-size: 14px;
+    font-size: 12px;
+    width: 100%;
     line-height: 24px;
+    text-align: left;
   }
 
   .Home_fourth_part_box_1_button {
@@ -713,91 +729,92 @@
 }
 
 /* --------------------------------------------fith_part------------------------------------- */
-.Home_fith_part {
-  width: 100%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  background: #554284;
-}
-.Home_fith_part_box_1 {
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 0 50px 0 50px;
-  
-}
-.Home_fith_part_box_2 {
-  width: 50%;
-  margin-top: 8%;
-  padding: 0 250px 0 150px;
-  color: white;
-}
-.Home_fith_part_box_2_heading{
-  font-size: 30px;
-  font-weight: 700;
-}
-.Home_fith_part_box_2_text{
-  color: rgb(178, 178, 178);
-}
-.Home_fith_part_box_1 div {
-  width: 70%;
-  margin: auto;
-}
-.ipo {
-  width: 20%;
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 10px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.realState {
-  height: 200px;
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 10px;
-}
-.blueChip {
-  text-align: center;
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 10px;
-}
-.Home_fith_part_box_1_heading{
-  font-size: 25px;
-}
-.Home_fith_part_box_1_text{
-  margin-top: 20px;
-  font-size: 15px;
-}
-.parentItem {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.item {
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 10px;
-}
+@media (min-width: 1024px) {
+  .Home_fith_part {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background: #554284;
+  }
+  .Home_fith_part_box_1 {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 50px 0 50px;
+  }
+  .Home_fith_part_box_2 {
+    width: 50%;
+    margin-top: 8%;
+    padding: 0 250px 0 150px;
+    color: white;
+  }
+  .Home_fith_part_box_2_heading {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .Home_fith_part_box_2_text {
+    color: rgb(178, 178, 178);
+  }
+  .Home_fith_part_box_1 div {
+    width: 70%;
+    margin: auto;
+  }
+  .ipo {
+    width: 20%;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .realState {
+    height: 200px;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .blueChip {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .Home_fith_part_box_1_heading {
+    font-size: 25px;
+  }
+  .Home_fith_part_box_1_text {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .parentItem {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .item {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+  }
 
-.Home_fith_part_box_2_button {
-  width: 159px;
-  height: 54px;
-  background: #ffffff;
-  border: 1px solid #d9dbe9;
-  border-radius: 76px;
+  .Home_fith_part_box_2_button {
+    width: 159px;
+    height: 54px;
+    background: #ffffff;
+    border: 1px solid #d9dbe9;
+    border-radius: 76px;
+  }
 }
 
 /* ---------------------------------------------------------responsive--------------------------------------------------------------- */
@@ -846,37 +863,90 @@
   .Home_fith_part {
     height: auto;
     display: flex;
-    padding: 0;
+    /* padding: 0; */
     margin: 0;
     flex-direction: column-reverse;
-  }
+    background: #554284;
 
-  .Home_fith_part > div {
-    width: 90%;
   }
-
   .Home_fith_part_box_1 {
-    grid-template-columns: 1fr;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    color: white;
   }
-  /* .Home_fith_part_box_2{
-    border: 1px solid black;
-   
-  } */
+  .parentItem {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .ipo {
+    width: 50%;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+  }
+  .realState {
+    width: 50%;
+    height: 120px;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    color: black;
+  }
+  .blueChip {
+    color: black;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .Home_fith_part_box_1_heading{
+    font-size: 15px;
+  }
+  .Home_fith_part_box_1_text{
+    font-size: 10px;
+  }
+  .Home_fith_part_box_2 {
+    margin: auto;
+    padding: 0;
+  }
   .Home_fith_part_box_2_heading {
     height: auto;
-    font-size: 32px;
+    width: auto;
+    font-size: 20px;
     line-height: 40px;
+    color: white;
   }
 
   .Home_fith_part_box_2_text {
     margin-top: 0;
-    font-size: 14px;
+    font-size: 11px;
     line-height: 24px;
+    color: white;
   }
 
   .Home_fith_part_box_2_button {
     width: 120px;
     height: 40px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    background: #ffffff;
+    border: 1px solid #d9dbe9;
+    border-radius: 76px;
   }
 }
 /* --------------------------------------------------------------remaining part---------------------------------- */
@@ -911,17 +981,17 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
 }
-.investment{
+.investment {
   border-radius: 6px;
   padding: 10px;
   color: white;
   text-align: left;
   /* background-color: red; */
 }
-.investment h3{
+.investment h3 {
   font-weight: 400;
 }
-.investment p{
+.investment p {
   font: 15px;
   color: rgb(178, 178, 178);
 }
@@ -958,19 +1028,22 @@
 
 @media (max-width: 480px) {
   .Home_investment_part {
+    /* width: 100%; */
     text-align: center;
     display: flex;
     background: #554284;
+    margin-top: -20px;
   }
 
   .Home_investment_part_box_1_heading {
+    width: 100%;
     height: auto;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .Home_investment_part > div {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding: 10px;
   }
@@ -980,19 +1053,16 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
+  .investment p {
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .Home_investment_part_box_2 > img {
+    width: 100%;
+    height: auto;
+  }
 }
-/* 
-.Home_investment_part_box_1 > div {
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 6px;
-  padding: 10px;
-} */
-
-/* .Home_investment_part_box_2 > img {
-  width: 100%;
-  height: auto;
-} */
 
 /* -------------------------------------------seventh_part-------------------------- */
 .Home_seventh_part {
@@ -1098,7 +1168,6 @@
     padding: 30px 0;
     display: flex;
     flex-direction: column-reverse;
-    text-align: center;
   }
 
   .Home_seventh_part > div {
@@ -1107,18 +1176,23 @@
 
   .Home_seventh_part_box_1_heading {
     height: auto;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: left;
   }
 
   .Home_seventh_part_box_1_text {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 11px;
+    text-align: left;
+    line-height: 15px;
   }
 
   .Home_seventh_part_box_1_button {
-    width: 150px;
+    width: 100px;
     height: 40px;
+    margin: left;
+    font-size: 10px;
   }
 
   .Home_seventh_part_box_2 > img {
@@ -1137,6 +1211,7 @@
   background: #554284;
   box-shadow: 0px 4px 100px rgba(74, 148, 154, 0.1);
   border-radius: 33px;
+  margin-bottom: 20px;
   /* border: 1px solid red; */
 }
 
@@ -1191,7 +1266,7 @@
     width: 90%;
     height: 200px;
     padding: 30px 0 30px 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
   .Home_eighth_part_heading {
@@ -1220,14 +1295,15 @@
     /* width: 90%; */
     height: 260px;
     padding: 20px 20px 20px 20px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
     /* border: 1px solid black; */
   }
 
   .Home_eighth_part_heading {
     width: 90%;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 23px;
+    line-height: 30px;
     margin-top: -40px;
   }
 
@@ -1237,11 +1313,11 @@
   }
 
   .text_box_button1 input {
-    width: 60%;
+    width: 85%;
     height: 36px;
   }
   .text_box_button1 button {
-    width: 40%;
+    width: 15%;
     height: 36px;
     font-size: 10px;
   }

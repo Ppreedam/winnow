@@ -22,7 +22,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://winnow-backend-api.onrender.com/api/v1/auth/register",
+        "http://localhost:8000/api/v1/auth/register",
         {
           name,
           email,

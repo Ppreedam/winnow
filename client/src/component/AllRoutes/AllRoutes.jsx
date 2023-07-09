@@ -40,6 +40,8 @@ import PrivateRoute from "../Higherorderfunction/PrivateRoute";
 import ForgotPasssword from "../Login/ForgetPassword";
 import CreateProducts2 from "../../pages/Admin/CreateProducts/CreateProducts2";
 import ProductDescription from "../ProductDescriptionPage/ProductDescription";
+import Demoligin from "../Login/Demoligin";
+import Demosigup from "../Register/Demosigup";
 
 // import AdminRoutes from "../../pages/Admin/AdminRoutes/AdminRoutes";
 
@@ -56,8 +58,8 @@ const AllRoutes = () => {
       </Routes> */}
       <Routes>
         <Route exact path="/" element={<Winow />} />
-        <Route exact path="/user/login" element={<Login />} />
-        <Route exact path="/user/register" element={<Register />} />
+        <Route exact path="/user/login" element={<Demoligin />} />
+        <Route exact path="/user/register" element={<Demosigup />} />
 
         <Route exact path="/user/gorget-password" element={<ForgotPasssword />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
