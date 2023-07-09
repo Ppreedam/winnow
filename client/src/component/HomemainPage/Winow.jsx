@@ -45,7 +45,7 @@ const Winow = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/product/get-product"
+        "https://winnow-backend-api.onrender.com/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
@@ -121,10 +121,12 @@ const Winow = () => {
 
           <div className={style.text_box_button_main}>
             <p>* Join our Newsletter to get lattest updates</p>
-            <input type="text" placeholder="Enter your email" />
-            <button>
-              <BsCheck2 />
-            </button>
+            <div>
+              <input type="text" placeholder="Enter your email" />
+              <button>
+                <BsCheck2 />
+              </button>
+            </div>
           </div>
         </div>
         <div className={style.image_box}>
@@ -200,11 +202,14 @@ const Winow = () => {
                 <div>{e.backers} Backers</div>
                 <div>{totaldays(e.date)} Days to go</div>
               </div>
+              {/* <ProgressBarcom
+                totalFund={e.totalFund}
+                fundRaised={e.fundRaised}
+              /> */}
               <ProgressBarcom
                 totalFund={e.totalFund}
                 fundRaised={e.fundRaised}
               />
-              <ProgressBarcom totalFund={e.totalFund} fundRaised={e.fundRaised}/>
               {/* <ProgressBarcom1/> */}
               <div className={style.Home_third_part_box_button}>
                 <button>High Rated</button>
@@ -266,6 +271,7 @@ const Winow = () => {
             </p>
           </div>
         </div>
+
         <div className={style.Home_fith_part_box_2}>
           <p className={style.Home_fith_part_box_2_heading}>
             Expert Strategies

@@ -6,7 +6,8 @@ const ProgressBarcom = (props) => {
    var Grow_amount = props.fundRaised
 
 console.log(Total_investment,Grow_amount)   
-   const percentage_of_grow = (Grow_amount/Total_investment)*100
+   const percentage_of_grow = ((Grow_amount/Total_investment)*100).toFixed(2)
+
   return (
     <div style={{width:"90%", margin:"auto",paddingTop:"10px"}} >
         <ProgressBar variant="black" style={{height: "9px"}} now={percentage_of_grow} />
