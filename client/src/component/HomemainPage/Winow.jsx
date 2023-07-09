@@ -21,6 +21,7 @@ import { AuthContext } from "../Context/Auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { BsCheck2 } from "react-icons/bs";
 
 const Winow = () => {
   const [product, setProduct] = useState([]);
@@ -37,8 +38,8 @@ const Winow = () => {
 
     // Calculate the number of days by dividing the time difference by the number of milliseconds in a day
     const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    return numDays
-  }
+    return numDays;
+  };
 
   //get all products
   const getAllProducts = async () => {
@@ -64,32 +65,14 @@ const Winow = () => {
     {
       heading: "Pre-IPO Venture",
       text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
     },
     {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
+      heading: "Real Estate",
+      text: "Invest in highly-vetted commercial and residential real estate projects.",
     },
     {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
-    },
-    {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
-    },
-    {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
-    },
-    {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-      learn: "Learn More",
+      heading: "Blue-Chip Art",
+      text: "Invest in prized artworks from the world’s most renowned artists.",
     },
   ];
 
@@ -137,8 +120,11 @@ const Winow = () => {
           </p>
 
           <div className={style.text_box_button_main}>
+            <p>* Join our Newsletter to get lattest updates</p>
             <input type="text" placeholder="Enter your email" />
-            <button>Reserve Your Spot</button>
+            <button>
+              <BsCheck2 />
+            </button>
           </div>
         </div>
         <div className={style.image_box}>
@@ -202,16 +188,22 @@ const Winow = () => {
         <div className={style.Home_third_part_box}>
           {product.map((e) => (
             <div className={style.Home_third_part_box_div}>
-              <img src={`/uploads/${e.imgpath}`} alt="" style={{ height: "215px" }} />
-              <p className={style.Home_third_part_box_div_text}>
-                {e.fname}
-              </p>
+              <img
+                src={`/uploads/${e.imgpath}`}
+                alt=""
+                style={{ height: "215px" }}
+              />
+              <p className={style.Home_third_part_box_div_text}>{e.fname}</p>
               <hr className={style.Home_third_part_box_div_hr} />
               <div className={style.Home_third_part_box_div_funde}>
                 <div>{e.funded} % Funded</div>
                 <div>{e.backers} Backers</div>
                 <div>{totaldays(e.date)} Days to go</div>
               </div>
+              <ProgressBarcom
+                totalFund={e.totalFund}
+                fundRaised={e.fundRaised}
+              />
               <ProgressBarcom totalFund={e.totalFund} fundRaised={e.fundRaised}/>
               {/* <ProgressBarcom1/> */}
               <div className={style.Home_third_part_box_button}>
@@ -219,30 +211,25 @@ const Winow = () => {
                 <button>Fast Filling</button>
               </div>
               <div className={style.Home_third_part_box_hover_button}>
-                <button onClick={(e)=>navigate(`productDesc/${e._id}`)}>Invest Now</button>
+                <button onClick={(e) => navigate(`productDesc/${e._id}`)}>
+                  Invest Now
+                </button>
               </div>
             </div>
           ))}
-
         </div>
-
       </div>
       {/* ----------------------------------------Forth_part------------------------------------------------------------  */}
       <div className={style.Home_fourth_part}>
         <div className={style.Home_fourth_part_box_1}>
-          <div>
-            <p className={style.Home_fourth_part_box_1_heading}>
-              You choose the strategy, We do the rest.
-            </p>
-          </div>
+          <p className={style.Home_fourth_part_box_1_heading}>
+            You choose the strategy, We do the rest.
+          </p>
           <p className={style.Home_fourth_part_box_1_text}>
             Easily allocate your Winnow portfolio across several asset classes
             with the swipe of a finger. Tell us what you're looking for and
             we'll build you a custom portfolio of highly-curated assets.
           </p>
-          <button className={style.Home_fourth_part_box_1_button}>
-            How it works
-          </button>
         </div>
         <div className={style.Home_fourth_part_box_2}>
           <img src={phone} alt="" />
@@ -251,15 +238,33 @@ const Winow = () => {
       {/* -----------------------------------------------fith_part------------------------- */}
       <div className={style.Home_fith_part}>
         <div className={style.Home_fith_part_box_1}>
-          {expert.map((el) => {
-            return (
-              <div>
-                <h3>{el.heading}</h3>
-                <p>{el.text}</p>
-                <h4>{`${el.learn} ->`}</h4>
-              </div>
-            );
-          })}
+          <div className={style.parentItem}>
+            <div className={style.ipo}>
+              <h3 className={style.Home_fith_part_box_1_heading}>
+                Pre-IPO Venture
+              </h3>
+              <p className={style.Home_fith_part_box_1_text}>
+                Invest in the world’s top private companies.
+              </p>
+            </div>
+            <div className={style.realState}>
+              <h3 className={style.Home_fith_part_box_1_heading}>
+                Real Estate
+              </h3>
+              <p className={style.Home_fith_part_box_1_text}>
+                Invest in highly-vetted commercial and residential real estate
+                projects.
+              </p>
+            </div>
+          </div>
+          <div className={style.blueChip} id="blueChip">
+            <h3 className={style.Home_fith_part_box_1_heading}>
+              Blue-Chip Art
+            </h3>
+            <p className={style.Home_fith_part_box_1_text}>
+              Invest in prized artworks from the world’s most renowned artists.
+            </p>
+          </div>
         </div>
         <div className={style.Home_fith_part_box_2}>
           <p className={style.Home_fith_part_box_2_heading}>
@@ -271,7 +276,7 @@ const Winow = () => {
             the right investments for their portfolios.
           </p>
           <button className={style.Home_fith_part_box_2_button}>
-            How it works
+            All Strategies
           </button>
         </div>
       </div>
@@ -286,9 +291,6 @@ const Winow = () => {
             can limit your overall portfolio risk while enhancing your potential
             returns.
           </p>
-          <button className={style.Home_fourth_part_box_1_button}>
-            Our Research
-          </button>
         </div>
         <div className={style.Home_fourth_part_box_2}>
           <img src={garphic} alt="" />
@@ -303,7 +305,7 @@ const Winow = () => {
           <div className={style.Home_investment_part_box_1}>
             {investment.map((el) => {
               return (
-                <div>
+                <div className={style.investment}>
                   <h3>{el.heading}</h3>
                   <p>{el.text}</p>
                 </div>
@@ -345,7 +347,9 @@ const Winow = () => {
         </p>
         <div className={style.text_box_button1}>
           <input type="text" placeholder="Enter your email" />
-          <button>Reserve Your Spot</button>
+          <button>
+            <BsCheck2 />
+          </button>
         </div>
       </div>
     </div>

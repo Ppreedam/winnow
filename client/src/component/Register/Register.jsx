@@ -50,13 +50,13 @@ const Register = () => {
       <CollapsibleExample />
       <section>
         <div className="form_data">
-          <div className="form_heading">
+          {/* <div className="form_heading">
             <h1>Sign Up</h1>
             <p style={{ textAlign: "center" }}>
               We are glad that you will be using Our Website to manage <br />
               your tasks! We hope that you will get like it.
             </p>
-          </div>
+          </div> */}
 
           <form onSubmit={handleSubmit}>
             <h4 className="title">REGISTER FORM</h4>
