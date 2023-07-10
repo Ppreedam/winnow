@@ -1,19 +1,10 @@
-.navbar {
-    /* border-top: 5px solid #22a4c7; */
-    height: 70px;
-    /* position: fixed;
-    margin-top: 0px; */
-    /* background-color: #ed802d; */
-    background-color: #f27c22;
-    /* border: 1px solid black; */
-    /* background: linear-gradient(180deg, #f27c22 10%, #ffab6b 100%) */
-}
+
 .navlogo{
     height: 100%;
     margin-top: -10px;
 }
 .navpurple{
-    /* background-color: #554284; */
+    background-color: #554284;
     /* border-radius: 50%; */
     color: white;
 }
