@@ -1204,6 +1204,7 @@
 
   .Home_seventh_part_box_2 > img {
     width: 100%;
+    margin-left: 0px;
     height: auto;
   }
 }

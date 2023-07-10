@@ -3,6 +3,7 @@
     /* border: 1px solid black; */
     width: 98%;
     margin: auto;
+    margin-bottom: 20px;
   }
 
   .secondbox {
@@ -189,19 +190,19 @@
     margin-left:108px;
   }
   .email_input_box{
-    margin-left: 200px;
+    margin-left: 108px;
   }
   .phone_input_box{
-    margin-left: 190px;
+    margin-left: 100px;
   }
   .occupation_input_box{
-    margin-left: 140px;
+    margin-left: 50px;
   }
   .din_input_box{
-    margin-left: 140px;
+    margin-left: 50px;
   }
   .nominee_input_box{
-    margin-left: 10px;
+    margin-left: 20px;
   }
 
   .general_details_box {
@@ -231,6 +232,7 @@
     color: #000000;
     margin-left: 3%;
   }
+  
 
   .input_box {
     margin-left: 11%;
@@ -242,7 +244,7 @@
     font-weight: 400;
     font-size: 18px;
 
-    margin-left: 48%;
+    margin-left: 8%;
 
     color: #000000;
 
@@ -256,7 +258,7 @@
     align-items: center;
     padding: 18px 24px;
     gap: 4px;
-    margin-left: 80%;
+    margin-left: 40%;
     width: 171px;
     height: 54px;
     background: #554284;
@@ -280,7 +282,7 @@
     border-radius: 76px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   .mainbox {
     width: 98%;
     margin: auto;
@@ -333,8 +335,8 @@
   .general_details_box > p:nth-child(1) {
     font-family: "Rubik";
     font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
+    font-weight: 600;
+    font-size: 20px;
     line-height: 62px;
     color: #170f49;
     width: 100%;
@@ -347,30 +349,56 @@
   .name {
     font-family: "Rubik";
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 20px;
     line-height: 45px;
     color: #000000;
     margin-left: 3%;
   }
 
-  .input_box {
-    margin-left: 11%;
+  /* .name_input_box {
+    margin-left:108px;
   }
+  .email_input_box{
+    margin-left: 108px;
+  }
+  .phone_input_box{
+    margin-left: 100px;
+  }
+  .occupation_input_box{
+    margin-left: 50px;
+  }
+  .din_input_box{
+    margin-left: 50px;
+  }
+  .nominee_input_box{
+    margin-left: 20px;
+  } */
 
+  .general_details_box {
+    width: 100%;
+  }
+  input{
+    width: 90%;
+  }
   .button_box {
     font-family: "Rubik";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-
-    margin-left: 48%;
+    margin-top: 10px;
+    /* margin-left: 48%; */
 
     color: #000000;
 
     opacity: 0.75;
   }
-
+.button_box button{
+  border-radius: 10px;
+  background-color: #554284;
+  color: white;
+  font-size: 15px;
+}
   .create_account_btn {
     display: flex;
     flex-direction: row;
@@ -378,14 +406,15 @@
     align-items: center;
     padding: 18px 24px;
     gap: 4px;
-    margin-left: 10%;
     width: 171px;
     height: 54px;
     background: #554284;
+    color: white;
     border-radius: 76px;
     flex: none;
     order: 0;
     flex-grow: 0;
+    margin-bottom: 20px;
   }
   .create_account_btn:hover {
     display: flex;
