@@ -17,8 +17,8 @@ import "./App.css"
 function App() {
   return (
     <div className="mainRoute">
-      <AllRoutes />
-
+      {/* <AllRoutes /> */}
+      <CollapsibleExample/>
     </div>
   );
 }
