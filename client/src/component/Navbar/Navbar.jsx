@@ -66,10 +66,10 @@ function CollapsibleExample() {
                   >
                     LogIn
                   </Button>
-                  {/* <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d"}} >hello</Button> */}
+                  <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d",padding:"1px"}} >hello</Button>
                   <Button
                     onClick={signUp}
-                    style={{ color: "white", backgroundColor: "#554284", marginLeft:"20px", borderRadius:"20px", fontSize:"15px"}}
+                    style={{ color: "white", backgroundColor: "#554284", borderRadius:"20px", fontSize:"15px",padding:"10px"}}
                   >
                     Create Account
                   </Button>
