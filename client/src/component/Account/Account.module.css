@@ -44,12 +44,28 @@
   .sidebar > ul > a {
     text-decoration: none;
   }
-
-  .general_details_box {
-    /* border: 1px solid red; */
-    width: 100%;
+  .name_input_box {
+    margin-left: 198px;
+  }
+  .email_input_box{
+    margin-left: 200px;
+  }
+  .phone_input_box{
+    margin-left: 190px;
+  }
+  .occupation_input_box{
+    margin-left: 140px;
+  }
+  .din_input_box{
+    margin-left: 140px;
+  }
+  .nominee_input_box{
+    margin-left: 110px;
   }
 
+  .general_details_box {
+    width: 100%;
+  }
   .general_details_box > p:nth-child(1) {
     font-family: "Rubik";
     font-style: normal;
@@ -76,9 +92,9 @@
     /* border: 1px solid red; */
   }
 
-  .input_box {
-    margin-left: 11%;
-  }
+  /* .input_box {
+    margin-left: 50%;
+  } */
 
   .button_box {
     font-family: "Rubik";
@@ -87,7 +103,7 @@
     font-size: 18px;
     /* line-height: 21px; */
 
-    margin-left: 48%;
+    margin-left: 18%;
 
     color: #000000;
 
@@ -109,6 +125,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    color: white;
   }
   .create_account_btn:hover {
     display: flex;
@@ -125,7 +142,7 @@
     border-radius: 76px;
   }
 }
-@media (max-width: 1024px) and (min-width: 768px) {
+@media (max-width: 1024px) and (min-width: 767px) {
   .mainbox {
     width: 98%;
     margin: auto;
@@ -164,6 +181,27 @@
 
   .sidebar > ul > a {
     text-decoration: none;
+  }
+  .lines{
+    display: flex;
+  }
+  .name_input_box {
+    margin-left:108px;
+  }
+  .email_input_box{
+    margin-left: 200px;
+  }
+  .phone_input_box{
+    margin-left: 190px;
+  }
+  .occupation_input_box{
+    margin-left: 140px;
+  }
+  .din_input_box{
+    margin-left: 140px;
+  }
+  .nominee_input_box{
+    margin-left: 10px;
   }
 
   .general_details_box {
@@ -287,7 +325,7 @@
     width: 100%;
     margin-top: -30px;
   }
-  .general_details_box > p{
+  .general_details_box > p {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -340,7 +378,7 @@
     align-items: center;
     padding: 18px 24px;
     gap: 4px;
-    margin-left:10%;
+    margin-left: 10%;
     width: 171px;
     height: 54px;
     background: #554284;

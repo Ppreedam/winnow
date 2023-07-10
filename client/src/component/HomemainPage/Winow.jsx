@@ -91,7 +91,7 @@ const Winow = () => {
     },
     {
       heading: "Market Insights",
-      text: "IStay up-to-date on the latest news and trends related to alternative investing.",
+      text: "Stay up-to-date on the latest news and trends related to alternative investing.",
     },
   ];
   const [auth, setAuth] = useContext(AuthContext);
@@ -105,7 +105,7 @@ const Winow = () => {
       <div className={style.first_part}>
         <div className={style.text_box}>
           <p className={style.text_box_meet}>
-            Meet your Worl- <br />
+            Meet your World <br />
             <span>class</span>
             <span className={style.word}>
               {" "}

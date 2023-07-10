@@ -5,6 +5,7 @@ import bear from "./bull.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import LoginNavbar from "../Login/LoginNavbar";
 
 function Demosigup() {
   const [name, setName] = useState("");
@@ -46,7 +47,7 @@ function Demosigup() {
   };
   return (
     <>
-      <CollapsibleExample />
+      <LoginNavbar />
       <img className={styles.bear} src={bear} />
       <div className={styles.signup_container}>
         <form onSubmit={handleSubmit}>
