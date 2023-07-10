@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/Auth";
+import LoginNavbar from "./LoginNavbar";
 
 function Demoligin() {
   const [email, setEmail] = useState("");
@@ -56,7 +57,7 @@ function Demoligin() {
 
   return (
     <>
-      <CollapsibleExample />
+      <LoginNavbar />
       <img className={styles.bear} src={bear} />
       <div className={styles.login_container}>
         <form onSubmit={handleSubmit}>
