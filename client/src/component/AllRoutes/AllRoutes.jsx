@@ -71,7 +71,7 @@ const AllRoutes = () => {
         <Route exact path="/mywallet" element={<Wallet />} />
         <Route exact path="/account" element={<Account />} />
         <Route exact path="/formproduct" element={<CreateProducts/>} />
-        <Route exact path="productDesc/:id" element={<ProductDescription/>}/>
+        <Route exact path="/productDesc/:id" element={<ProductDescription/>}/>
         {/* <Route exact path="/admin" element={<AdminRoutes />} /> */}
         <Route
           exact
