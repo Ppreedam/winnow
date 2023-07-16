@@ -56,66 +56,50 @@ export default function AccountMenu() {
     marginLeft: "10px",
   };
   const user_profile = JSON.parse(localStorage.getItem("auth"));
-useEffect(()=>{
-    setUser(user_profile)
-},[]);
-
-
+  useEffect(() => {
+    setUser(user_profile);
+  }, []);
 
   return (
     <React.Fragment>
-      <Box
-        style={{
-          borderRadius: "50%",
-          height: "60px",
-          width: "60px",
-          backgroundColor: "white",
-        }}
-      >
-        <Badge
-          badgeContent={5}
-          color="primary"
-          style={{ marginTop: "16px", marginLeft: "14px" }}
+      <Box class="profileMenu">
+        <Box
+          style={{
+            borderRadius: "50%",
+            height: "60px",
+            width: "60px",
+            backgroundColor: "#554284",
+            color: "white",
+          }}
         >
-          <NotificationsNoneIcon />
-        </Badge>
-      </Box>
-
-      <Box
-        style={mainbox}
-        sx={{ borderRadius: "5px", backgroundColor: "white" }}
-        onClick={handleClick}
-      >
-        <Tooltip title="Account settings">
-          <IconButton
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
+          <Badge
+            badgeContent={5}
+            color="primary"
+            style={{ marginTop: "16px", marginLeft: "14px" }}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>
-              {user_profile.user.name[0]}
-              {/* <p>{}</p> */}
-              {/* <img style={googleimg} src={user ? user.photos[0].value || "H" : "asset/download.png" } /> */}
-            </Avatar>
-          </IconButton>
-        </Tooltip>
-        <Box>
-          <p
-            style={{
-              color: "black",
-              fontSize: "12px",
-              fontWeight: "500",
-              textAlign: "left",
-              paddingTop: "7px",
-            }}
-          >
-            <span>{user_profile.user.name}</span>
-            <br />
-            <span style={{ fontSize: "10px" }}>{user_profile.user.email}</span>
-          </p>
+            <NotificationsNoneIcon />
+          </Badge>
         </Box>
+
+        {/* <Box style={mainbox} sx={{ borderRadius: "50px" }} onClick={handleClick}> */}
+          <Tooltip
+            title="Account settings"
+            onClick={handleClick}
+            class="profileIcon"
+          >
+            <IconButton
+              size="small"
+              sx={{ ml: 2 }}
+              aria-controls={open ? "account-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+            >
+              <Avatar sx={{ width: 64, height: 64, fontSize: "30px" }}>
+                {user_profile.user.name[0]}
+              </Avatar>
+            </IconButton>
+          </Tooltip>
+        {/* </Box> */}
       </Box>
       <Menu
         anchorEl={anchorEl}

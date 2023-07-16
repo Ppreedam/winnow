@@ -74,19 +74,19 @@
     /*  */
 }
 
-/* @media (max-width:767px) {
+@media (max-width:767px) {
     .fa-magnifying-glass{
-        border: 1px solid red;
+        /* border: 1px solid red; */
         display: none;
     }
     
-} */
+}
 
 
-/* @media (max-width:500px) {
+@media (max-width:500px) {
     .fa-magnifying-glass{
-        border: 1px solid red;
+        /* border: 1px solid red; */
         display: none;
     }
     
-} */
+}

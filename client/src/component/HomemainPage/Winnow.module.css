@@ -44,10 +44,10 @@
   text-align: left;
   margin-top: -30px;
   /* border: 1px solid black; */
-  font-family: "Inter", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 30px;
   color: #ffffff;
 }
@@ -84,8 +84,9 @@
   border-bottom-right-radius: 10px;
 }
 .text_box_button_main p {
+  font-family: 'Roboto', sans-serif;
   color: white;
-  font-size: 12px;
+  font-size: 17px;
 }
 
 .text_box_button_main {
@@ -101,7 +102,7 @@
 /* -----------------------------------------------------------------tab view----------------------------------------- */
 @media (max-width: 768px) {
   .first_part {
-    padding-top: 70px;
+    padding-top: 100px;
     padding-bottom: 40px;
     margin: auto;
     gap: 20px;
@@ -120,8 +121,9 @@
 
   .text_box_Stock {
     width: 100%;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 26px;
+    font-family: 'Roboto', sans-serif;
   }
   .image_box img {
     width: 100%;
@@ -137,7 +139,7 @@
 /* Media Queries for Mobile View */
 @media (max-width: 480px) {
   .first_part {
-    padding-top: 70px;
+    padding-top: 100px;
     width: 100%;
     padding-bottom: 30px;
     display: flex;
@@ -156,8 +158,9 @@
   }
 
   .text_box_Stock {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 22px;
     margin-top: 10px;
   }
@@ -178,6 +181,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  .text_box_button_main p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+
   }
 
   .text_box_button_main input {
@@ -228,7 +236,7 @@
 
 .Home_second_part_box_text {
   margin-top: -20px;
-  font-family: "Inter";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -275,9 +283,10 @@
   }
 
   .Home_second_part_box_text {
+    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
   }
 }
@@ -308,7 +317,7 @@
   width: 588px;
   margin: auto;
   padding-top: 30px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -457,6 +466,7 @@
   }
 
   .Home_third_part_text {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     padding-top: 20px;
     font-size: 14px;
@@ -544,9 +554,10 @@
   }
 
   .Home_third_part_text {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     padding: 10px 20px 10px 20px;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 20px;
   }
 
@@ -635,7 +646,7 @@
 
 .Home_fourth_part_box_1_text {
   width: 87%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
@@ -671,6 +682,7 @@
   }
 
   .Home_fourth_part_box_1_text {
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 26px;
     text-align: center;
@@ -711,7 +723,8 @@
   }
 
   .Home_fourth_part_box_1_text {
-    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     width: 100%;
     line-height: 24px;
     text-align: left;
@@ -758,6 +771,7 @@
     font-weight: 700;
   }
   .Home_fith_part_box_2_text {
+    font-family: 'Roboto', sans-serif;
     color: rgb(178, 178, 178);
   }
   .Home_fith_part_box_1 div {
@@ -793,6 +807,7 @@
     font-size: 25px;
   }
   .Home_fith_part_box_1_text {
+    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     font-size: 15px;
   }
@@ -847,6 +862,7 @@
   }
 
   .Home_fith_part_box_2_text {
+    font-family: 'Roboto', sans-serif;
     margin-top: 0;
     font-size: 16px;
     line-height: 26px;
@@ -918,6 +934,7 @@
     font-size: 15px;
   }
   .Home_fith_part_box_1_text{
+    font-family: 'Roboto', sans-serif;
     font-size: 10px;
   }
   .Home_fith_part_box_2 {
@@ -933,8 +950,9 @@
   }
 
   .Home_fith_part_box_2_text {
+    font-family: 'Roboto', sans-serif;
     margin-top: 0;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 24px;
     color: white;
   }
@@ -992,6 +1010,7 @@
   font-weight: 400;
 }
 .investment p {
+  font-family: 'Roboto', sans-serif;
   font: 15px;
   color: rgb(178, 178, 178);
 }
@@ -1054,8 +1073,9 @@
     gap: 20px;
   }
   .investment p {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 2px;
   }
   .Home_investment_part_box_2 > img {
@@ -1103,7 +1123,7 @@
 }
 
 .Home_seventh_part_box_1_text {
-  font-family: "Inter", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -1153,6 +1173,7 @@
   }
 
   .Home_seventh_part_box_1_text {
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 26px;
   }
@@ -1190,9 +1211,10 @@
   }
 
   .Home_seventh_part_box_1_text {
-    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     text-align: left;
-    line-height: 15px;
+    line-height: 20px;
   }
 
   .Home_seventh_part_box_1_button {
