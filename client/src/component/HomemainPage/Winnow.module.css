@@ -3,7 +3,7 @@
   width: 100%; */
   font-family: "Inter", sans-serif;
 
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .word {
   color: rgba(23, 15, 73, 1);
@@ -554,7 +554,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
 
   .Home_third_part_box > div {

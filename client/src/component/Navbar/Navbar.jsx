@@ -34,7 +34,7 @@ function CollapsibleExample() {
             <Navbar.Collapse>
               <Nav className="me-auto">
                 <div className="hovereffect">
-                  <Link to="/formproduct" className="textdecoration">
+                  <Link to="/comingsoon" className="textdecoration">
                     <p className="textcolorfont">How_it_works</p>
                   </Link>
                 </div>
