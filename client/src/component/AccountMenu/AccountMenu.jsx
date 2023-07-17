@@ -62,12 +62,12 @@ export default function AccountMenu() {
 
   return (
     <React.Fragment>
-      <Box class="profileMenu">
+      <Box style={{display:"flex"}}>
         <Box
           style={{
             borderRadius: "50%",
-            height: "60px",
-            width: "60px",
+            height: "50px",
+            width: "50px",
             backgroundColor: "#554284",
             color: "white",
           }}
@@ -75,7 +75,7 @@ export default function AccountMenu() {
           <Badge
             badgeContent={5}
             color="primary"
-            style={{ marginTop: "16px", marginLeft: "14px" }}
+            style={{ marginTop: "12px", marginLeft: "11px" }}
           >
             <NotificationsNoneIcon />
           </Badge>
@@ -85,16 +85,17 @@ export default function AccountMenu() {
           <Tooltip
             title="Account settings"
             onClick={handleClick}
-            class="profileIcon"
+            // class="profileIcon"
+            style={{borderRadius:"50%",border:"none"}}
           >
             <IconButton
-              size="small"
+              // size="small"
               sx={{ ml: 2 }}
               aria-controls={open ? "account-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 64, height: 64, fontSize: "30px" }}>
+              <Avatar sx={{ width: 50, height: 50, fontSize: "30px", marginTop:"-5px" }}>
                 {user_profile.user.name[0]}
               </Avatar>
             </IconButton>
