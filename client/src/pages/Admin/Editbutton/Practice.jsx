@@ -34,7 +34,7 @@ const Practice = ({onClose,profiledata}) => {
         if (data?.errro) {
           toast.error(data?.error);
         } else {
-          
+          onClose()
           toast.success("Profile Updated Successfully");
         }
       } catch (error) {
