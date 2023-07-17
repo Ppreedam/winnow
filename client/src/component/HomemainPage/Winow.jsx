@@ -216,7 +216,7 @@ const Winow = () => {
                 <button>Fast Filling</button>
               </div>
               <div className={style.Home_third_part_box_hover_button}>
-                <button onClick={(e) => navigate(`productDesc/${e._id}`)}>
+                <button onClick={() => navigate(`productDesc/${e._id}`)}>
                   Invest Now
                 </button>
               </div>

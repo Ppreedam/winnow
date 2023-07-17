@@ -18,14 +18,16 @@ const ProductDescription = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   //initalp details
   useEffect(() => {
-    if (params?._id) getProduct();
-  }, [params?._id]);
+    if (params?.slug) getProduct();
+  }, [params?.slug]);
+  console.log("params._slug", params.slug)
 
   //getProduct
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `https://winnow-backend-api.onrender.com/api/v1/product/get-product/${params._id}`
+        // `https://winnow-backend-api.onrender.com/api/v1/product/get-product/${params.slug}`
+        `http://localhost:8000/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       //   getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -33,7 +35,7 @@ const ProductDescription = () => {
       console.log(error);
     }
   };
-  console.log(product);
+  console.log("getProduct", product);
   return (
     <>
       <CollapsibleExample />
@@ -41,17 +43,17 @@ const ProductDescription = () => {
         <div>
           <img
             className={style.mainbox_img}
-            src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2UlMjBwcm9wZXJ0eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            src={`/uploads/${product.imgpath}`}
             alt=""
           />
         </div>
         <div className={style.location}>
           <div>
             <p className={style.locationName}>
-              Navi Mumbai Office Opportunity I
+              {product.fname}
             </p>
             <p>
-              <RoomIcon /> Navi Mumbai
+              <RoomIcon /> {product.locationName}
             </p>
           </div>
           <div>
@@ -70,7 +72,7 @@ const ProductDescription = () => {
               />
             </div>
             <p className={style.icon_circle_paragraph}>
-              <p>₹ 28 lakhs</p>
+              <p>₹ {product.minInvestment} lakhs</p>
               <p>Min Investment</p>
             </p>
           </div>
@@ -85,7 +87,7 @@ const ProductDescription = () => {
               />
             </div>
             <p className={style.icon_circle_paragraph}>
-              <p>9 %</p>
+              <p>{product.rentalYield} %</p>
               <p>Rental Yield</p>
             </p>
           </div>
@@ -100,7 +102,7 @@ const ProductDescription = () => {
               />
             </div>
             <p className={style.icon_circle_paragraph}>
-              <p>12.9 %</p>
+              <p>{product.targetIRR} %</p>
               <p>Target IRR*</p>
             </p>
           </div>
@@ -115,14 +117,19 @@ const ProductDescription = () => {
               />
             </div>
             <p className={style.icon_circle_paragraph}>
-              <p>1.7x</p>
+              <p>{product.targetMultiple}x</p>
               <p>Target Multiple*</p>
             </p>
           </div>
         </div>
 
         <div className={style.progressbar}>
-          <ProgresBar />
+          <ProgresBar totalFund={product.totalFund}
+                fundRaised={product.fundRaised} 
+                totaldays={product.date}
+                backers={product.backers}
+                funded={product.funded}
+          />
         </div>
         {/* overview */}
         <div className={style.overview_mainbox}>
@@ -131,14 +138,15 @@ const ProductDescription = () => {
           </div>
           <div>
             <p>
-              This is an opportunity to invest in 19,356 sqft of office space in
+              {/* This is an opportunity to invest in 19,356 sqft of office space in
               L&T Seawoods Grand Central, Navi Mumbai. The asset is a
               world-class commercial property with an integrated mall,
               residencies, and suburban railway station. The tenant is a leading
-              port operator.
-              <br />
+              port operator. */}
+              {product.overview}
+              {/* <br />
               <br /> With long lease terms and a strong potential for capital
-              appreciation, the asset is an ideal long-term investment.
+              appreciation, the asset is an ideal long-term investment. */}
             </p>
           </div>
         </div>
@@ -150,11 +158,12 @@ const ProductDescription = () => {
           {/* <div ></div> */}
           <div>
             <p>
-              The asset is located in Seawoods, an upscale part of Navi Mumbai.
+              {/* The asset is located in Seawoods, an upscale part of Navi Mumbai.
               The property is well connected to the rest of the Mumbai
               Metropolitan Region by road, rail, and water services. With the
               upcoming Navi Mumbai airport, metro, and trans-harbour sea link,
-              the area is bound to see greater value appreciation.
+              the area is bound to see greater value appreciation. */}
+              {product.locationDesc}
             </p>
             <div>
               <iframe
@@ -174,7 +183,7 @@ const ProductDescription = () => {
             <p style={{ fontSize: "20px", fontWeight: "600" }}>
               Tenant Overview
             </p>
-            <p>The tenant is a leading port operator.</p>
+            <p>{product.tenancy}</p>
           </div>
         </div>
       </div>
