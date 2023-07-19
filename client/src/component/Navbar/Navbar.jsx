@@ -28,13 +28,13 @@ function CollapsibleExample() {
         >
           <Container>
             <Navbar.Brand href="/" className="homeicon">
-              <img className="navlogo" src="winnow.png" alt="" />
+              <img className="navlogo" src="winnow.png" alt="winnow logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse>
               <Nav className="me-auto">
                 <div className="hovereffect">
-                  <Link to="/formproduct" className="textdecoration">
+                  <Link to="/comingsoon" className="textdecoration">
                     <p className="textcolorfont">How_it_works</p>
                   </Link>
                 </div>

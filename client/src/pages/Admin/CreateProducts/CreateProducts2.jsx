@@ -18,6 +18,16 @@ const CreateProducts2 = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
 
+  const [assetvalue, setAssetvalue] = useState("");
+  const [minInvestment, setMinInvestment] = useState("");
+  const [rentalYield, setRentalYield] = useState("");
+  const [targetIRR, setTargetIRR] = useState("");
+  const [targetMultiple, setTargetMultiple] = useState("");
+  const [locationName, setLocationName] = useState("");
+  const [locationDesc, setLocationDesc] = useState("");
+  const [overview, setOverview] = useState("");
+  const [tenancy, setTenancy] = useState("");
+
   const history = useNavigate();
 
   const setdata = (e) => {
@@ -60,7 +70,16 @@ const CreateProducts2 = () => {
     formData.append("funded", funded);
     formData.append("totalFund", totalFund);
     formData.append("fundRaised", fundRaised);
-    formData.append("categories", category)
+    formData.append("categories", category);
+    formData.append("assetvalue", assetvalue);
+    formData.append("minInvestment", minInvestment);
+    formData.append("rentalYield",rentalYield);
+    formData.append("targetIRR", targetIRR);
+    formData.append("targetMultiple", targetMultiple);
+    formData.append("locationName", locationName);
+    formData.append("locationDesc", locationDesc);
+    formData.append("overview", overview);
+    formData.append("tenancy", tenancy);
 
     // console.log(file, fname, backers, funded, totalFund, fundRaised)
 
@@ -174,6 +193,97 @@ const CreateProducts2 = () => {
               type="number"
               name="fundRaised"
               onChange={(e) => setFundRaised(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          {/* new field */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Assets Value</Form.Label>
+            <Form.Control
+              type="number"
+              name="fundRaised"
+              onChange={(e) => setAssetvalue(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Minimum Investment</Form.Label>
+            <Form.Control
+              type="number"
+              name="fundRaised"
+              onChange={(e) => setMinInvestment(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Rental Yield</Form.Label>
+            <Form.Control
+              type="number"
+              name="fundRaised"
+              onChange={(e) => setRentalYield(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Target IRR</Form.Label>
+            <Form.Control
+              type="number"
+              name="fundRaised"
+              onChange={(e) => setTargetIRR(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Target Multiple</Form.Label>
+            <Form.Control
+              type="number"
+              name="fundRaised"
+              onChange={(e) => setTargetMultiple(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Location Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="fname"
+              onChange={(e) => setLocationName(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Location Description</Form.Label>
+            <Form.Control
+              type="text"
+              name="fname"
+              onChange={(e) => setLocationDesc(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Overview</Form.Label>
+            <Form.Control
+              type="text"
+              name="fname"
+              onChange={(e) => setOverview(e.target.value)}
+              placeholder=""
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Tenancy Description</Form.Label>
+            <Form.Control
+              type="text"
+              name="fname"
+              onChange={(e) => setTenancy(e.target.value)}
               placeholder=""
             />
           </Form.Group>
