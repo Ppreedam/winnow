@@ -24,7 +24,7 @@ function CollapsibleExample() {
           expand="lg"
           className="Navbar"
           fixed="top"
-          style={{ width: "100%", margin: "auto",backgroundColor:"#f27c22" }}
+          style={{ width: "100%",backgroundColor:"#f27c22" }}
         >
           <Container>
             <Navbar.Brand href="/" className="homeicon">

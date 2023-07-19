@@ -45,7 +45,7 @@ const Winow = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/product/get-product"
+        "http://localhost:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);

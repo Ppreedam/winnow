@@ -21,7 +21,7 @@ const Category = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://winnow-backend-api.onrender.com/api/v1/category/create-category",
+        "http://localhost:8000/api/v1/category/create-category",
         {
           name,
         }

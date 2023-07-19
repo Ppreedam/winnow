@@ -42,9 +42,11 @@
   .rectangle_box > div {
     /* border: 1px solid white; */
     border-right: 1px solid white;
-    width: 15%;
+    width: 25%;
     height: 100px;
     margin-top: 20px;
+    text-align: center;
+    margin: auto;
   }
 
   .rectangle_box > div:nth-child(4) {
@@ -54,25 +56,33 @@
   .icon_circle {
     border-radius: 50%;
     border: 1px solid white;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     background-color: #715ea2;
     cursor: pointer;
-    /* margin-right: 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
   }
 
   .icon_circle_paragraph {
     /* margin-left: -20px; */
-    margin-top: 10px;
+    /* margin-top: 10px; */
     color: white;
     font-family: "Rubik", sans-serif;
   }
 
-  .icon_circle_paragraph > span {
+  .icon_circle_paragraph > p:nth-child(1) {
     color: white;
     font-size: 25px;
     font-size: 25px;
     font-weight: 600;
+  }
+  .icon_circle_paragraph > p:nth-child(2) {
+    color: white;
+    font-size: 18px;
+    margin-top: -20px;
   }
 
   .overview_mainbox {
