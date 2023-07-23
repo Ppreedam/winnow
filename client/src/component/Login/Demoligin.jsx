@@ -3,10 +3,12 @@ import styles from "./Demoligin.module.css";
 import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast,ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/Auth";
 import LoginNavbar from "./LoginNavbar";
+
 
 function Demoligin() {
   const [email, setEmail] = useState("");
@@ -16,22 +18,26 @@ function Demoligin() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  
+
   // form function
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/auth/login",
+        "/api/v1/auth/login",
         {
           email,
           password,
         }
       );
+      console.log(res)
       if (res && res.data.success) {
         // console.log(res.data.user.role);
         setLoading(false);
-        toast.success(res.data && res.data.message);
+        // alert("Login successful")
+        // toast.success(res.data.message);
         setAuth({
           ...auth,
           user: res.data.user,
@@ -44,14 +50,15 @@ function Demoligin() {
           navigate(location.state || "/");
         }
       } else {
-        // console.log("error");
+        // console.log("error:  ",res.data);
         setLoading(false);
         toast.error(res.data.message);
       }
     } catch (error) {
+      alert("Invalid Credential")
       // console.log(error);
-      setLoading(false);
-      toast.error("Something went wrong");
+      // setLoading(false);
+      // toast.error("Something went wrong");
     }
   };
 
@@ -103,6 +110,7 @@ function Demoligin() {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }

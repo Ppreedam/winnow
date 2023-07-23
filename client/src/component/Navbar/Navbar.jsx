@@ -7,7 +7,7 @@ import "./Navbar.css";
 import AccountMenu from "../AccountMenu/AccountMenu";
 
 function CollapsibleExample() {
-  const token = localStorage.getItem("auth")
+  const token = localStorage.getItem("auth");
   const navigate = useNavigate();
   const signUp = () => {
     navigate("/user/register");
@@ -24,7 +24,7 @@ function CollapsibleExample() {
           expand="lg"
           className="Navbar"
           fixed="top"
-          style={{ width: "100%",backgroundColor:"#f27c22" }}
+          style={{ width: "100%", backgroundColor: "#f27c22" }}
         >
           <Container>
             <Navbar.Brand href="/" className="homeicon">
@@ -55,31 +55,53 @@ function CollapsibleExample() {
                 </div>
                 {/* <div className='hovereffect'><Link className='textdecoration'><p className='textcolorfont'>STUDENTS</p></Link></div> */}
               </Nav>
-              {!token ?
+              {!token ? (
                 <Nav>
                   <Button
                     // style={{ marginRight: "10px" }}
                     variant="light"
                     onClick={login}
-                    style={{backgroundColor: "white", color:"black", borderRadius:"20px", fontSize:"15px", padding:"10px"}}
-
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      borderRadius: "20px",
+                      fontSize: "15px",
+                      padding: "10px",
+                    }}
                   >
                     LogIn
                   </Button>
-                  <Button style={{backgroundColor: "#ed802d",color:"#ed802d",border:"1px solid #ed802d",padding:"1px"}} >hello</Button>
+                  <Button
+                    style={{
+                      backgroundColor: "#ed802d",
+                      color: "#ed802d",
+                      border: "1px solid #ed802d",
+                      padding: "1px",
+                    }}
+                  >
+                    hello
+                  </Button>
                   <Button
                     onClick={signUp}
-                    style={{ color: "white", backgroundColor: "#554284", borderRadius:"20px", fontSize:"15px",padding:"10px"}}
+                    style={{
+                      color: "white",
+                      backgroundColor: "#554284",
+                      borderRadius: "20px",
+                      fontSize: "15px",
+                      padding: "10px",
+                    }}
                   >
                     Create Account
                   </Button>
                   <Navbar.Brand>
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </Navbar.Brand>
-
-                </Nav> :
-                <Nav><AccountMenu /></Nav>
-              }
+                </Nav>
+              ) : (
+                <Nav>
+                  <AccountMenu />
+                </Nav>
+              )}
             </Navbar.Collapse>
           </Container>
         </Navbar>

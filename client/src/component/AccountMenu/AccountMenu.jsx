@@ -66,18 +66,18 @@ export default function AccountMenu() {
         <Box
           style={{
             borderRadius: "50%",
-            height: "50px",
-            width: "50px",
+            height: "40px",
+            width: "40px",
             backgroundColor: "#554284",
             color: "white",
           }}
         >
           <Badge
-            badgeContent={5}
+            badgeContent={1}
             color="primary"
-            style={{ marginTop: "12px", marginLeft: "11px" }}
+            style={{ marginTop: "10px", marginLeft: "10px" ,fontSize: "12px" }}
           >
-            <NotificationsNoneIcon />
+            <NotificationsNoneIcon style={{fontSize: "20px"}}/>
           </Badge>
         </Box>
 
@@ -95,7 +95,7 @@ export default function AccountMenu() {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar sx={{ width: 50, height: 50, fontSize: "30px", marginTop:"-5px" }}>
+              <Avatar sx={{ width: 40, height: 40, fontSize: "30px", marginTop:"-5px" }}>
                 {user_profile.user.name[0]}
               </Avatar>
             </IconButton>
