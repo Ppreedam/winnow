@@ -1,8 +1,5 @@
 .main {
-  /* border: 1px solid rebeccapurple;
-  width: 100%; */
   font-family: "Inter", sans-serif;
-
   /* border: 1px solid black; */
 }
 .word {
@@ -22,7 +19,7 @@
 
 .text_box {
   /* border: 1px solid black; */
-  width: 40%;
+  width: 43%;
 }
 
 .text_box_meet {

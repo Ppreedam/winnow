@@ -6,16 +6,13 @@ import left_vector from "./Image/left_vector.png";
 import right_vector from "./Image/right_vector.png";
 import dot_vector from "./Image/dot_vector.png";
 import bold_vector from "./Image/bold_vector.png";
-import house_image from "./Image/house_image.png";
 import phone from "./Image/phone.png";
 import garphic from "./Image/graphic.png";
 import team from "./Image/team.png";
 import CollapsibleExample from "../Navbar/Navbar";
 import style from "./Winnow.module.css";
 import WordFlick from "./WordFlick";
-
 import ProgressBarcom from "../ProgressBar/ProgressBar";
-
 import investment_image from "./Image/investment_image.png";
 import { AuthContext } from "../Context/Auth";
 import { useNavigate } from "react-router-dom";
@@ -25,18 +22,10 @@ import { BsCheck2 } from "react-icons/bs";
 
 const Winow = () => {
   const [product, setProduct] = useState([]);
-  // console.log(product["photo"]);
-  console.log(product);
-
   const totaldays = (startdate) => {
-    // const startDate = new Date("2023-06-01T00:00:00.000Z");
     const startDate = new Date(startdate);
     const currentDate = new Date();
-
-    // Calculate the difference in milliseconds between the two dates
     const timeDiff = Math.abs(currentDate.getTime() - startDate.getTime());
-
-    // Calculate the number of days by dividing the time difference by the number of milliseconds in a day
     const numDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     return numDays;
   };
@@ -95,10 +84,7 @@ const Winow = () => {
     },
   ];
   const [auth, setAuth] = useContext(AuthContext);
-  console.log(auth.token);
-  // const InvestNowhandle = () => {
-  //   navigate("productDesc/1");
-  // };
+
   return (
     <div className={style.main}>
       <CollapsibleExample />
