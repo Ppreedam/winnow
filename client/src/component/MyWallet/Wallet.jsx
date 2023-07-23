@@ -10,7 +10,7 @@ const Wallet = () => {
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "https://winnow-backend-api.onrender.com/api/v1/auth/all-users"
+        "/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {

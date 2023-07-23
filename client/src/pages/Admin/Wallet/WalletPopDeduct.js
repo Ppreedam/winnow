@@ -9,7 +9,7 @@ const WalletPopDeduct = ({ onClose }) => {
     e.preventDefault();
     // Perform any desired actions with the email and amount values
     // e.g., send them to a server, update state, etc.
-    axios.post("http://localhost:8000/api/v1/auth/deduct",{
+    axios.post("/api/v1/auth/deduct",{
       email,walletamount,reason
     }).then((res)=>{
       console.log(res)

@@ -17,7 +17,7 @@ const Users = () => {
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "hhttp://localhost:8000/api/v1/auth/all-users"
+        "/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {

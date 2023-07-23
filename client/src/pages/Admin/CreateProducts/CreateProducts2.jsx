@@ -44,7 +44,7 @@ const CreateProducts2 = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/category/get-category"
+        "/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -91,7 +91,7 @@ const CreateProducts2 = () => {
     console.log(formData, config);
 
     const res = await axios.post(
-      "http://localhost:8000/api/v1/product/register",
+      "/api/v1/product/register",
       formData,
       config
     );

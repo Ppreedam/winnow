@@ -21,7 +21,7 @@ const Category = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/category/create-category",
+        "/api/v1/category/create-category",
         {
           name,
         }

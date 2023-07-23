@@ -28,7 +28,7 @@ const CreateProducts = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/category/get-category"
+        "/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -58,7 +58,7 @@ const CreateProducts = () => {
 
     try {
       const { data } = axios.post(
-         "http://localhost:8000/api/v1/product/create-product",
+         "/api/v1/product/create-product",
         obj
       );
       if (data?.success) {

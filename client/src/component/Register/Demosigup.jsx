@@ -3,7 +3,8 @@ import styles from "./Demosigup.module.css";
 import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import LoginNavbar from "../Login/LoginNavbar";
 
@@ -23,7 +24,7 @@ function Demosigup() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v1/auth/register",
+        "/api/v1/auth/register",
         {
           name,
           email,
@@ -119,6 +120,7 @@ function Demosigup() {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }

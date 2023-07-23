@@ -11,6 +11,7 @@ import {
   UilSignOutAlt,
 } from "@iconscout/react-unicons";
 import { useState } from "react";
+import LogoutUser from "../../../component/LogOut/LogoutUser";
 
 const Sidebar = () => {
   const [selected,setSelected] = useState(0)
@@ -48,6 +49,7 @@ const Sidebar = () => {
         </NavLink>
         <div className={style.menuItem}>
           <UilSignOutAlt />
+          <LogoutUser />
         </div>
       </div>
     </div>

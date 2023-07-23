@@ -26,8 +26,7 @@ const ProductDescription = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        // `https://winnow-backend-api.onrender.com/api/v1/product/get-product/${params.slug}`
-        `http://localhost:8000/api/v1/product/get-product/${params.slug}`
+        `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       //   getSimilarProduct(data?.product._id, data?.product.category._id);

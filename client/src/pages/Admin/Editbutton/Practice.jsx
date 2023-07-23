@@ -23,7 +23,7 @@ const Practice = ({onClose,profiledata}) => {
 
       e.preventDefault();
       try {
-        const { data } = await axios.put("http://localhost:8000/api/v1/auth/adminprofile", {
+        const { data } = await axios.put("/api/v1/auth/adminprofile", {
           name,
           email,
           password,
