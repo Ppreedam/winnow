@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { BsCheck2 } from "react-icons/bs";
+// import Whatsapp from "../Whattsapp/Whatsapp";
 
 const Winow = () => {
   const [product, setProduct] = useState([]);
@@ -344,6 +345,7 @@ const Winow = () => {
           </button>
         </div>
       </div>
+      {/* <Whatsapp/> */}
     </div>
   );
 };
