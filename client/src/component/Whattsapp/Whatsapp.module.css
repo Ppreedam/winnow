@@ -1,0 +1,10 @@
+.container{
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+
+}
+.whatsapp_icon{
+    color:#01be03;
+    font-size: 50px;
+}
