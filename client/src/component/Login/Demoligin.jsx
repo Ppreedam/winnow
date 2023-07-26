@@ -18,7 +18,7 @@ function Demoligin() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  
+  console.log(email,password)
 
   // form function
   const handleSubmit = async (e) => {
@@ -32,12 +32,10 @@ function Demoligin() {
           password,
         }
       );
-      console.log(res)
       if (res && res.data.success) {
         // console.log(res.data.user.role);
         setLoading(false);
-        // alert("Login successful")
-        // toast.success(res.data.message);
+        toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
           user: res.data.user,
@@ -50,15 +48,14 @@ function Demoligin() {
           navigate(location.state || "/");
         }
       } else {
-        // console.log("error:  ",res.data);
+        // console.log("error");
         setLoading(false);
         toast.error(res.data.message);
       }
     } catch (error) {
-      alert("Invalid Credential")
       // console.log(error);
-      // setLoading(false);
-      // toast.error("Something went wrong");
+      setLoading(false);
+      toast.error("Something went wrong");
     }
   };
 
