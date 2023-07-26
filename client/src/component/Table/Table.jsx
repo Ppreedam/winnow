@@ -46,12 +46,12 @@ const makeStyle=(status)=>{
 export default function BasicTable() {
   return (
       <div className="Table">
-      <h3>All Bookings</h3>
+      {/* <h3>All Bookings</h3> */}
         <TableContainer
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
         >
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          {/* <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>Product</TableCell>
@@ -79,7 +79,7 @@ export default function BasicTable() {
                 </TableRow>
               ))}
             </TableBody>
-          </Table>
+          </Table> */}
         </TableContainer>
       </div>
   );
