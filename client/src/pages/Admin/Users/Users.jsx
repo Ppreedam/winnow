@@ -17,7 +17,7 @@ const Users = () => {
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "/api/v1/auth/all-users"
+        "http://156.67.221.116:8000/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {
@@ -60,7 +60,7 @@ const Users = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://winnow-backend-api.onrender.com/api/v1/auth//deleteUser/${id}`)
+      .delete(`http://156.67.221.116:8000/api/v1/auth//deleteUser/${id}`)
       .then((res) => {
         toast.success(" User Profile deleted Successfully");
       })
@@ -75,7 +75,7 @@ const Users = () => {
     console.log(name, email, password, address, phone)
     let userRole = (role === 0) ? "user" : "admin";
     try {
-      const { data } = await axios.put("http://localhost:8000/api/v1/auth/adminprofile", {
+      const { data } = await axios.put("http://156.67.221.116:8000/api/v1/auth/adminprofile", {
         role,
         name,
         email,

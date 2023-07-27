@@ -10,7 +10,7 @@ const Wallet = () => {
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
-        "/api/v1/auth/all-users"
+        "http://156.67.221.116:8000/api/v1/auth/all-users"
       );
       setUserdata(data);
     } catch (error) {

@@ -26,7 +26,7 @@ const ProductDescription = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `http://156.67.221.116:8000/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       //   getSimilarProduct(data?.product._id, data?.product.category._id);

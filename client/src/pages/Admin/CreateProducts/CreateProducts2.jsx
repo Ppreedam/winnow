@@ -44,7 +44,7 @@ const CreateProducts2 = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "/api/v1/category/get-category"
+        "http://156.67.221.116:8000/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);

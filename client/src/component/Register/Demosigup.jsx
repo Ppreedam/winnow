@@ -24,7 +24,7 @@ function Demosigup() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "/api/v1/auth/register",
+        "http://156.67.221.116:8000/api/v1/auth/register",
         {
           name,
           email,
