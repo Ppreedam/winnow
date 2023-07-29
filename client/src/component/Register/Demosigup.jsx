@@ -4,9 +4,10 @@ import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import LoginNavbar from "../Login/LoginNavbar";
+import { ClockLoader } from "react-spinners";
 
 function Demosigup() {
   const [name, setName] = useState("");
@@ -18,11 +19,37 @@ function Demosigup() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Email validation function using regular expression
+  const isValidEmail = (email) => {
+    // Regular expression for basic email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
   // form function
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     try {
+      // Check if the password meets the minimum length requirement
+      if (password.length < 8) {
+        setLoading(false);
+        toast.error("Password must be at least 8 characters long.");
+        return;
+      }
+      // Mobile number validation
+      if (phone.length !== 10) {
+        toast.error("Invalid Mobile Number");
+        setLoading(false);
+        return; // Exit the function early if validation fails
+      }
+      // Email validation
+      if (!isValidEmail(email)) {
+        toast.error("Please enter a valid email address.");
+        setLoading(false);
+        return; // Exit the function early if email validation fails
+      }
+
       const res = await axios.post(
         "http://156.67.221.116:8000/api/v1/auth/register",
         {
@@ -46,6 +73,7 @@ function Demosigup() {
       toast.error("Something went wrong");
     }
   };
+
   return (
     <>
       <LoginNavbar />
@@ -107,12 +135,9 @@ function Demosigup() {
           </button>
           <div>
             {loading ? (
-              <div className="spinnerbox">
-                <h4>Please wait......</h4>{" "}
-                <img
-                  src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
-                  alt="barspinner"
-                />{" "}
+              <div className={styles.spinnerbox}>
+                <h4>Please wait......</h4>
+                <ClockLoader color="#36d7b7" />
               </div>
             ) : (
               ""

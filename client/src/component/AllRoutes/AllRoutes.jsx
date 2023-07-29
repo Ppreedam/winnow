@@ -13,7 +13,6 @@ import Wallet from "../MyWallet/Wallet";
 import Account from "../Account/Account";
 import InvestNow from "../HomemainPage/InvestNow";
 import PrivateRoute from "../Higherorderfunction/PrivateRoute";
-import ForgotPasssword from "../Login/ForgetPassword";
 import CreateProducts2 from "../../pages/Admin/CreateProducts/CreateProducts2";
 import ProductDescription from "../ProductDescriptionPage/ProductDescription";
 import Demoligin from "../Login/Demoligin";
@@ -26,11 +25,6 @@ const AllRoutes = () => {
         <Route exact path="/" element={<Winow />} />
         <Route exact path="/user/login" element={<Demoligin />} />
         <Route exact path="/user/register" element={<Demosigup />} />
-        <Route
-          exact
-          path="/user/gorget-password"
-          element={<ForgotPasssword />}
-        />
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/comingsoon" element={<Comingsoon />} />
         <Route exact path="/comingsoon" element={<Comingsoon />} />
@@ -43,11 +37,6 @@ const AllRoutes = () => {
           exact
           path="/productDesc/:slug"
           element={<ProductDescription />}
-        />
-        <Route
-          exact
-          path="/user/gorget-password"
-          element={<ForgotPasssword />}
         />
         <Route
           exact

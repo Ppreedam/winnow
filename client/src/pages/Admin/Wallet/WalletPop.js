@@ -9,6 +9,19 @@ const WalletPop = ({ onClose ,getallusers }) => {
     e.preventDefault();
     // Perform any desired actions with the email and amount values
     // e.g., send them to a server, update state, etc.
+    axios
+      .post("/api/v1/auth/wallet", {
+        email,
+        walletamount,
+        reason,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+    console.log("Email:", email);
+    console.log("Amount:", typeof walletamount);
+    console.log(reason);
+
     axios.post("http://156.67.221.116:8000/api/v1/auth/wallet",{
       email,walletamount,reason
     }).then((res)=>{
@@ -33,7 +46,9 @@ const WalletPop = ({ onClose ,getallusers }) => {
   return (
     <div className="popup">
       <div className="popup-content">
-      <button className="close-button" onClick={onClose}>X</button>
+        <button className="close-button" onClick={onClose}>
+          X
+        </button>
         <h2>Enter Email and Amount</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -50,7 +65,7 @@ const WalletPop = ({ onClose ,getallusers }) => {
             onChange={(e) => setWalletamount(e.target.value)}
             required
           />
-           <input
+          <input
             type="string"
             placeholder=" Enter the Reason"
             value={reason}

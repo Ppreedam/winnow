@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import axios from "axios";
 import { Modal } from "antd";
 import CategoryForm from "../CategoryForm/CategoryForm";
@@ -7,6 +6,8 @@ import style from "./Category.module.css";
 import { Navigate } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -27,13 +28,14 @@ const Category = () => {
         }
       );
       if (data?.success) {
+        // Update the state with the new category before navigating or showing a toast
+        setCategories([...categories, data.category]);
+        toast.success("Category created successfully");
         Navigate("/");
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
-      // toast.error("somthing went wrong in input form");
     }
   };
 
@@ -165,6 +167,7 @@ const Category = () => {
         </div>
         <RightSide />
       </div>
+      <ToastContainer/>
     </div>
   );
 };
