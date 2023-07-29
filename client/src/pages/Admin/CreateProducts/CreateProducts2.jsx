@@ -112,8 +112,8 @@ const CreateProducts2 = () => {
       formData,
       config
     )
-    .then((res) =>toast.success(res?.data.msg)) 
-    .catch((err)=>toast.error(err?.response.data.error.message))
+    .then((res) =>console.log(res)) 
+    .catch((err)=>console.log(err))
   };
 
   return (
@@ -164,7 +164,7 @@ const CreateProducts2 = () => {
               }}
               placeholder="Select a category"
               name="categories"
-              value={categories}
+              
             >
               {categories && categories?.map((c) => (
                 <option key={c._id} value={c.name}>
