@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Demoligin.module.css";
 import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
-import { toast,ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/Auth";
 import LoginNavbar from "./LoginNavbar";
-
+import { ClockLoader } from "react-spinners";
 
 function Demoligin() {
   const [email, setEmail] = useState("");
@@ -18,7 +18,20 @@ function Demoligin() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(email,password)
+  console.log(email, password);
+  // console.log(auth);
+
+  const getallusers = async () => {
+    try {
+      const { data } = await axios.get(
+        "http://156.67.221.116:8000/api/v1/auth/all-users"
+      );
+      console.log(data)
+      // setUserdata(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // form function
   const handleSubmit = async (e) => {
@@ -32,6 +45,8 @@ function Demoligin() {
           password,
         }
       );
+
+      console.log("response from login page:",res)
       if (res && res.data.success) {
         // console.log(res.data.user.role);
         setLoading(false);
@@ -58,6 +73,9 @@ function Demoligin() {
       toast.error("Something went wrong");
     }
   };
+  useEffect(()=>{
+    getallusers()
+  })
 
   return (
     <>
@@ -91,15 +109,14 @@ function Demoligin() {
               required
             />
           </div>
-          <button type="submit" className={styles.login_button}>Login</button>
+          <button type="submit" className={styles.login_button}>
+            Login
+          </button>
           <div>
             {loading ? (
               <div className={styles.spinnerbox}>
-                <h4>Please wait......</h4>{" "}
-                <img
-                  src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
-                  alt="barspinner"
-                />{" "}
+                <h4>Please wait......</h4>
+                <ClockLoader color="#36d7b7" />
               </div>
             ) : (
               ""

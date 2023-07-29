@@ -1,4 +1,5 @@
 import userModel from "../models/userModel.js";
+import emailModel from "../models/emailModel.js";
 import orderModel from "../models/orderModel.js";
 
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
@@ -28,12 +29,6 @@ export const registerController = async (req, res) => {
     if (!phone) {
       return res.send({ message: "Phone no is Required" });
     }
-    // if (!address) {
-    //   return res.send({ message: "Address is Required" });
-    // }
-    // if (!answer) {
-    //   return res.send({ message: "Answer is Required" });
-    // }
     //check user
     const exisitingUser = await userModel.findOne({ email });
     //exisiting user
@@ -83,12 +78,14 @@ export const loginController = async (req, res) => {
     }
     //check user
     const user = await userModel.findOne({ email });
+
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Email is not registerd",
+        message: "Email is not registered",
       });
     }
+
     const match = await comparePassword(password, user.password);
     if (!match) {
       return res.status(200).send({
@@ -96,22 +93,18 @@ export const loginController = async (req, res) => {
         message: "Invalid Password",
       });
     }
+
     //token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
     console.log(token);
+
+    // Instead of selecting specific fields, send the entire user document
     res.status(200).send({
       success: true,
       message: "login successfully",
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-        address: user.address,
-        role: user.role,
-      },
+      user, // The entire user document will be sent
       token,
     });
   } catch (error) {
@@ -123,6 +116,7 @@ export const loginController = async (req, res) => {
     });
   }
 };
+
 //update prfole
 export const updateProfileController = async (req, res) => {
   try {
@@ -423,6 +417,7 @@ export const getAllOrdersController = async (req, res) => {
 export const getallusers = async (req, res) => {
   try {
     const data = await userModel.find();
+    console.log(data)
     res.status(200).send(data);
   } catch (error) {
     res.status(401).send(error);
@@ -465,5 +460,36 @@ export const DeleteUsers = async (req, res) => {
       success: false,
       massage: "Error while Delete the user",
     });
+  }
+};
+
+export const addEmail= async(req,res)=>{
+  console.log(req.body)
+  const { email } = req.body;
+
+  try {
+    const newEmail = new emailModel({ email });
+    const savedEmail = await newEmail.save();
+
+    res.status(201).send({
+      success: true,
+      message: "Email ID added successfully",
+      data: savedEmail,
+    });
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: "Error while adding the email ID",
+    });
+  }
+}
+
+export const GetEmails = async (req, res) => {
+  try {
+    const data = await emailModel.find();
+    console.log(data)
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(401).send(error);
   }
 };

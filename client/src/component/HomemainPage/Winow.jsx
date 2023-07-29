@@ -15,14 +15,18 @@ import WordFlick from "./WordFlick";
 import ProgressBarcom from "../ProgressBar/ProgressBar";
 import investment_image from "./Image/investment_image.png";
 import { AuthContext } from "../Context/Auth";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import { BsCheck2 } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import Whatsapp from "../Whattsapp/Whatsapp";
 
 const Winow = () => {
   const [product, setProduct] = useState([]);
+  const [email, setEmail] = useState("");
+  console.log(email);
+
   const totaldays = (startdate) => {
     const startDate = new Date(startdate);
     const currentDate = new Date();
@@ -31,12 +35,43 @@ const Winow = () => {
     return numDays;
   };
 
+  // Email validation function using regular expression
+  const isValidEmail = (email) => {
+    // Regular expression for basic email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const sendEmail = async () => {
+    try {
+      // Email validation
+      if (!isValidEmail(email)) {
+        toast.error("Please enter a valid email address.");
+        return; // Exit the function early if email validation fails
+      }
+      const { data } = await axios.post(
+        "http://localhost:8000/api/v1/email/add-email",
+        {
+          email,
+        }
+      );
+      if (data?.success) {
+        setEmail("");
+        // Update the state with the new category before navigating or showing a toast
+        toast.success("email saved successfully");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log("error:", error);
+      toast.error("something went wrong in input form");
+    }
+  };
+
   //get all products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get(
-        "/api/v1/product/get-product"
-      );
+      const { data } = await axios.get("/api/v1/product/get-product");
       if (data?.success) {
         setProduct(data.products);
       }
@@ -107,10 +142,15 @@ const Winow = () => {
           </p>
 
           <div className={style.text_box_button_main}>
-            <p>* Join our Newsletter to get lattest updates</p>
+            <p>* Join our Newsletter to get latest updates</p>
             <div>
-              <input type="text" placeholder="Enter your email" />
-              <button>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button onClick={sendEmail}>
                 <BsCheck2 />
               </button>
             </div>
@@ -339,12 +379,18 @@ const Winow = () => {
           Join our list of exclusive investors
         </p>
         <div className={style.text_box_button1}>
-          <input type="text" placeholder="Enter your email" />
-          <button>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="Enter your email"
+          />
+          <button onClick={sendEmail}>
             <BsCheck2 />
           </button>
         </div>
       </div>
+      <ToastContainer />
       {/* <Whatsapp/> */}
     </div>
   );
