@@ -25,7 +25,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Winow = () => {
   const [product, setProduct] = useState([]);
   const [email, setEmail] = useState("");
-  console.log(email);
+  // console.log(email);
 
   const totaldays = (startdate) => {
     const startDate = new Date(startdate);
@@ -63,7 +63,7 @@ const Winow = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log("error:", error);
+      // console.log("error:", error);
       toast.error("something went wrong in input form");
     }
   };
@@ -78,7 +78,7 @@ const Winow = () => {
         setProduct(data.products);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong in getting products");
     }
   };
@@ -144,7 +144,7 @@ const Winow = () => {
           </p>
 
           <div className={style.text_box_button_main}>
-            <p>* Join our Newsletter to get latest updates</p>
+            <p>* Join our News letter to get latest updates</p>
             <div>
               <input
                 type="text"

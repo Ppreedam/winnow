@@ -16,21 +16,21 @@ const WalletPop = ({ onClose ,getallusers }) => {
         reason,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       });
-    console.log("Email:", email);
-    console.log("Amount:", typeof walletamount);
-    console.log(reason);
+    // console.log("Email:", email);
+    // console.log("Amount:", typeof walletamount);
+    // console.log(reason);
 
     axios.post("http://156.67.221.116:8000/api/v1/auth/wallet",{
       email,walletamount,reason
     }).then((res)=>{
       getallusers()
-      console.log(res)
+      // console.log(res)
     })
-    console.log('Email:', email);
-    console.log('Amount:', typeof(walletamount));
-    console.log(reason)
+    // console.log('Email:', email);
+    // console.log('Amount:', typeof(walletamount));
+    // console.log(reason)
     
     onClose();
   };
