@@ -52,7 +52,7 @@ const CreateProducts2 = () => {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       // toast.error("Something wwent wrong in getting catgeory");
     }
   };

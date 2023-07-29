@@ -16,7 +16,7 @@ const Category = () => {
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
 
-  console.log(name);
+  // console.log(name);
   //handle Form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ const Category = () => {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something wwent wrong in getting catgeory");
     }
   };
@@ -76,7 +76,7 @@ const Category = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

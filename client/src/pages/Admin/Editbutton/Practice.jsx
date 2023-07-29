@@ -40,7 +40,7 @@ const Practice = ({onClose,profiledata ,getallusers}) => {
           toast.success("Profile Updated Successfully");
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         toast.error("Something went wrong");
       }
     };

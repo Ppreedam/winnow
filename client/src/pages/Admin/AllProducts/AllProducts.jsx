@@ -32,13 +32,25 @@ const AllProducts = () => {
         setProduct(data.products);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something wwent wrong in getting products");
     }
   };
   useEffect(() => {
     getAllProducts();
   }, []);
+
+  const handleDelete = (id) => {
+    // console.log(id)
+    axios.delete(`http://localhost:8000/api/v1/product/delete-product/${id}`)
+      .then((res) => {
+        getAllProducts()
+        toast.success(" User Profile deleted Successfully");
+      })
+      .catch((err) => {
+        toast.error("Something went wrong");
+      });
+    }
   return (
     <div className={style.App}>
       <div className={style.AppGlass}>
@@ -79,7 +91,7 @@ const AllProducts = () => {
                   </div>
                   <div className={style.Home_third_part_box_hover_button}>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={()=>handleDelete(e._id)} >Delete</button>
                   </div>
                 </div>
               ))}

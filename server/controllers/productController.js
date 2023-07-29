@@ -42,7 +42,7 @@ export const getProductController = async (req, res) => {
       .find({})
       // .populate("categories")
       // .limit(3)
-      // .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
       counTotal: products.length,
@@ -99,21 +99,38 @@ export const productPhotoController = async (req, res) => {
 };
 
 //delete controller
+// export const deleteProductController = async (req, res) => {
+//   try {
+//     await productModel.findByIdAndDelete(req.params.pid).select("-photo");
+//     res.status(200).send({
+//       success: true,
+//       message: "Product Deleted successfully",
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       message: "Error while deleting product",
+//       error,
+//     });
+//   }
+// };
+
 export const deleteProductController = async (req, res) => {
-  try {
-    await productModel.findByIdAndDelete(req.params.pid).select("-photo");
-    res.status(200).send({
-      success: true,
-      message: "Product Deleted successfully",
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error while deleting product",
-      error,
-    });
-  }
+  const  id  = req.params.pid;
+try {
+  const data = await createProductModels.findByIdAndDelete({ _id: id });
+  res.status(200).send({
+    success: true,
+    massage: "product  Deleted Successfully",
+    data,
+  });
+} catch (error) {
+  res.send(500).send({
+    success: false,
+    massage: "Error while Delete the product ",
+  });
+}
 };
 
 //upate producta
