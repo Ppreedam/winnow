@@ -35,14 +35,14 @@ const Winow = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "/api/v1/product/get-product"
+        "http://156.67.221.116:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting products");
+      toast.error("Something went wrong in getting products");
     }
   };
 

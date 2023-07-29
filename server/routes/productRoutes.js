@@ -27,75 +27,75 @@ import moment from "moment"
 // multer code start
 // img storage path
 const imgconfig = multer.diskStorage({
-  destination:(req,file,callback)=>{
-      callback(null,"./uploads")
+  destination: (req, file, callback) => {
+    callback(null, "./uploads")
   },
-  filename:(req,file,callback)=>{
-      callback(null,`imgae-${Date.now()}. ${file.originalname}`)
+  filename: (req, file, callback) => {
+    callback(null, `imgae-${Date.now()}. ${file.originalname}`)
   }
 })
 
 
 // img filter
-const isImage = (req,file,callback)=>{
-  if(file.mimetype.startsWith("image")){
-      callback(null,true)
-  }else{
-      callback(new Error("only images is allowd"))
+const isImage = (req, file, callback) => {
+  if (file.mimetype.startsWith("image")) {
+    callback(null, true)
+  } else {
+    callback(new Error("only images is allowd"))
   }
 }
 
 const upload = multer({
-  storage:imgconfig,
-  fileFilter:isImage
+  storage: imgconfig,
+  fileFilter: isImage
 });
 
 // / user register
-router.post("/register",upload.single("photo"),async(req,res)=>{
+router.post("/createProduct", upload.single("photo"), async (req, res) => {
 
-    const {filename} = req.file;
+  const { filename } = req.file;
 
-    const {fname,funded,backers,totalFund,fundRaised,categories} = req.body;
+  const { fname, funded, backers, totalFund, fundRaised, categories, assetvalue, minInvestment, rentalYield, targetMultiple, targetIRR, locationName, locationDesc, overview, tenancy } = req.body;
 
-    
+  // if (!filename && !fname && !funded && !backers && !totalFund && !fundRaised && !categories && !assetvalue && !minInvestment && !rentalYield && !targetMultiple && !targetIRR && !locationName && !locationDesc && !overview && !tenancy) {
+  //   res.status(400).json({ status: 400, message: "fill all the data" })
+  // }
+  // console.log(filename,fname,funded,backers,totalFund,fundRaised,categories,assetvalue,minInvestment,rentalYield,targetMultiple,targetIRR,locationName,locationDesc,overview,tenancy)
+  try {
+    const date = moment(new Date()).format("YYYY-MM-DD");
+    const userdata = await new createProductModels({
+      fname: fname,
+      imgpath: filename,
+      date: date,
+      backers: backers,
+      funded: funded,
+      totalFund: totalFund,
+      fundRaised: fundRaised,
+      categories: categories,
+      assetvalue: assetvalue,
+      minInvestment: minInvestment,
+      rentalYield: rentalYield,
+      targetMultiple: targetMultiple,
+      targetIRR: targetIRR,
+      locationName: locationName,
+      locationDesc: locationDesc,
+      overview: overview,
+      tenancy: tenancy
+    }).save()
 
-    if(!fname || !filename || !funded || !backers || !totalFund || !fundRaised || !categories ){
-        res.status(401).json({status:401,message:"fill all the data"})
-    }
+    console.log("userdata", userdata)
+    // const finaldata = await userdata.save();
+    // console.log(finaldata)
+    res.status(201).json({"msg":"Product created Successfully", status: 201, userdata });
 
-    try {
+  } catch (error) {
+    res.status(401).json({ status: 401, error })
+  }
 
-        const date = moment(new Date()).format("YYYY-MM-DD");
-        console.log(fname,funded,backers,totalFund,fundRaised,categories)
-        const userdata = new createProductModels({
-            fname:fname,
-            imgpath:filename,
-            date:date,
-            backers,
-            funded,
-            totalFund,
-            fundRaised,
-            categories,
-            assetvalue,
-            minInvestment,
-            rentalYield,
-            targetMultiple,
-            targetIRR,
-            locationName,
-            locationDesc,
-            overview,
-            tenancy
-        });
 
-        const finaldata = await userdata.save();
 
-        res.status(201).json({status:201,finaldata});
 
-    } catch (error) {
-        res.status(401).json({status:401,error})
-    }
 });
-
 
 // multer code End
 

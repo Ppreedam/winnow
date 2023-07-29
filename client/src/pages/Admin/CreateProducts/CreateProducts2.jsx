@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
 import style from "./CreateProducts.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateProducts2 = () => {
   const [fname, setFName] = useState("");
@@ -73,7 +75,7 @@ const CreateProducts2 = () => {
     formData.append("categories", category);
     formData.append("assetvalue", assetvalue);
     formData.append("minInvestment", minInvestment);
-    formData.append("rentalYield",rentalYield);
+    formData.append("rentalYield", rentalYield);
     formData.append("targetIRR", targetIRR);
     formData.append("targetMultiple", targetMultiple);
     formData.append("locationName", locationName);
@@ -83,26 +85,35 @@ const CreateProducts2 = () => {
 
     // console.log(file, fname, backers, funded, totalFund, fundRaised)
 
+    setFName('')
+    setBackers('')
+    setFunded('')
+    setTotalFund('')
+    setFundRaised('')
+    setCategory('')
+    setAssetvalue('')
+    setMinInvestment('')
+    setRentalYield('')
+    setTargetIRR('')
+    setTargetMultiple('')
+    setLocationName('')
+    setLocationDesc('')
+    setOverview('')
+    setTenancy('')
+
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     };
-    console.log(formData, config);
 
-    const res = await axios.post(
-      "/api/v1/product/register",
+    const res = axios.post(
+      "http://localhost:8000/api/v1/product/createProduct",
       formData,
       config
-    );
-    console.log(res);
-
-    if (res.data.status === 401 || !res.data) {
-      console.log("errror");
-    } else {
-      // history("");
-      console.log("product created")
-    }
+    )
+    .then((res) =>toast.success(res?.data.msg)) 
+    .catch((err)=>toast.error(err?.response.data.error.message))
   };
 
   return (
@@ -142,6 +153,7 @@ const CreateProducts2 = () => {
               name="fname"
               onChange={setdata}
               placeholder="Enter product Title"
+              value={fname}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -152,6 +164,7 @@ const CreateProducts2 = () => {
               }}
               placeholder="Select a category"
               name="categories"
+              value={categories}
             >
               {categories && categories?.map((c) => (
                 <option key={c._id} value={c.name}>
@@ -167,6 +180,7 @@ const CreateProducts2 = () => {
               name="backers"
               onChange={(e) => setBackers(e.target.value)}
               placeholder=""
+              value={backers}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -176,6 +190,7 @@ const CreateProducts2 = () => {
               name="funded"
               onChange={(e) => setFunded(e.target.value)}
               placeholder=""
+              value={funded}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -185,6 +200,7 @@ const CreateProducts2 = () => {
               name="totalFund"
               onChange={(e) => setTotalFund(e.target.value)}
               placeholder=""
+              value={totalFund}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -194,6 +210,7 @@ const CreateProducts2 = () => {
               name="fundRaised"
               onChange={(e) => setFundRaised(e.target.value)}
               placeholder=""
+              value={fundRaised}
             />
           </Form.Group>
 
@@ -202,9 +219,10 @@ const CreateProducts2 = () => {
             <Form.Label>Assets Value</Form.Label>
             <Form.Control
               type="number"
-              name="fundRaised"
+              name="assetvalue"
               onChange={(e) => setAssetvalue(e.target.value)}
               placeholder=""
+              value={assetvalue}
             />
           </Form.Group>
 
@@ -212,9 +230,10 @@ const CreateProducts2 = () => {
             <Form.Label>Minimum Investment</Form.Label>
             <Form.Control
               type="number"
-              name="fundRaised"
+              name="minInvestment"
               onChange={(e) => setMinInvestment(e.target.value)}
               placeholder=""
+              value={minInvestment}
             />
           </Form.Group>
 
@@ -222,9 +241,10 @@ const CreateProducts2 = () => {
             <Form.Label>Rental Yield</Form.Label>
             <Form.Control
               type="number"
-              name="fundRaised"
+              name="rentalYield"
               onChange={(e) => setRentalYield(e.target.value)}
               placeholder=""
+              value={rentalYield}
             />
           </Form.Group>
 
@@ -232,9 +252,10 @@ const CreateProducts2 = () => {
             <Form.Label>Target IRR</Form.Label>
             <Form.Control
               type="number"
-              name="fundRaised"
+              name="targetIRR"
               onChange={(e) => setTargetIRR(e.target.value)}
               placeholder=""
+              value={targetIRR}
             />
           </Form.Group>
 
@@ -242,9 +263,10 @@ const CreateProducts2 = () => {
             <Form.Label>Target Multiple</Form.Label>
             <Form.Control
               type="number"
-              name="fundRaised"
+              name="targetMultiple"
               onChange={(e) => setTargetMultiple(e.target.value)}
               placeholder=""
+              value={targetMultiple}
             />
           </Form.Group>
 
@@ -252,19 +274,23 @@ const CreateProducts2 = () => {
             <Form.Label>Location Name</Form.Label>
             <Form.Control
               type="text"
-              name="fname"
+              name="locationName"
               onChange={(e) => setLocationName(e.target.value)}
               placeholder=""
+              as="textarea" rows={2}
+              value={locationName}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group class="mb-3" controlId="formBasicEmail">
             <Form.Label>Location Description</Form.Label>
             <Form.Control
               type="text"
-              name="fname"
+              name="locationDesc"
               onChange={(e) => setLocationDesc(e.target.value)}
               placeholder=""
+              as="textarea" rows={15}
+              value={locationDesc}
             />
           </Form.Group>
 
@@ -272,9 +298,11 @@ const CreateProducts2 = () => {
             <Form.Label>Overview</Form.Label>
             <Form.Control
               type="text"
-              name="fname"
+              name="overview"
               onChange={(e) => setOverview(e.target.value)}
               placeholder=""
+              as="textarea" rows={10}
+              value={overview}
             />
           </Form.Group>
 
@@ -282,9 +310,11 @@ const CreateProducts2 = () => {
             <Form.Label>Tenancy Description</Form.Label>
             <Form.Control
               type="text"
-              name="fname"
+              name="tenancy"
               onChange={(e) => setTenancy(e.target.value)}
               placeholder=""
+              as="textarea" rows={8}
+              value={tenancy}
             />
           </Form.Group>
 
@@ -297,6 +327,7 @@ const CreateProducts2 = () => {
         </div>
         <RightSide />
       </div>
+      <ToastContainer/>
     </div>
   );
 };
