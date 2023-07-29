@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./Edit.css"
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-const Practice = ({onClose,profiledata}) => {
+const Practice = ({onClose,profiledata ,getallusers}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const Practice = ({onClose,profiledata}) => {
 
       e.preventDefault();
       try {
-        const { data } = await axios.put("/api/v1/auth/adminprofile", {
+        const { data } = await axios.put("http://156.67.221.116:8000/api/v1/auth/adminprofile", {
           name,
           email,
           password,
@@ -34,7 +34,9 @@ const Practice = ({onClose,profiledata}) => {
         if (data?.errro) {
           toast.error(data?.error);
         } else {
+          getallusers()
           onClose()
+          
           toast.success("Profile Updated Successfully");
         }
       } catch (error) {
