@@ -40,9 +40,9 @@ export const getProductController = async (req, res) => {
   try {
     const products = await createProductModels
       .find({})
-      .populate("categories")
-      .limit(3)
-      .sort({ createdAt: -1 });
+      // .populate("categories")
+      // .limit(3)
+      // .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
       counTotal: products.length,
