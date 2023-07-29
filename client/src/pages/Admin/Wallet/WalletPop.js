@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./Wallet.css";
-import axios from "axios";
-const WalletPop = ({ onClose }) => {
-  const [email, setEmail] = useState("");
-  const [walletamount, setWalletamount] = useState("");
-  const [reason, setReason] = useState("");
+import React, { useState } from 'react';
+import "./Wallet.css"
+import axios from 'axios';
+const WalletPop = ({ onClose ,getallusers }) => {
+  const [email, setEmail] = useState('');
+  const [walletamount, setWalletamount] = useState('');
+  const [reason, setReason] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform any desired actions with the email and amount values
@@ -22,6 +22,16 @@ const WalletPop = ({ onClose }) => {
     console.log("Amount:", typeof walletamount);
     console.log(reason);
 
+    axios.post("http://156.67.221.116:8000/api/v1/auth/wallet",{
+      email,walletamount,reason
+    }).then((res)=>{
+      getallusers()
+      console.log(res)
+    })
+    console.log('Email:', email);
+    console.log('Amount:', typeof(walletamount));
+    console.log(reason)
+    
     onClose();
   };
 

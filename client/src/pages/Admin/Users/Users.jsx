@@ -13,6 +13,7 @@ const Users = () => {
   const [showDeductPopup, setShowDeductPopup] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [profiledata, setProfiledata] = useState([])
+  const [localstoredata,setLocalstoredata]=useState({})
   console.log(showPopup);
   const getallusers = async () => {
     try {
@@ -62,6 +63,7 @@ const Users = () => {
     axios
       .delete(`http://156.67.221.116:8000/api/v1/auth//deleteUser/${id}`)
       .then((res) => {
+        getallusers()
         toast.success(" User Profile deleted Successfully");
       })
       .catch((err) => {
@@ -87,6 +89,7 @@ const Users = () => {
       if (data?.errro) {
         toast.error(data?.error);
       } else {
+        getallusers()
         console.log(`${name} role is ${userRole}`)
         toast.success(`${name} role is ${userRole}`);
       }
@@ -95,7 +98,13 @@ const Users = () => {
       toast.error("Something went wrong");
     }
   };
-  const filteredData = userdata.filter(res => res.role === 0);
+  useEffect(()=>{
+    let data=JSON.parse(localStorage.getItem("auth"))
+    setLocalstoredata(data)
+   },[])
+   console.log(localstoredata?.user?.email)
+   const filteredData = userdata.filter(res => res.email !== localstoredata?.user?.email);
+ 
 
   return (
     <div className={style.App}>
@@ -129,17 +138,17 @@ const Users = () => {
               <div style={{ display: "flex" }}>
                 <div>
                   <button onClick={openPopup} style={{ height: "40px", padding: "5px", borderRadius: "10px", backgroundColor: "gray", color: "white" }}> Add Money</button>
-                  {showPopup && <WalletPop onClose={closePopup} />}
+                  {showPopup && <WalletPop onClose={closePopup} getallusers={getallusers} />}
                 </div>
 
                 <div>
                   <button onClick={openDeductPopup} style={{ height: "40px", padding: "5px", borderRadius: "10px", backgroundColor: "gray", color: "white", marginLeft: "20px" }}> Deduct Money</button>
-                  {showDeductPopup && <WalletPopDeduct onClose={closeDeductPopup} />}
+                  {showDeductPopup && <WalletPopDeduct onClose={closeDeductPopup} getallusers={getallusers} />}
                 </div>
               </div>
             </div>
 
-            <div className="border shadow">
+            <div className="border shadow" style={{width:"max-content"}}>
               <table className="table">
                 <thead>
                   <tr>
@@ -173,7 +182,7 @@ const Users = () => {
                           >
                             Edit
                           </button>
-                          {isPopupOpen && <Practice onClose={closeEditPopup} profiledata={profiledata} />}
+                          {isPopupOpen && <Practice onClose={closeEditPopup} profiledata={profiledata}  getallusers={getallusers} />}
                         </td>
                         <td>
                           <button onClick={() => handleDelete(res._id)}>

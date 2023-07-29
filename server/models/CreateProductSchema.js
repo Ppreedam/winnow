@@ -32,20 +32,51 @@ const userSchema = new mongoose.Schema({
     categories: {
         type: String,
         required: true
-      },
-    //   categories: {
-    //     type: mongoose.ObjectId,
-    //     ref: "categories",
-    //     required: true,
-    //   },
+    },
+    assetvalue: {
+        type: Number,
+        required: true,
+    },
+    minInvestment: {
+        type: Number,
+        required: true,
+    },
+    rentalYield: {
+        type: Number,
+        required: true,
+    },
+    targetMultiple: {
+        type: Number,
+        required: true,
+    },
+    targetIRR: {
+        type: Number,
+        required: true,
+    },
+    locationName: {
+        type: String,
+        required: true,
+    },
+    locationDesc: {
+        type: String,
+        required: true,
+    },
+    overview: {
+        type: String,
+        required: true,
+    },
+    tenancy: {
+        type: String,
+        required: true,
+    }
 },
-{ timestamps: true }
+    { timestamps: true }
 );
 
 
 // create model
 
-const createProductModels = new mongoose.model("productData", userSchema);
+const createProductModels = new mongoose.model("productNewData", userSchema);
 
 export default createProductModels
 

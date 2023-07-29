@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import colors from "colors";
 mongoose.set('strictQuery', true)
 const connectDB = async () => {
   try {
