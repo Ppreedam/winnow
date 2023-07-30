@@ -52,7 +52,7 @@ const CreateProducts2 = () => {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       // toast.error("Something wwent wrong in getting catgeory");
     }
   };
@@ -112,7 +112,9 @@ const CreateProducts2 = () => {
       formData,
       config
     )
-      .then((res) => console.log(res))
+      .then((res) => {
+        toast.success("Product Created Successfully");
+      })
       .catch((err) => console.log(err))
   };
 

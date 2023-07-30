@@ -20,7 +20,7 @@ const ProductDescription = () => {
   useEffect(() => {
     if (params?.slug) getProduct();
   }, [params?.slug]);
-  console.log("params._slug", params.slug)
+  // console.log("params._slug", params.slug)
 
   //getProduct
   const getProduct = async () => {
@@ -31,10 +31,10 @@ const ProductDescription = () => {
       setProduct(data?.product);
       //   getSimilarProduct(data?.product._id, data?.product.category._id);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
-  console.log("getProduct", product);
+  // console.log("getProduct", product);
   return (
     <>
       <CollapsibleExample />

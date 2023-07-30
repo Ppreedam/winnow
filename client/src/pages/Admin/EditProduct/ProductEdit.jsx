@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import "./Edit.css";
-import { toast } from 'react-hot-toast';
+import "./ProductEdit.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
 
 const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
@@ -63,15 +64,15 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
 
       if (data?.errro) {
         toast.error(data?.error);
-        console.log(data)
+        // console.log(data)
       } else {
         getAllProducts()
         onClose();
         toast.success("Profile Updated Successfully");
-        console.log(data)
+        // console.log(data)
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong");
     }
   };
@@ -274,6 +275,7 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };

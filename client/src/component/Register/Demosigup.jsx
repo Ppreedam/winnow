@@ -136,8 +136,11 @@ function Demosigup() {
           <div>
             {loading ? (
               <div className={styles.spinnerbox}>
-                <h4>Please wait......</h4>
-                <ClockLoader color="#36d7b7" />
+                <h4>Please wait......</h4>{" "}
+                <img
+                  src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                  alt="barspinner"
+                />{" "}
               </div>
             ) : (
               ""

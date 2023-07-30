@@ -13,14 +13,11 @@ const WalletPop = ({ onClose ,getallusers }) => {
       email,walletamount,reason
     }).then((res)=>{
       getallusers()
-      //  console.log(res)
+      // console.log(res)
     })
-    // console.log('Email:', email);
-    // console.log('Amount:', typeof(walletamount));
-    // console.log(reason)
-    
     onClose();
   };
+
 
   // const getOrders = async () => {
   //   try {
@@ -31,9 +28,9 @@ const WalletPop = ({ onClose ,getallusers }) => {
   //   }
   // };
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <button className="close-button" onClick={onClose}>
+    <div className="modelpopup">
+      <div className="modelpopup-content">
+        <button className="modelclose-button" onClick={onClose}>
           X
         </button>
         <h2>Enter Email and Amount</h2>

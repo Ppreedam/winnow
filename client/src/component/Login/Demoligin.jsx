@@ -18,7 +18,7 @@ function Demoligin() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(email, password);
+  // console.log(email, password);
   // console.log(auth);
 
   const getallusers = async () => {
@@ -26,10 +26,10 @@ function Demoligin() {
       const { data } = await axios.get(
         "http://156.67.221.116:8000/api/v1/auth/all-users"
       );
-      console.log(data)
+      // console.log(data)
       // setUserdata(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -46,7 +46,7 @@ function Demoligin() {
         }
       );
 
-      console.log("response from login page:",res)
+      // console.log("response from login page:",res)
       if (res && res.data.success) {
         // console.log(res.data.user.role);
         setLoading(false);
@@ -115,8 +115,11 @@ function Demoligin() {
           <div>
             {loading ? (
               <div className={styles.spinnerbox}>
-                <h4>Please wait......</h4>
-                <ClockLoader color="#36d7b7" />
+                <h4>Please wait......</h4>{" "}
+                <img
+                  src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                  alt="barspinner"
+                />{" "}
               </div>
             ) : (
               ""

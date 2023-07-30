@@ -14,7 +14,7 @@ const Users = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [profiledata, setProfiledata] = useState([])
   const [localstoredata,setLocalstoredata]=useState({})
-  console.log(showPopup);
+  // console.log(showPopup);
   const getallusers = async () => {
     try {
       const { data } = await axios.get(
@@ -22,10 +22,10 @@ const Users = () => {
       );
       setUserdata(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
-  console.log(userdata);
+  // console.log(userdata);
   useEffect(() => {
     getallusers();
   }, []);
@@ -74,7 +74,7 @@ const Users = () => {
 
   const handlechangerole = async (res, role) => {
     const { name, email, password, address, phone } = res
-    console.log(name, email, password, address, phone)
+    // console.log(name, email, password, address, phone)
     let userRole = (role === 0) ? "user" : "admin";
     try {
       const { data } = await axios.put("http://156.67.221.116:8000/api/v1/auth/adminprofile", {
@@ -90,11 +90,11 @@ const Users = () => {
         toast.error(data?.error);
       } else {
         getallusers()
-        console.log(`${name} role is ${userRole}`)
+        // console.log(`${name} role is ${userRole}`)
         toast.success(`${name} role is ${userRole}`);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something went wrong");
     }
   };
@@ -102,7 +102,7 @@ const Users = () => {
     let data=JSON.parse(localStorage.getItem("auth"))
     setLocalstoredata(data)
    },[])
-   console.log(localstoredata?.user?.email)
+  //  console.log(localstoredata?.user?.email)
    const filteredData = userdata.filter(res => res.email !== localstoredata?.user?.email);
  
 

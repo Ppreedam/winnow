@@ -47,6 +47,10 @@ const Sidebar = () => {
           <UilChart />
           <span>Products</span>
         </NavLink>
+        <NavLink to="/admin/emails" className={selected === 5 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(5)}}>
+          <UilChart />
+          <span>Emails</span>
+        </NavLink>
         <div className={style.menuItem}>
           <UilSignOutAlt />
           <LogoutUser />

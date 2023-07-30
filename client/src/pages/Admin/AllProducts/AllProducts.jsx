@@ -3,10 +3,10 @@ import style from "./AllProducts.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import ProgressBarcom from "../../../component/ProgressBar/ProgressBar";
 import ProductEdit from "../EditProduct/ProductEdit";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -37,13 +37,14 @@ const AllProducts = () => {
         console.log(data)
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error("Something wwent wrong in getting products");
     }
   };
   useEffect(() => {
     getAllProducts();
   }, []);
+
   const openPopup = () => {
     setShowPopup(true);
   };
@@ -68,7 +69,19 @@ const AllProducts = () => {
   const handleProfileData = (e) => {
     setProductdata(e)
   }
-  console.log(productdata)
+
+  const handleDelete = (id) => {
+    // console.log(id)
+    axios.delete(`http://localhost:8000/api/v1/product/delete-product/${id}`)
+      .then((res) => {
+        getAllProducts()
+        toast.success(" User Profile deleted Successfully");
+      })
+      .catch((err) => {
+        toast.error("Something went wrong");
+      });
+    }
+
   return (
     <div className={style.App}>
       <div className={style.AppGlass}>
@@ -108,16 +121,18 @@ const AllProducts = () => {
                     <button>Fast Filling</button>
                   </div>
                   <div className={style.Home_third_part_box_hover_button}>
-                  <button
-                            onClick={() => {
-                              handleProfileData(e);
-                              openEditPopup();
-                            }}
-                          >
-                            Edit
-                          </button>
-                          {isPopupOpen && <ProductEdit onClose={closeEditPopup} productdata={productdata} getAllProducts={getAllProducts}  />}
-                    <button>Delete</button>
+
+                    <button
+                      onClick={() => {
+                        handleProfileData(e);
+                        openEditPopup();
+                      }}
+                    >
+                      Edit
+                    </button>
+                    {isPopupOpen && <ProductEdit onClose={closeEditPopup} productdata={productdata} getAllProducts={getAllProducts} />}
+                    <button onClick={() => handleDelete(e._id)} >Delete</button>
+
                   </div>
                 </div>
               ))}
@@ -126,6 +141,7 @@ const AllProducts = () => {
         </div>
         <RightSide />
       </div>
+      <ToastContainer />
     </div>
   );
 };
