@@ -17,6 +17,7 @@ import CreateProducts2 from "../../pages/Admin/CreateProducts/CreateProducts2";
 import ProductDescription from "../ProductDescriptionPage/ProductDescription";
 import Demoligin from "../Login/Demoligin";
 import Demosigup from "../Register/Demosigup";
+import Emails from "../../pages/Admin/Emails/Emails";
 
 const AllRoutes = () => {
   return (
@@ -33,6 +34,7 @@ const AllRoutes = () => {
         <Route exact path="/mywallet" element={<Wallet />} />
         <Route exact path="/account" element={<Account />} />
         <Route exact path="/formproduct" element={<CreateProducts />} />
+        <Route exact path="/admin/emails" element={<Emails />} />
         <Route
           exact
           path="/productDesc/:slug"
