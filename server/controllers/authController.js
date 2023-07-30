@@ -463,12 +463,11 @@ export const DeleteUsers = async (req, res) => {
   }
 };
 
-export const addEmail= async(req,res)=>{
-  console.log(req.body)
+export const addEmail = async (req, res) => {
   const { email } = req.body;
-
   try {
-    const newEmail = new emailModel({ email });
+    const newEmail = new emailModel({ email, dateAdded: new Date() }); // Set dateAdded to the current date
+    console.log(newEmail);
     const savedEmail = await newEmail.save();
 
     res.status(201).send({
@@ -482,7 +481,7 @@ export const addEmail= async(req,res)=>{
       message: "Error while adding the email ID",
     });
   }
-}
+};
 
 export const GetEmails = async (req, res) => {
   try {

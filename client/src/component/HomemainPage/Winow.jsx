@@ -58,7 +58,7 @@ const Winow = () => {
       if (data?.success) {
         setEmail("");
         // Update the state with the new category before navigating or showing a toast
-        toast.success("email saved successfully");
+        toast.success("Thank you for your submission!");
       } else {
         toast.error(data.message);
       }
@@ -392,7 +392,7 @@ const Winow = () => {
           </button>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer position="top-center"/>
       {/* <Whatsapp/> */}
     </div>
   );
