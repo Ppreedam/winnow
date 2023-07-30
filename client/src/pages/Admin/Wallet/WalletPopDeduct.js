@@ -13,7 +13,7 @@ const WalletPopDeduct = ({ onClose,getallusers }) => {
       email,walletamount,reason
     }).then((res)=>{
       getallusers()
-      console.log(res)
+      // console.log(res)
     })
     // console.log('Email:', email);
     // console.log('Amount:', typeof(walletamount));

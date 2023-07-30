@@ -5,10 +5,14 @@ import RightSide from "../RightSide/RightSide";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ProgressBarcom from "../../../component/ProgressBar/ProgressBar";
+import ProductEdit from "../EditProduct/ProductEdit";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
-
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showDeductPopup, setShowDeductPopup] = useState(false);
+  const [productdata, setProductdata] = useState([])
   const totaldays = (startdate) => {
     // const startDate = new Date("2023-06-01T00:00:00.000Z");
     const startDate = new Date(startdate);
@@ -26,10 +30,11 @@ const AllProducts = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://156.67.221.116:8000/api/v1/product/get-product"
+        "http://localhost:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
+        console.log(data)
       }
     } catch (error) {
       console.log(error);
@@ -39,6 +44,31 @@ const AllProducts = () => {
   useEffect(() => {
     getAllProducts();
   }, []);
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+  const openDeductPopup = () => {
+    setShowDeductPopup(true);
+  };
+
+  const closeDeductPopup = () => {
+    setShowDeductPopup(false);
+  };
+  const openEditPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closeEditPopup = () => {
+    setIsPopupOpen(false);
+  };
+  const handleProfileData = (e) => {
+    setProductdata(e)
+  }
+  console.log(productdata)
   return (
     <div className={style.App}>
       <div className={style.AppGlass}>
@@ -78,7 +108,15 @@ const AllProducts = () => {
                     <button>Fast Filling</button>
                   </div>
                   <div className={style.Home_third_part_box_hover_button}>
-                    <button>Edit</button>
+                  <button
+                            onClick={() => {
+                              handleProfileData(e);
+                              openEditPopup();
+                            }}
+                          >
+                            Edit
+                          </button>
+                          {isPopupOpen && <ProductEdit onClose={closeEditPopup} productdata={productdata} getAllProducts={getAllProducts}  />}
                     <button>Delete</button>
                   </div>
                 </div>

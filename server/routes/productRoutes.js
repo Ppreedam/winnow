@@ -110,9 +110,7 @@ router.post(
 //routes
 router.put(
   "/update-product/:pid",
-  requireSignIn,
-  isAdmin,
-  formidable(),
+  upload.single("photo"),
   updateProductController
 );
 

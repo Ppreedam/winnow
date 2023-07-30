@@ -57,7 +57,7 @@ const Users = () => {
   const handleProfileData = (e) => {
     setProfiledata(e)
   }
-  console.log("edit data", profiledata)
+  // console.log("edit data", profiledata)
 
   const handleDelete = (id) => {
     axios
