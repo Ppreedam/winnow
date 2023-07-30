@@ -26,7 +26,7 @@ const AllProducts = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/v1/product/get-product"
+        "http://156.67.221.116:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
@@ -42,7 +42,7 @@ const AllProducts = () => {
 
   const handleDelete = (id) => {
     // console.log(id)
-    axios.delete(`http://localhost:8000/api/v1/product/delete-product/${id}`)
+    axios.delete(`http://156.67.221.116:8000/api/v1/product/delete-product/${id}`)
       .then((res) => {
         getAllProducts()
         toast.success(" User Profile deleted Successfully");

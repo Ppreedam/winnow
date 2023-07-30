@@ -50,7 +50,7 @@ const Winow = () => {
         return; // Exit the function early if email validation fails
       }
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/email/add-email",
+        "http://156.67.221.116:8000/api/v1/email/add-email",
         {
           email,
         }
