@@ -112,7 +112,9 @@ const CreateProducts2 = () => {
       formData,
       config
     )
-      .then((res) => console.log(res))
+      .then((res) => {
+        toast.success("Product Created Successfully");
+      })
       .catch((err) => console.log(err))
   };
 

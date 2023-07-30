@@ -1,4 +1,4 @@
-.popup {
+.modelpopup {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 9999;
   }
   
-  .popup-content {
+  .modelpopup-content {
     position: relative;
     background-color: #fff;
     padding: 20px;
@@ -21,30 +21,30 @@
     box-shadow: 0 0 10px rgba(230, 208, 208, 0.2);
   }
   
-  .popup-content h2 {
+  .modelpopup-content h2 {
     margin-top: 0;
     font-size: 20px;
     text-align: center;
   }
   
-  .popup-content form {
+  .modelpopup-content form {
     display: flex;
     flex-direction: column;
   }
   
-  .popup-content form label {
+  .modelpopup-content form label {
     display: inline-block;
     width: 100px;
     margin-right: 10px;
   }
   
-  .popup-content form input {
+  .modelpopup-content form input {
     display: inline-block;
     width: 200px;
     margin-bottom: 10px;
   }
   
-  .popup-content button {
+  .modelpopup-content button {
     padding: 10px 20px;
     background-color: #4593e6;
     color: black;
@@ -53,7 +53,7 @@
     cursor: pointer;
   }
   
-  .close-button {
+  .modelclose-button {
     position: absolute;
     top: 10px;
     right: 10px;

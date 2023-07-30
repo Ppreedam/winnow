@@ -9,31 +9,15 @@ const WalletPop = ({ onClose ,getallusers }) => {
     e.preventDefault();
     // Perform any desired actions with the email and amount values
     // e.g., send them to a server, update state, etc.
-    axios
-      .post("/api/v1/auth/wallet", {
-        email,
-        walletamount,
-        reason,
-      })
-      .then((res) => {
-        // console.log(res);
-      });
-    // console.log("Email:", email);
-    // console.log("Amount:", typeof walletamount);
-    // console.log(reason);
-
     axios.post("http://156.67.221.116:8000/api/v1/auth/wallet",{
       email,walletamount,reason
     }).then((res)=>{
       getallusers()
       // console.log(res)
     })
-    // console.log('Email:', email);
-    // console.log('Amount:', typeof(walletamount));
-    // console.log(reason)
-    
     onClose();
   };
+
 
   // const getOrders = async () => {
   //   try {
@@ -44,9 +28,9 @@ const WalletPop = ({ onClose ,getallusers }) => {
   //   }
   // };
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <button className="close-button" onClick={onClose}>
+    <div className="modelpopup">
+      <div className="modelpopup-content">
+        <button className="modelclose-button" onClick={onClose}>
           X
         </button>
         <h2>Enter Email and Amount</h2>

@@ -3,12 +3,16 @@ import style from "./AllProducts.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import RightSide from "../RightSide/RightSide";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import ProgressBarcom from "../../../component/ProgressBar/ProgressBar";
-
+import ProductEdit from "../EditProduct/ProductEdit";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
-
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showDeductPopup, setShowDeductPopup] = useState(false);
+  const [productdata, setProductdata] = useState([])
   const totaldays = (startdate) => {
     // const startDate = new Date("2023-06-01T00:00:00.000Z");
     const startDate = new Date(startdate);
@@ -30,6 +34,7 @@ const AllProducts = () => {
       );
       if (data?.success) {
         setProduct(data.products);
+        console.log(data)
       }
     } catch (error) {
       // console.log(error);
@@ -39,6 +44,31 @@ const AllProducts = () => {
   useEffect(() => {
     getAllProducts();
   }, []);
+
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+  const openDeductPopup = () => {
+    setShowDeductPopup(true);
+  };
+
+  const closeDeductPopup = () => {
+    setShowDeductPopup(false);
+  };
+  const openEditPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closeEditPopup = () => {
+    setIsPopupOpen(false);
+  };
+  const handleProfileData = (e) => {
+    setProductdata(e)
+  }
 
   const handleDelete = (id) => {
     // console.log(id)
@@ -51,6 +81,7 @@ const AllProducts = () => {
         toast.error("Something went wrong");
       });
     }
+
   return (
     <div className={style.App}>
       <div className={style.AppGlass}>
@@ -90,8 +121,18 @@ const AllProducts = () => {
                     <button>Fast Filling</button>
                   </div>
                   <div className={style.Home_third_part_box_hover_button}>
-                    <button>Edit</button>
-                    <button onClick={()=>handleDelete(e._id)} >Delete</button>
+
+                    <button
+                      onClick={() => {
+                        handleProfileData(e);
+                        openEditPopup();
+                      }}
+                    >
+                      Edit
+                    </button>
+                    {isPopupOpen && <ProductEdit onClose={closeEditPopup} productdata={productdata} getAllProducts={getAllProducts} />}
+                    <button onClick={() => handleDelete(e._id)} >Delete</button>
+
                   </div>
                 </div>
               ))}
@@ -100,6 +141,7 @@ const AllProducts = () => {
         </div>
         <RightSide />
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -45,9 +45,9 @@ const Practice = ({onClose,profiledata ,getallusers}) => {
       }
     };
   return (
-    <div className="popup">
-          <div className="popup-content">
-            <button className="close-button" onClick={onClose}>
+    <div className="modelpopup">
+          <div className="modelpopup-content">
+            <button className="modelclose-button" onClick={onClose}>
               X
             </button>
             <h2>Edit Profile</h2>

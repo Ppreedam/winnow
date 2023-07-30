@@ -133,55 +133,133 @@ try {
 }
 };
 
-//upate producta
+// //upate producta
+// export const updateProductController = async (req, res) => {
+//   try {
+//     const { name, description, price, category, quantity, shipping } =
+//       req.fields;
+//     const { photo } = req.files;
+//     //alidation
+//     switch (true) {
+//       case !name:
+//         return res.status(500).send({ error: "Name is Required" });
+//       case !description:
+//         return res.status(500).send({ error: "Description is Required" });
+//       case !price:
+//         return res.status(500).send({ error: "Price is Required" });
+//       case !category:
+//         return res.status(500).send({ error: "Category is Required" });
+//       case !quantity:
+//         return res.status(500).send({ error: "Quantity is Required" });
+//       case photo && photo.size > 1000000:
+//         return res
+//           .status(500)
+//           .send({ error: "photo is Required and should be less then 1mb" });
+//     }
+
+//     const products = await productModel.findByIdAndUpdate(
+//       req.params.pid,
+//       { ...req.fields, slug: slugify(name) },
+//       { new: true }
+//     );
+//     if (photo) {
+//       products.photo.data = fs.readFileSync(photo.path);
+//       products.photo.contentType = photo.type;
+//     }
+//     await products.save();
+//     res.status(201).send({
+//       success: true,
+//       message: "Product Updated Successfully",
+//       products,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({
+//       success: false,
+//       error,
+//       message: "Error in Updte product",
+//     });
+//   }
+// };
+// Controller to handle product update
 export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
-      req.fields;
-    const { photo } = req.files;
-    //alidation
+    const { fname, funded, totalFund, fundRaised, categories, assetvalue, minInvestment, rentalYield, targetIRR, targetMultiple, locationName, locationDesc, overview, tenancy } = req.body;
+
+    // Validation
     switch (true) {
-      case !name:
-        return res.status(500).send({ error: "Name is Required" });
-      case !description:
-        return res.status(500).send({ error: "Description is Required" });
-      case !price:
-        return res.status(500).send({ error: "Price is Required" });
-      case !category:
-        return res.status(500).send({ error: "Category is Required" });
-      case !quantity:
-        return res.status(500).send({ error: "Quantity is Required" });
-      case photo && photo.size > 1000000:
-        return res
-          .status(500)
-          .send({ error: "photo is Required and should be less then 1mb" });
+      case !fname:
+        return res.status(500).json({ error: "Product Title is required" });
+      case !funded:
+        return res.status(500).json({ error: "Backers Fund is required" });
+      case !totalFund:
+        return res.status(500).json({ error: "Total Fund Required is required" });
+      case !fundRaised:
+        return res.status(500).json({ error: "Fund Raised is required" });
+      case !categories || categories.length === 0:
+        return res.status(500).json({ error: "At least one category is required" });
+      case !assetvalue:
+        return res.status(500).json({ error: "Assets Value is required" });
+      case !minInvestment:
+        return res.status(500).json({ error: "Minimum Investment is required" });
+      case !rentalYield:
+        return res.status(500).json({ error: "Rental Yield is required" });
+      case !targetIRR:
+        return res.status(500).json({ error: "Target IRR is required" });
+      case !targetMultiple:
+        return res.status(500).json({ error: "Target Multiple is required" });
+      case !locationName:
+        return res.status(500).json({ error: "Location Name is required" });
+      case !locationDesc:
+        return res.status(500).json({ error: "Location Description is required" });
+      case !overview:
+        return res.status(500).json({ error: "Overview is required" });
+      case !tenancy:
+        return res.status(500).json({ error: "Tenancy Description is required" });
     }
 
-    const products = await productModel.findByIdAndUpdate(
-      req.params.pid,
-      { ...req.fields, slug: slugify(name) },
+    const updatedProduct = await createProductModels.findByIdAndUpdate(
+      req.params.pid, // Assuming you have the product ID in the request parameters
+      {
+        fname,
+        funded,
+        totalFund,
+        fundRaised,
+        categories,
+        assetvalue,
+        minInvestment,
+        rentalYield,
+        targetIRR,
+        targetMultiple,
+        locationName,
+        locationDesc,
+        overview,
+        tenancy,
+      },
       { new: true }
     );
-    if (photo) {
-      products.photo.data = fs.readFileSync(photo.path);
-      products.photo.contentType = photo.type;
+
+    // If you are handling file uploads (e.g., updating product photo), you can do that here.
+    // You may need to update the productModel schema to include a field for photo and handle file uploads using multer or other middleware.
+
+    if (!updatedProduct) {
+      return res.status(404).json({ error: "Product not found" });
     }
-    await products.save();
-    res.status(201).send({
+
+    res.status(200).json({
       success: true,
       message: "Product Updated Successfully",
-      products,
+      product: updatedProduct,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).send({
+    res.status(500).json({
       success: false,
       error,
-      message: "Error in Updte product",
+      message: "Error in updating product",
     });
   }
 };
-
 // filters
 export const productFiltersController = async (req, res) => {
   try {
