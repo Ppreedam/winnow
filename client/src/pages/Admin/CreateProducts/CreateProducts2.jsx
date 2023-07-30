@@ -108,7 +108,7 @@ const CreateProducts2 = () => {
     };
 
     const res = axios.post(
-      "http://localhost:8000/api/v1/product/createProduct",
+      "http://156.67.221.116:8000/api/v1/product/createProduct",
       formData,
       config
     )

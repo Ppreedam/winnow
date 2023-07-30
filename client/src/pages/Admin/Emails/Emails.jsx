@@ -11,7 +11,7 @@ const Emails = () => {
   const getAllEmail = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/email/get-email"
+        "http://156.67.221.116:8000/api/v1/email/get-email"
       );
       const data = response.data; // Make sure you access the response data correctly
       setEmail(data); // Assuming email data is directly available in 'data' and it's an array
