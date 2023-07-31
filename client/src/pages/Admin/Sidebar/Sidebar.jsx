@@ -10,6 +10,7 @@ import {
   UilChart,
   UilSignOutAlt,
 } from "@iconscout/react-unicons";
+import { TfiEmail } from "react-icons/tfi"
 import { useState } from "react";
 import LogoutUser from "../../../component/LogOut/LogoutUser";
 
@@ -48,7 +49,7 @@ const Sidebar = () => {
           <span>Products</span>
         </NavLink>
         <NavLink to="/admin/emails" className={selected === 5 ? `${style.menuItem} ${style.active}` : style.menuItem} onClick={()=>{setSelected(5)}}>
-          <UilChart />
+          <TfiEmail  style={{fontSize:"22px"}}/>
           <span>Emails</span>
         </NavLink>
         <div className={style.menuItem}>

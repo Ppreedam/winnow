@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import mobile_imag from "./Image/mobile.png";
 import bottom_full_vector from "./Image/bottom_full_vector.png";
 import top_full_vector from "./Image/top_full_vector.png";
@@ -14,8 +14,8 @@ import style from "./Winnow.module.css";
 import WordFlick from "./WordFlick";
 import ProgressBarcom from "../ProgressBar/ProgressBar";
 import investment_image from "./Image/investment_image.png";
-import { AuthContext } from "../Context/Auth";
-import { Navigate, useNavigate } from "react-router-dom";
+// import { AuthContext } from "../Context/Auth";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BsCheck2 } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
@@ -88,20 +88,6 @@ const Winow = () => {
   }, []);
 
   const navigate = useNavigate();
-  const expert = [
-    {
-      heading: "Pre-IPO Venture",
-      text: "Invest in the world’s top private companies.",
-    },
-    {
-      heading: "Real Estate",
-      text: "Invest in highly-vetted commercial and residential real estate projects.",
-    },
-    {
-      heading: "Blue-Chip Art",
-      text: "Invest in prized artworks from the world’s most renowned artists.",
-    },
-  ];
 
   const investment = [
     {
@@ -121,7 +107,7 @@ const Winow = () => {
       text: "Stay up-to-date on the latest news and trends related to alternative investing.",
     },
   ];
-  const [auth, setAuth] = useContext(AuthContext);
+  // const [auth, setAuth] = useContext(AuthContext);
 
   return (
     <div className={style.main}>
@@ -159,7 +145,7 @@ const Winow = () => {
           </div>
         </div>
         <div className={style.image_box}>
-          <img src={mobile_imag} alt="Winnow mobile Image" />
+          <img src={mobile_imag} alt="Winnow mobile" />
         </div>
       </div>
       {/* ------------------------------------second_part------------------------------------------------------------- */}

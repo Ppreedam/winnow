@@ -467,7 +467,6 @@ export const addEmail = async (req, res) => {
   const { email } = req.body;
   try {
     const newEmail = new emailModel({ email, dateAdded: new Date() }); // Set dateAdded to the current date
-    console.log(newEmail);
     const savedEmail = await newEmail.save();
 
     res.status(201).send({
@@ -486,7 +485,6 @@ export const addEmail = async (req, res) => {
 export const GetEmails = async (req, res) => {
   try {
     const data = await emailModel.find();
-    console.log(data)
     res.status(200).send(data);
   } catch (error) {
     res.status(401).send(error);
