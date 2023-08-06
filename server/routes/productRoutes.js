@@ -83,7 +83,7 @@ router.post("/createProduct", upload.single("photo"), async (req, res) => {
       tenancy: tenancy
     }).save()
 
-    console.log("userdata", userdata)
+    // console.log("userdata", userdata)
     // const finaldata = await userdata.save();
     // console.log(finaldata)
     res.status(201).json({"msg":"Product created Successfully", status: 201, userdata });

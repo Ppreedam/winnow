@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Demoligin.module.css";
-import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/Auth";
 import LoginNavbar from "./LoginNavbar";
-import { ClockLoader } from "react-spinners";
+
 
 function Demoligin() {
   const [email, setEmail] = useState("");

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Demosigup.module.css";
-import CollapsibleExample from "../Navbar/Navbar";
 import bear from "./bull.png";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import LoginNavbar from "../Login/LoginNavbar";
-import { ClockLoader } from "react-spinners";
+
 
 function Demosigup() {
   const [name, setName] = useState("");
