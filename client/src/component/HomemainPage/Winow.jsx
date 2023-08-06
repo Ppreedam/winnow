@@ -206,7 +206,7 @@ const Winow = () => {
           {product.map((e) => (
             <div className={style.Home_third_part_box_div}>
               <img
-                src={`/uploads/${e.imgpath}`}
+                src={`http://156.67.221.116:8000/uploads/${e.imgpath}`}
                 alt=""
                 style={{ height: "215px" }}
               />
