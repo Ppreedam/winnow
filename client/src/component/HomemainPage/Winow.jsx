@@ -50,7 +50,7 @@ const Winow = () => {
         return; // Exit the function early if email validation fails
       }
       const { data } = await axios.post(
-        "https://156.67.221.116:8000/api/v1/email/add-email",
+        "http://156.67.221.116:8000/api/v1/email/add-email",
         {
           email,
         }
@@ -72,7 +72,7 @@ const Winow = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://156.67.221.116:8000/api/v1/product/get-product"
+        "http://156.67.221.116:8000/api/v1/product/get-product"
       );
       if (data?.success) {
         setProduct(data.products);
