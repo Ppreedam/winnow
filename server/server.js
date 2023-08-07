@@ -51,8 +51,8 @@ const PORT = process.env.PORT || 8080;
 //   );
 // });
 // Start HTTPS server
-const privKeyPath = path.join(__dirname, "/etc/letsencrypt/live/winnow.biz/privkey.pem");
-const fullChainPath = path.join(__dirname, "/etc/letsencrypt/live/winnow.biz/fullchain.pem");
+const privKeyPath = "/etc/letsencrypt/live/winnow.biz/privkey.pem";
+const fullChainPath = "/etc/letsencrypt/live/winnow.biz/fullchain.pem";
 
 if (fs.existsSync(privKeyPath) && fs.existsSync(fullChainPath)) {
   const sslOptions = {
