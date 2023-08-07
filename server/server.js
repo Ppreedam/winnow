@@ -8,6 +8,8 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import emailRoutes from "./routes/emailRoute.js";
 import cors from "cors"
+import https from "https";
+import fs from "fs";
 //configure env
 dotenv.config();
 
@@ -28,6 +30,10 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/email", emailRoutes);
+app.use(cors({
+  origin: ["https://winnow.biz"],
+  // Other CORS options
+}));
 
 //rest api
 app.get("/", (req, res) => {
@@ -38,9 +44,22 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 8080;
 
 //run listen
-app.listen(PORT, () => {
+// app.listen(PORT, () => {
+//   console.log(
+//     `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
+//       .white
+//   );
+// });
+// Start HTTPS server
+const sslOptions = {
+  key: fs.readFileSync("/etc/letsencrypt/live/winnow.biz/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/winnow.biz/fullchain.pem"),
+};
+
+const httpsServer = https.createServer(sslOptions, app);
+
+httpsServer.listen(PORT, () => {
   console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-      .white
+    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white
   );
 });
