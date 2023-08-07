@@ -51,15 +51,20 @@ const PORT = process.env.PORT || 8080;
 //   );
 // });
 // Start HTTPS server
-const sslOptions = {
-  key: fs.readFileSync("/etc/letsencrypt/live/winnow.biz/privkey.pem"),
-  cert: fs.readFileSync("/etc/letsencrypt/live/winnow.biz/fullchain.pem"),
-};
+const privKeyPath = path.join(__dirname, "/etc/letsencrypt/live/winnow.biz/privkey.pem");
+const fullChainPath = path.join(__dirname, "/etc/letsencrypt/live/winnow.biz/fullchain.pem");
 
-const httpsServer = https.createServer(sslOptions, app);
+if (fs.existsSync(privKeyPath) && fs.existsSync(fullChainPath)) {
+  const sslOptions = {
+    key: fs.readFileSync(privKeyPath),
+    cert: fs.readFileSync(fullChainPath),
+  };
 
-httpsServer.listen(PORT, () => {
-  console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white
-  );
-});
+  const httpsServer = https.createServer(sslOptions, app);
+
+  httpsServer.listen(PORT, () => {
+    console.log(`Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`);
+  });
+} else {
+  console.error("SSL certificate files not found.");
+}
