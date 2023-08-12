@@ -1,15 +1,12 @@
 .App {
-  background: #1d2b64; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #00b8b7,
-    #170f49
-  );
-  background: linear-gradient(
-    to right,
-    #00b8b7,
-    #170f49
-  );
+  background: #1d2b64;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #00b8b7,
+      #170f49);
+  background: linear-gradient(to right,
+      #00b8b7,
+      #170f49);
   /* background: linear-gradient(
     106.37deg,
     #1d2b64 29.63%,
@@ -22,7 +19,8 @@
   align-items: center;
   font-family: "Inter", sans-serif;
 }
-.AppGlass{
+
+.AppGlass {
   display: grid;
   height: 95%;
   width: 97%;
@@ -31,61 +29,81 @@
   overflow: hidden;
   grid-template-columns: 11rem auto 20rem;
 }
+
 .MainDash {
   display: flex;
   flex-direction: column;
   padding: 60px 60px 0 60px;
-  overflow:auto;
+  overflow: auto;
 
 }
-.formContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.selectCategory{
-    height: 35px;
-    width: 400px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
+
+.selectCategory {
+  height: 35px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
 }
-.categoryImage{
-    height: 35px;
-    width: 150px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-    /* text-align: center; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.categoryImage {
+  height: 35px;
+  width: 150px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.productName{
-    height: 35px;
-    width: 400px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+
+.productName {
+  height: 35px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
-.productTextArea{
-    height: 60px;
-    width: 400px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+
+.productTextArea {
+  height: 60px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
-.createProductButton{
-    height: 35px;
-    width: 400px;
-    background-color: teal;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+.createProductButton {
+  height: 35px;
+  width: 400px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }

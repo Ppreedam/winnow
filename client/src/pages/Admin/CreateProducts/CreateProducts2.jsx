@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateProducts2 = () => {
+  const [loading, setLoading] = useState(false);
   const [fname, setFName] = useState("");
 
   const [file, setFile] = useState("");
@@ -31,6 +31,11 @@ const CreateProducts2 = () => {
   const [tenancy, setTenancy] = useState("");
 
   const history = useNavigate();
+
+  const handleAutoResize = (e) => {
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
+  };
 
   const setdata = (e) => {
     const { value } = e.target;
@@ -62,9 +67,9 @@ const CreateProducts2 = () => {
   }, [])
   // adduser data
 
-  const addUserData = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     var formData = new FormData();
     formData.append("photo", file);
     formData.append("fname", fname);
@@ -85,7 +90,30 @@ const CreateProducts2 = () => {
 
     // console.log(file, fname, backers, funded, totalFund, fundRaised)
 
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const res = axios.post(
+      "http://156.67.221.116:8000/api/v1/product/createProduct",
+      formData,
+      config
+    )
+      .then((res) => {
+        setLoading(false);
+        toast.success("product created successfully");
+      })
+      .catch((err) => {
+        setLoading(false)
+        toast.err("Something error")
+      })
+
+
     setFName('')
+    setFile('')
+    setCategories('')
     setBackers('')
     setFunded('')
     setTotalFund('')
@@ -100,22 +128,6 @@ const CreateProducts2 = () => {
     setLocationDesc('')
     setOverview('')
     setTenancy('')
-
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    };
-
-    const res = axios.post(
-      "http://156.67.221.116:8000/api/v1/product/createProduct",
-      formData,
-      config
-    )
-      .then((res) => {
-        toast.success("Product Created Successfully");
-      })
-      .catch((err) => console.log(err))
   };
 
   return (
@@ -125,211 +137,303 @@ const CreateProducts2 = () => {
         <div className={style.MainDash}>
           <h1 style={{ color: "white" }}>Create Your Products</h1>
 
+          <div>
+            <form onSubmit={handleSubmit}>
 
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Select Your Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={setimgfile}
-              name="photo"
-              placeholder=""
-            />
-          </Form.Group>
-          <div className="mb-3">
-            {file && (
-              <div className="text-center">
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt="product_photo"
-                  height={"200px"}
-                  className="img img-responsive"
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Product Title
+                </label>
+                <textarea
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  id="fname"
+                  name="fname"
+                  value={fname}
+                  onChange={(e) => setFName(e.target.value)}
+                  required
+                  rows={1} // Adjust the number of rows as needed
                 />
               </div>
-            )}
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Select Your Image</Form.Label>
+                <input
+                  type="file"
+                  onChange={setimgfile}
+                  name="photo"
+                  placeholder=""
+                  className="form-control auto-resize"
+                  required
+                />
+              </Form.Group>
+              <div className="mb-3">
+                {file && (
+                  <div className="text-center">
+                    <img
+                      src={URL.createObjectURL(file)}
+                      alt="product_photo"
+                      height={"200px"}
+                      className="img img-responsive"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Product Categories</Form.Label>
+                <select aria-label="Default select example"
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                  }}
+                  placeholder="Select a category"
+                  name="categories"
+                  className="form-control auto-resize"
+                  required
+                >
+                  {categories && categories?.map((c) => (
+                    <option key={c._id} value={c.name}>
+                      {c.name}
+                    </option>
+                  ))}
+                </select>
+              </Form.Group>
+
+
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  How Much Funded : (%)
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="backers"
+                  onChange={(e) => setBackers(e.target.value)}
+                  value={backers}
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Add Backers Fund
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="funded"
+                  onChange={(e) => setFunded(e.target.value)}
+                  value={funded}
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Total fund required
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="totalFund"
+                  onChange={(e) => setTotalFund(e.target.value)}
+                  value={totalFund}
+                  min="1"
+                  required
+                />
+              </div><div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  How much fund raised till now
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="fundRaised"
+                  onChange={(e) => setFundRaised(e.target.value)}
+                  value={fundRaised}
+                  min="1"
+                  required
+                />
+              </div><div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Assets Value
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="assetvalue"
+                  onChange={(e) => setAssetvalue(e.target.value)}
+                  value={assetvalue}
+                  min="1"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Minimum Investment
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="minInvestment"
+                  onChange={(e) => setMinInvestment(e.target.value)}
+                  value={minInvestment}
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Rental Yield
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="rentalYield"
+                  onChange={(e) => setRentalYield(e.target.value)}
+                  placeholder=""
+                  value={rentalYield}
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Target IRR
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="targetIRR"
+                  onChange={(e) => setTargetIRR(e.target.value)}
+                  placeholder=""
+                  value={targetIRR}
+                  min="1"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Target Multiple
+                </label>
+                <input
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="number"
+                  name="targetMultiple"
+                  onChange={(e) => setTargetMultiple(e.target.value)}
+                  placeholder=""
+                  value={targetMultiple}
+                  min="1"
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Location Name
+                </label>
+                <textarea
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="text"
+                  name="locationName"
+                  onChange={(e) => setLocationName(e.target.value)}
+                  placeholder=""
+                  rows={2}
+                  value={locationName} // Adjust the number of rows as needed
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Location Description
+                </label>
+                <textarea
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="text"
+                  name="locationDesc"
+                  onChange={(e) => setLocationDesc(e.target.value)}
+                  placeholder=""
+                  rows={15}
+                  value={locationDesc}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Overview
+                </label>
+                <textarea
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="text"
+                  name="overview"
+                  onChange={(e) => setOverview(e.target.value)}
+                  placeholder=""
+                  rows={10}
+                  value={overview}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="fname" className="form-label">
+                  Tenancy Description
+                </label>
+                <textarea
+                  onInput={handleAutoResize} // Call the auto-resize function
+                  className="form-control auto-resize"
+                  type="text"
+                  name="tenancy"
+                  onChange={(e) => setTenancy(e.target.value)}
+                  placeholder=""
+                  as="textarea" rows={8}
+                  value={tenancy}
+                  required
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+
+            </form>
+            <div>
+              {loading ? (
+                <div className={style.spinner}>
+                  <h4>Please wait......</h4>{" "}
+                  <img
+                    src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                    alt="barspinner"
+                  />{" "}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Product Title</Form.Label>
-            <Form.Control
-              type="text"
-              name="fname"
-              onChange={setdata}
-              placeholder="Enter product Title"
-              value={fname}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Product Categories</Form.Label>
-            <Form.Select aria-label="Default select example"
-              onChange={(e) => {
-                setCategory(e.target.value);
-              }}
-              placeholder="Select a category"
-              name="categories"
-
-            >
-              {categories && categories?.map((c) => (
-                <option key={c._id} value={c.name}>
-                  {c.name}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>How Much Funded : (%)</Form.Label>
-            <Form.Control
-              type="number"
-              name="backers"
-              onChange={(e) => setBackers(e.target.value)}
-              placeholder=""
-              value={backers}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Add Backers Fund</Form.Label>
-            <Form.Control
-              type="number"
-              name="funded"
-              onChange={(e) => setFunded(e.target.value)}
-              placeholder=""
-              value={funded}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Total fund required</Form.Label>
-            <Form.Control
-              type="number"
-              name="totalFund"
-              onChange={(e) => setTotalFund(e.target.value)}
-              placeholder=""
-              value={totalFund}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>How much fund raised till now</Form.Label>
-            <Form.Control
-              type="number"
-              name="fundRaised"
-              onChange={(e) => setFundRaised(e.target.value)}
-              placeholder=""
-              value={fundRaised}
-            />
-          </Form.Group>
-
-          {/* new field */}
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Assets Value</Form.Label>
-            <Form.Control
-              type="number"
-              name="assetvalue"
-              onChange={(e) => setAssetvalue(e.target.value)}
-              placeholder=""
-              value={assetvalue}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Minimum Investment</Form.Label>
-            <Form.Control
-              type="number"
-              name="minInvestment"
-              onChange={(e) => setMinInvestment(e.target.value)}
-              placeholder=""
-              value={minInvestment}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Rental Yield</Form.Label>
-            <Form.Control
-              type="number"
-              name="rentalYield"
-              onChange={(e) => setRentalYield(e.target.value)}
-              placeholder=""
-              value={rentalYield}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Target IRR</Form.Label>
-            <Form.Control
-              type="number"
-              name="targetIRR"
-              onChange={(e) => setTargetIRR(e.target.value)}
-              placeholder=""
-              value={targetIRR}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Target Multiple</Form.Label>
-            <Form.Control
-              type="number"
-              name="targetMultiple"
-              onChange={(e) => setTargetMultiple(e.target.value)}
-              placeholder=""
-              value={targetMultiple}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Location Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="locationName"
-              onChange={(e) => setLocationName(e.target.value)}
-              placeholder=""
-              as="textarea" rows={2}
-              value={locationName}
-            />
-          </Form.Group>
-
-          <Form.Group class="mb-3" controlId="formBasicEmail">
-            <Form.Label>Location Description</Form.Label>
-            <Form.Control
-              type="text"
-              name="locationDesc"
-              onChange={(e) => setLocationDesc(e.target.value)}
-              placeholder=""
-              as="textarea" rows={15}
-              value={locationDesc}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Overview</Form.Label>
-            <Form.Control
-              type="text"
-              name="overview"
-              onChange={(e) => setOverview(e.target.value)}
-              placeholder=""
-              as="textarea" rows={10}
-              value={overview}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Tenancy Description</Form.Label>
-            <Form.Control
-              type="text"
-              name="tenancy"
-              onChange={(e) => setTenancy(e.target.value)}
-              placeholder=""
-              as="textarea" rows={8}
-              value={tenancy}
-            />
-          </Form.Group>
-
-          {/* button */}
-          <Form className="mt-3">
-            <Button variant="light" type="submit" onClick={addUserData}>
-              CREATE PRODUCT
-            </Button>
-          </Form>
+          <ToastContainer />
         </div>
         <RightSide />
       </div>
-      <ToastContainer />
+
     </div>
   );
 };
