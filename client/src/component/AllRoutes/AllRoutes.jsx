@@ -4,7 +4,6 @@ import Winow from "../HomemainPage/Winow";
 import Dashboard from "../../pages/Admin/Dashboard/Dashboard";
 import Users from "../../pages/Admin/Users/Users";
 import Category from "../../pages/Admin/Category/Category";
-import CreateProducts from "../../pages/Admin/CreateProducts/CreateProducts";
 import AllProducts from "../../pages/Admin/AllProducts/AllProducts";
 import Comingsoon from "../ComingSoon/Comingsoon";
 import EditProfile from "../EditProfile/EditProfile";
@@ -33,7 +32,6 @@ const AllRoutes = () => {
         <Route exact path="/portfolio" element={<Portfolio />} />
         <Route exact path="/mywallet" element={<Wallet />} />
         <Route exact path="/account" element={<Account />} />
-        <Route exact path="/formproduct" element={<CreateProducts />} />
         <Route exact path="/admin/emails" element={<Emails />} />
         <Route
           exact
