@@ -25,6 +25,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Winow = () => {
   const [product, setProduct] = useState([]);
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   // console.log(email);
 
   const totaldays = (startdate) => {
@@ -43,9 +44,11 @@ const Winow = () => {
   };
 
   const sendEmail = async () => {
+    setLoading(true)
     try {
       // Email validation
       if (!isValidEmail(email)) {
+        setLoading(false)
         toast.error("Please enter a valid email address.");
         return; // Exit the function early if email validation fails
       }
@@ -57,12 +60,15 @@ const Winow = () => {
       );
       if (data?.success) {
         setEmail("");
+        setLoading(false)
         // Update the state with the new category before navigating or showing a toast
         toast.success("Thank you for your submission!");
       } else {
+        setLoading(false)
         toast.error(data.message);
       }
     } catch (error) {
+      setLoading(false)
       // console.log("error:", error);
       toast.error("something went wrong in input form");
     }
@@ -142,6 +148,19 @@ const Winow = () => {
                 <BsCheck2 />
               </button>
             </div>
+            <div>
+          {loading ? (
+            <div className="spinner">
+              <h4>Please wait......</h4>{" "}
+              <img
+                src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                alt="barspinner"
+              />{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
           </div>
         </div>
         <div className={style.image_box}>

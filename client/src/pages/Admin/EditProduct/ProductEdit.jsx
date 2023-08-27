@@ -4,8 +4,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
 
-const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
-  const[id,setId]=useState("")
+const ProductEdit = ({ onClose, productdata, getAllProducts }) => {
+  const [loading, setLoading] = useState(false);
+  const [id, setId] = useState("")
   const [fname, setFName] = useState("");
   const [file, setFile] = useState("");
   const [funded, setFunded] = useState("");
@@ -44,6 +45,7 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
   const handleSubmit = async (e) => {
     console.log("start working")
     e.preventDefault();
+    setLoading(true)
     try {
       const { data } = await axios.put(`http://localhost:8000/api/v1/product/update-product/${id}`, {
         fname,
@@ -63,9 +65,11 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
       });
 
       if (data?.errro) {
+        setLoading(false)
         toast.error(data?.error);
         // console.log(data)
       } else {
+        setLoading(false)
         getAllProducts()
         onClose();
         toast.success("Profile Updated Successfully");
@@ -73,6 +77,7 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
       }
     } catch (error) {
       // console.log(error);
+      setLoading(false)
       toast.error("Something went wrong");
     }
   };
@@ -274,6 +279,19 @@ const ProductEdit = ({ onClose, productdata ,getAllProducts }) => {
             UPDATE
           </button>
         </form>
+        <div>
+          {loading ? (
+            <div className="spinner">
+              <h4>Please wait......</h4>{" "}
+              <img
+                src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                alt="barspinner"
+              />{" "}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
       <ToastContainer />
     </div>

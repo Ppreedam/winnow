@@ -42,7 +42,7 @@ const ProductDescription = () => {
         <div>
           <img
             className={style.mainbox_img}
-            src={`/uploads/${product.imgpath}`}
+            src={`http://156.67.221.116:8000/uploads/${product.imgpath}`}
             alt=""
           />
         </div>
@@ -137,15 +137,9 @@ const ProductDescription = () => {
           </div>
           <div>
             <p>
-              {/* This is an opportunity to invest in 19,356 sqft of office space in
-              L&T Seawoods Grand Central, Navi Mumbai. The asset is a
-              world-class commercial property with an integrated mall,
-              residencies, and suburban railway station. The tenant is a leading
-              port operator. */}
+              
               {product.overview}
-              {/* <br />
-              <br /> With long lease terms and a strong potential for capital
-              appreciation, the asset is an ideal long-term investment. */}
+              
             </p>
           </div>
         </div>
@@ -157,11 +151,6 @@ const ProductDescription = () => {
           {/* <div ></div> */}
           <div>
             <p>
-              {/* The asset is located in Seawoods, an upscale part of Navi Mumbai.
-              The property is well connected to the rest of the Mumbai
-              Metropolitan Region by road, rail, and water services. With the
-              upcoming Navi Mumbai airport, metro, and trans-harbour sea link,
-              the area is bound to see greater value appreciation. */}
               {product.locationDesc}
             </p>
             <div>
