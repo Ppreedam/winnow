@@ -28,7 +28,7 @@ function CollapsibleExample() {
         >
           <Container>
             <Navbar.Brand href="/" className="homeicon">
-              <img className="navlogo" src="winnow.png" alt="winnow logo" />
+              <img className="navlogo" src="winnow.png" alt="winnow" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse>
